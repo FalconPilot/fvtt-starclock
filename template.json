@@ -3,9 +3,34 @@
     "types": ["character"]
   },
   "Item": {
-    "types": ["weapon"],
-    "weapon": {
-      "damage": 1
+    "types": ["meleeWeapon", "rangedWeapon"],
+    "templates": {
+      "basicItem": {
+        "weight": 0,
+        "quantity": 0,
+        "price": 0,
+        "description": ""
+      },
+      "equippable": {
+        "equipped": false
+      },
+      "basicWeapon": {
+        "hits": 1,
+        "wounds": 1,
+        "pierce": 0,
+        "woundType": "light"
+      },
+      "rangedWeapon": {
+        "ammoType": "lightPistol",
+        "ammoMax": 1,
+        "ammoCurrent": 1
+      }
+    },
+    "meleeWeapon": {
+      "templates": ["basicItem", "basicWeapon"]
+    },
+    "rangedWeapon": {
+      "templates": ["basicItem", "basicWeapon", "rangedWeapon"]
     }
   }
 }

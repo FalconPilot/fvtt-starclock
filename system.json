@@ -3,20 +3,20 @@
   "title": "StarClock",
   "description": "The official StarClock game system",
   "version": "0.1.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
   "authors": [
     {
       "name": "FalconPilot",
       "url": "https://github.com/FalconPilot"
     }
   ],
-  "packs": [
-    {
-      "name": "weapons",
-      "label": "Weapons",
-      "path": "packs/weapons.db",
-      "type": "Item"
-    }
-  ],
+  "styles": [],
+  "scripts": [],
+  "packs": [],
   "languages": [
     {
       "lang": "en",
@@ -25,7 +25,9 @@
     }
   ],
   "socket": false,
-  "initiative": "1D20",
   "gridDistance": 5,
-  "gridUnits": "m"
+  "gridUnits": "m",
+  "primaryTokenAttribute": null,
+  "secondaryTokenAttribute": null,
+  "url": "https://github.com/FalconPilot/fvtt-starclock"
 }

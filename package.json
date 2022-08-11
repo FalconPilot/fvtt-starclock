@@ -1,0 +1,18 @@
+{
+  "name": "fvtt-starclock",
+  "description": "StarClock system for FoundryVTT",
+  "version": "0.1.0",
+  "author": "FalconPilot",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@types/gulp": "^4.0.9",
+    "@types/node": "^18.7.1",
+    "foundry-pc-types": "https://gitlab.com/foundry-projects/foundry-pc/foundry-pc-types.git",
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "typescript": "^4.7.4"
+  }
+}
