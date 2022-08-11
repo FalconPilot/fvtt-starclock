@@ -1,0 +1,31 @@
+{
+  "id": "starclock",
+  "title": "StarClock",
+  "description": "The official StarClock game system",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "FalconPilot",
+      "url": "https://github.com/FalconPilot"
+    }
+  ],
+  "packs": [
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons.db",
+      "type": "Item"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": false,
+  "initiative": "1D20",
+  "gridDistance": 5,
+  "gridUnits": "m"
+}
