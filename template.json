@@ -1,15 +1,17 @@
 {
-  "Actor": {
-    "types": ["character"]
-  },
+  "Actor": {},
   "Item": {
     "types": ["meleeWeapon", "rangedWeapon"],
     "templates": {
       "basicItem": {
-        "weight": 0,
-        "quantity": 0,
         "price": 0,
         "description": ""
+      },
+      "encumbrance": {
+        "weight": 0
+      },
+      "multi": {
+        "quantity": 1
       },
       "equippable": {
         "equipped": false
@@ -19,18 +21,28 @@
         "wounds": 1,
         "pierce": 0,
         "woundType": "light"
-      },
-      "rangedWeapon": {
-        "ammoType": "lightPistol",
-        "ammoMax": 1,
-        "ammoCurrent": 1
       }
     },
     "meleeWeapon": {
-      "templates": ["basicItem", "basicWeapon"]
+      "templates": [
+        "basicItem",
+        "basicWeapon",
+        "encumbrance",
+        "equippable"
+      ],
+      "weaponSkill": "oneHanded"
     },
     "rangedWeapon": {
-      "templates": ["basicItem", "basicWeapon", "rangedWeapon"]
+      "templates": [
+        "basicItem",
+        "basicWeapon",
+        "encumbrance",
+        "equippable"
+      ],
+      "attackSkill": "pistol",
+      "ammoType": "lightPistol",
+      "ammoMax": 1,
+      "ammoCurrent": 1
     }
   }
 }

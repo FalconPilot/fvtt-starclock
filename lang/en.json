@@ -1,3 +1,5 @@
 {
+  "ITEM.TypeMeleeWeapon": "Melee Weapon",
+  "ITEM.TypeRangedWeapon": "Ranged Weapon",
   "SCLK.ItemName": "Item Name"
 }
