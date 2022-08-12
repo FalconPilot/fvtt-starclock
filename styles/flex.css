@@ -1,0 +1,11 @@
+.flexrow, .flexcol { display: flex; }
+.flexcol { flex-direction: column; }
+
+.flexrow.centerv, .flexcol.centerh { align-items: center; }
+.flexcol.centerv, .flexrow.centerh { justify-content: center; }
+
+.flexrow.topv, .flexcol.lefth { align-items: flex-start; }
+.flexcol.topv, .flexrow.lefth { justify-content: flex-start; }
+
+.flexrow.bottomv, .flexcol.righth { align-items: 'flex-end'; }
+.flexcol.bottomv, .flexrowq.righth { justify-content: 'flex-end'; }

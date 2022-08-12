@@ -1,0 +1,12 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <nav class="character-navbar">
+    {{#each config.tabs as |name key|}}
+      <a data-tab="{{key}}">{{localize name}}</a>
+    {{/each}}
+  </nav>
+  {{log inventory}}
+  {{#each config.tabs as |name key|}}
+    <div data-tab="{{key}}">
+    </div>
+  {{/each}}
+</form>

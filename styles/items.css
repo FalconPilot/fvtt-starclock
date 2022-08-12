@@ -1,0 +1,36 @@
+/* Items css */
+
+.item-header {
+  color: #FFF;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5) inset;
+  overflow: hidden;
+}
+
+.item-header > img.full-picture {
+  max-width: 100%;
+  max-height: 150px;
+  flex-basis: auto;
+  flex-grow: 0;
+  border: none;
+}
+
+.item-header > h1 {
+  width: 100%;
+  flex: 1;
+  margin-bottom: 0;
+  border-bottom: 0;
+  background-color: transparent;
+}
+
+.item-header > h1 > input {
+  height: 1.5em;
+  color: #333;
+  font-family: 'OstrichSans';
+  background-color: transparent;
+  border: none;
+}
+
+.item-body > * {
+  flex: 0 0 auto;
+}

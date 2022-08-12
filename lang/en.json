@@ -1,5 +1,41 @@
 {
   "ITEM.TypeMeleeWeapon": "Melee Weapon",
   "ITEM.TypeRangedWeapon": "Ranged Weapon",
-  "SCLK.ItemName": "Item Name"
+  "SCLK": {
+    "Damage": "Damage",
+    "ItemDescription": "Description",
+    "ItemName": "Name",
+    "AmmoTypes": {
+      "LightPistol": "Light Pistol",
+      "HeavyPistol": "Heavy Pistol",
+      "LightRifle": "Light Rifle",
+      "Heavy Rifle": "Heavy Rifle",
+      "Antimaterial": "Antimaterial",
+      "Shells": "Shells",
+      "Arrows": "Arrows",
+      "Grenades": "Grenades",
+      "Rockets": "Rockets"
+    },
+    "Tabs": {
+      "Attributes": "Attributes",
+      "Arsenal": "Arsenal",
+      "Inventory": "Inventory"
+    },
+    "WeaponTypes": {
+      "OneHanded": "One handed",
+      "TwoHanded": "Two handed",
+      "Fist": "Brawling",
+      "Shield": "Shield",
+      "Pistol": "Pistol",
+      "Rifle": "Rifle",
+      "Bow": "Bow",
+      "Thrown": "Thrown"
+    },
+    "Wounds": {
+      "Stun": "Stun",
+      "Light": "Light",
+      "Medium": "Medium",
+      "Heavy": "Heavy"
+    }
+  }
 }

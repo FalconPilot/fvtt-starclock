@@ -1,0 +1,17 @@
+{
+  "name": "Dai-X",
+  "img": "systems/starclock/assets/weapons/daix.png",
+  "data": {
+    "description": "The standard-issue rifle of DaiCom has seen better days, but you can still find tons and tons of them still in use due to their simple construction.",
+    "weaponSkill": "rifle",
+    "price": 1200,
+    "weight": 4000,
+    "hits": 4,
+    "wounds": 1,
+    "pierce": 2,
+    "woundType": "medium",
+    "ammoType": "lightRifle",
+    "ammoMax": 30,
+    "ammoCurrent": 30
+  }
+}

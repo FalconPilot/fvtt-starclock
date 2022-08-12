@@ -1,10 +1,11 @@
 {
   "name": "Knife",
+  "img": "systems/starclock/assets/weapons/knife.png",
   "data": {
     "description": "The most common weapon you could imagine: a sharp metal blade on a handle.",
     "weaponSkill": "oneHanded",
-    "price": 5,
-    "weight": 250,
+    "price": 10,
+    "weight": 200,
     "hits": 3,
     "wounds": 1,
     "pierce": 1,

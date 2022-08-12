@@ -1,0 +1,34 @@
+<div class="flexrow item-damage">
+  <strong>{{localize "SCLK.Damage"}}</strong>
+  <input
+    type="text"
+    name="data.data.hits"
+    value="{{data.data.hits}}"
+    data-dtype="Number"
+  />
+  <strong>x</strong>
+  <input
+    type="text"
+    name="data.data.wounds"
+    value="{{data.data.wounds}}"
+    data-dtype="Number"
+  />
+  <strong>P</strong>
+  <input
+    type="text"
+    name="data.data.pierce"
+    value="{{data.data.pierce}}"
+    data-dtype="Number"
+  />
+  <select
+    name="data.data.woundType"
+    class="line-input mgv"
+    data-type="string"
+  >
+    {{#select data.data.woundType}}
+      {{#each config.woundTypes as |name type|}}
+        <option value="{{type}}">{{localize name}}</option>
+      {{/each}}
+    {{/select}}
+  </select>
+</div>

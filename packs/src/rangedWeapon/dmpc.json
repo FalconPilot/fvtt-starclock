@@ -1,0 +1,17 @@
+{
+  "name": "DMP-Compact",
+  "img": "systems/starclock/assets/weapons/dmpc.png",
+  "data": {
+    "description": "A cheap, lightweight pistol favored by security forces and gangers across the galaxy.",
+    "weaponSkill": "pistol",
+    "price": 500,
+    "weight": 1000,
+    "hits": 3,
+    "wounds": 1,
+    "pierce": 1,
+    "woundType": "light",
+    "ammoType": "lightPistol",
+    "ammoMax": 15,
+    "ammoCurrent": 15
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Collapsible baton",
+  "img": "systems/starclock/assets/weapons/baton.png",
+  "data": {
+    "description": "A compact, concealable club specifically made to hurt, not to kill... as long as you control yourself.",
+    "weaponSkill": "oneHanded",
+    "price": 20,
+    "weight": 300,
+    "hits": 2,
+    "wounds": 1,
+    "pierce": 0,
+    "woundType": "stun"
+  }
+}

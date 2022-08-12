@@ -54,8 +54,8 @@ const cleanJSON = src => {
   }).reduce((acc, [k, v]) => overrideField(acc, k, v), data)
 }
 
-const compileDB = () => {
-  const packs = fs.readdirSync(dbJSONPath, { withFileTypes: true })
+const compileDB = async () => {
+  const packs = await fs.readdirSync(dbJSONPath, { withFileTypes: true })
     .filter(file => file.isDirectory())
     .map(folder => {
       const packName = folder.name
@@ -67,6 +67,7 @@ const compileDB = () => {
       return gulp.src(path.join(dbJSONPath, packName, '/**/*.json'))
         .pipe(through2.obj((file, enc, callback) => {
           const fileData = JSON.parse(file.contents.toString())
+          console.log(`StarClock > ${filePath} > ${fileData.name}`)
           getID(fileData, packName)
             .then(_id => {
               data.push(cleanJSON({
@@ -85,7 +86,7 @@ const compileDB = () => {
         }))
     })
 
-  return mergeStream.call(null, packs)
+  return await mergeStream.call(null, packs)
 }
 
 exports.build = gulp.series(

@@ -1,5 +1,62 @@
 {
-  "Actor": {},
+  "Actor": {
+    "types": ["character"],
+    "templates": {
+      "common": {
+        "phy": {
+          "value": 1,
+          "limit": 2
+        },
+        "agi": {
+          "value": 1,
+          "limit": 2
+        },
+        "acu": {
+          "value": 1,
+          "limit": 2
+        },
+        "hab": {
+          "value": 1,
+          "limit": 2
+        },
+        "cha": {
+          "value": 1,
+          "limit": 2
+        },
+        "emp": {
+          "value": 1,
+          "limit": 2
+        },
+        "int": {
+          "value": 1,
+          "limit": 2
+        },
+        "wil": {
+          "value": 1,
+          "limit": 2
+        },
+        "wounds": {
+          "stun": 0,
+          "light": 0,
+          "medium": 0,
+          "heavy": 0
+        }
+      },
+      "playableRace": {
+        "race": "human"
+      },
+      "wallet": {
+        "starCredits": 0
+      }
+    },
+    "character": {
+      "templates": [
+        "stats",
+        "playableRace",
+        "wallet"
+      ]
+    }
+  },
   "Item": {
     "types": ["meleeWeapon", "rangedWeapon"],
     "templates": {
@@ -39,7 +96,7 @@
         "encumbrance",
         "equippable"
       ],
-      "attackSkill": "pistol",
+      "weaponSkill": "pistol",
       "ammoType": "lightPistol",
       "ammoMax": 1,
       "ammoCurrent": 1

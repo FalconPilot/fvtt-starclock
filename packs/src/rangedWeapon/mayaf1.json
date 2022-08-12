@@ -1,0 +1,17 @@
+{
+  "name": "Maya F1",
+  "img": "systems/starclock/assets/weapons/mayaf1.png",
+  "data": {
+    "description": "The standard-issue rifle for the Confederation. Made of composite alloys, it's sturdy and boasts impressive performance.",
+    "weaponSkill": "rifle",
+    "price": 3500,
+    "weight": 4500,
+    "hits": 6,
+    "wounds": 1,
+    "pierce": 2,
+    "woundType": "medium",
+    "ammoType": "lightRifle",
+    "ammoMax": 24,
+    "ammoCurrent": 24
+  }
+}

@@ -13,13 +13,30 @@
   ],
   "scripts": [],
   "esmodules": ["dist/starclock.js"],
-  "styles": [],
+  "styles": [
+    "styles/framework/fonts.css",
+    "styles/actors.css",
+    "styles/flex.css",
+    "styles/inputs.css",
+    "styles/items.css",
+    "styles/neon.css",
+    "styles/spacings.css",
+    "styles/system.css",
+    "styles/window.css"
+  ],
   "packs": [
     {
       "name": "meleeWeapons",
       "label": "Melee Weapons",
       "system": "starclock",
       "path": "./packs/meleeWeapon.db",
+      "type": "Item"
+    },
+    {
+      "name": "rangedWeapons",
+      "label": "Ranged Weapons",
+      "system": "starclock",
+      "path": "./packs/rangedWeapon.db",
       "type": "Item"
     }
   ],

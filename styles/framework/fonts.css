@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'TaurusMono';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../fonts/Taurus-Mono-Outline-Regular.otf');
+}
+
+@font-face {
+  font-family: 'TaurusMono';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../../fonts/Taurus-Mono-Outline-Bold.otf');
+}
+
+@font-face {
+  font-family: 'OstrichSans';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../fonts/OstrichSans-Heavy.otf');
+}

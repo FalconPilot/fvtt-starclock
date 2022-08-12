@@ -1,0 +1,9 @@
+body .mgl, body .mgh, body .mg { margin-left: 8px; }
+body .mgr, body .mgh, body .mg { margin-right: 8px; }
+body .mgt, body .mgv, body .mg { margin-top: 8px; }
+body .mgb, body .mgv, body .mg { margin-bottom: 8px; }
+
+body .pgl, body .pgh, body .pg { padding-left: 8px; }
+body .pgr, body .pgh, body .pg { padding-right: 8px; }
+body .pgt, body .pgv, body .pg { padding-top: 8px; }
+body .pgb, body .pgv, body .pg { padding-bottom: 8px; }

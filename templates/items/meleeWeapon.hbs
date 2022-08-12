@@ -1,0 +1,14 @@
+<form class="{{cssClass}}" autocomplete="off">
+  {{> "systems/starclock/templates/items/parts/header-illustrated.hbs" neon="pink" }}
+  <div class="flexcol topv item-body">
+    {{> "systems/starclock/templates/items/parts/description.hbs" }}
+    <select name="data.data.weaponSkill" class="line-input mgv">
+      {{#select data.data.weaponSkill}}
+        {{#each config.meleeWeaponTypes as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+        {{/each}}
+      {{/select}}
+    </select>
+    {{> "systems/starclock/templates/items/parts/damage.hbs" }}
+  </div>
+</form>

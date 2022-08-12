@@ -1,0 +1,18 @@
+{
+  "name": "Celica 2100",
+  "img": "systems/starclock/assets/weapons/celica2100.png",
+  "data": {
+    "description": "A powerful, rugged rifle favored by mercenaries accross the galaxy.",
+    "weaponSkill": "rifle",
+    "price": 900,
+    "weight": 5000,
+    "hits": 2,
+    "wounds": 2,
+    "pierce": 1,
+    "woundType": "medium",
+    "ammoType": "heavyRifle",
+    "ammoMax": 20,
+    "ammoCurrent": 20,
+    "thumbnailOffsetY": -20
+  }
+}
