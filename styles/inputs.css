@@ -7,6 +7,7 @@
 .quoted-box:before,
 .quoted-box:after {
   content: '"';
+  color: #333;
   margin: 12px 4px 4px 4px;
 }
 

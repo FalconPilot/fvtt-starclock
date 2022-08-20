@@ -7,5 +7,5 @@
 .flexrow.topv, .flexcol.lefth { align-items: flex-start; }
 .flexcol.topv, .flexrow.lefth { justify-content: flex-start; }
 
-.flexrow.bottomv, .flexcol.righth { align-items: 'flex-end'; }
-.flexcol.bottomv, .flexrowq.righth { justify-content: 'flex-end'; }
+.flexrow.bottomv, .flexcol.righth { align-items: flex-end; }
+.flexcol.bottomv, .flexrowq.righth { justify-content: flex-end; }

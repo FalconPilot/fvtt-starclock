@@ -1,4 +1,4 @@
-import { basePath } from '../constants.js'
+import { basePath, systemName } from '../constants.js'
 
 export const preloadHandlebarTemplates = async () =>
   loadTemplates([
@@ -14,7 +14,7 @@ export const preloadHandlebarTemplates = async () =>
   ])
 
 export const registerHandlebarHelpers = () => {
-  Handlebars.registerHelper('log', console.log)
-
-  // Handlebars.registerHelper('arsenal', (actor: Actors['']))
+  Handlebars.registerHelper('actortab', (tab: string) =>
+    `systems/${systemName}/templates/actors/parts/${tab}.hbs`
+  )
 }

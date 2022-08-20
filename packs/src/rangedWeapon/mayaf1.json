@@ -12,6 +12,10 @@
     "woundType": "medium",
     "ammoType": "lightRifle",
     "ammoMax": 24,
-    "ammoCurrent": 24
+    "ammoCurrent": 24,
+    "ranges": {
+      "accurate": "medium",
+      "maximum": "long"
+    }
   }
 }

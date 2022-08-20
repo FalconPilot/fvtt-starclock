@@ -12,6 +12,10 @@
     "woundType": "light",
     "ammoType": "lightPistol",
     "ammoMax": 15,
-    "ammoCurrent": 15
+    "ammoCurrent": 15,
+    "ranges": {
+      "accurate": "short",
+      "maximum": "medium"
+    }
   }
 }

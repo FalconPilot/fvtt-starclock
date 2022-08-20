@@ -9,6 +9,7 @@
     "hits": 2,
     "wounds": 1,
     "pierce": 0,
-    "woundType": "stun"
+    "woundType": "stun",
+    "attachPoints": ["hilt"]
   }
 }

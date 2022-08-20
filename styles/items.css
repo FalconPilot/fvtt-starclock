@@ -1,5 +1,3 @@
-/* Items css */
-
 .item-header {
   color: #FFF;
   border-radius: 8px;
@@ -33,4 +31,22 @@
 
 .item-body > * {
   flex: 0 0 auto;
+}
+
+.item-damage {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.item-damage > *:not(select) {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.item-damage select {
+  flex-grow: 1;
+}
+
+.weapon-attachment a.entity-link {
+  background-color: transparent;
 }

@@ -20,6 +20,7 @@
     "styles/inputs.css",
     "styles/items.css",
     "styles/neon.css",
+    "styles/sizes.css",
     "styles/spacings.css",
     "styles/system.css",
     "styles/window.css"

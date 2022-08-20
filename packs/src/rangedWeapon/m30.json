@@ -12,6 +12,10 @@
     "woundType": "light",
     "ammoType": "heavyPistol",
     "ammoMax": 6,
-    "ammoCurrent": 6
+    "ammoCurrent": 6,
+    "ranges": {
+      "accurate": "short",
+      "maximum": "medium"
+    }
   }
 }

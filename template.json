@@ -58,7 +58,12 @@
     }
   },
   "Item": {
-    "types": ["meleeWeapon", "rangedWeapon"],
+    "types": [
+      "meleeWeapon",
+      "rangedWeapon",
+      "meleeWeaponAttachment",
+      "rangedWeaponAttachment"
+    ],
     "templates": {
       "basicItem": {
         "price": 0,
@@ -87,6 +92,7 @@
         "encumbrance",
         "equippable"
       ],
+      "attachPoints": [],
       "weaponSkill": "oneHanded"
     },
     "rangedWeapon": {
@@ -99,7 +105,11 @@
       "weaponSkill": "pistol",
       "ammoType": "lightPistol",
       "ammoMax": 1,
-      "ammoCurrent": 1
+      "ammoCurrent": 1,
+      "ranges": {
+        "accurate": "short",
+        "maximum": "medium"
+      }
     }
   }
 }

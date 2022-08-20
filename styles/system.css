@@ -10,9 +10,24 @@
   color: #DDD;
 }
 
+.window-app .window-content option {
+  background-color: #222;
+}
+
 li.directory-item.flexrow {
   position: relative;
-  overflow: hidden;
+}
+
+li.directory-item.document.item > img.thumbnail {
+  transition: 0.2s;
+}
+
+.directory .directory-list .directory-item.document {
+  box-shadow: 0px 0px 30px rgb(0 0 0 / 50%) inset;
+}
+
+.directory .directory-list .directory-item:last-child {
+  border-bottom: 1px solid var(--color-border-dark-3);
 }
 
 .directory .directory-list li.directory-item.document.item img.thumbnail {
@@ -23,6 +38,7 @@ li.directory-item.flexrow {
   right: 0;
   top: 0;
   pointer-events: none;
+  clip-path: polygon(0 -21px, 100% 21px, 100% 70px, 0 25px);
 }
 
 .directory .directory-list li.directory-item.document.item h4 {

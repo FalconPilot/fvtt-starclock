@@ -1,10 +1,17 @@
 .neon-pink,
+.neon-pink-pseudo:before,
+.neon-pink-pseudo:after,
 /* Apply to thumbnail */
-li.directory-item.document.item > img.thumbnail {
+li.directory-item.document.item:not(:hover) > img.thumbnail,
+.lightbox-image[style*='/weapons'] {
   filter: contrast(0.5) sepia(1) hue-rotate(250deg) brightness(1.5) contrast(1.5) saturate(3) drop-shadow(0px 0px 3px #EA00D9);
 }
 
-.neon-white {
+.neon-white,
+.neon-white-pseudo:before,
+.neon-white-pseudo:after,
+/* Apply to thumbnail */
+li.directory-item.document.item:hover > img.thumbnail {
   filter: contrast(0.0) brightness(1.5) drop-shadow(0px 0px 3px #FFF);
 }
 

@@ -1,1 +1,8 @@
-{{log inventory}}
+<div class="flexcol">
+  {{#each inventory as |items sid|}}
+    <h2>{{ localize sid }}</h2>
+    {{#each items as |item iid|}}
+      <h3>{{item.name}}</h3>
+    {{/each}}
+  {{/each}}
+</div>

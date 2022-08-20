@@ -12,6 +12,10 @@
     "woundType": "heavy",
     "ammoType": "antimaterial",
     "ammoMax": 5,
-    "ammoCurrent": 5
+    "ammoCurrent": 5,
+    "ranges": {
+      "accurate": "long",
+      "maximum": "extreme"
+    }
   }
 }

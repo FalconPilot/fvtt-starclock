@@ -1,0 +1,8 @@
+{
+  "name": "Sharpshooter scope",
+  "data": {
+    "description": "A scope with a very high magnification. Sets the accurate range of your weapon to \"Extreme\" if it does not exceed the weapon's maximal range. However, the weapon suffers from a malus of -1 dice when shooting at a short or medium range.",
+    "price": 1200,
+    "weight": 100
+  }
+}

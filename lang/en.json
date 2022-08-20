@@ -1,24 +1,31 @@
 {
   "ITEM.TypeMeleeWeapon": "Melee Weapon",
   "ITEM.TypeRangedWeapon": "Ranged Weapon",
+  "ITEM.TypeRangedWeaponAttachment": "Ranged Weapon Attachment",
   "SCLK": {
     "Damage": "Damage",
     "ItemDescription": "Description",
     "ItemName": "Name",
+    "MeleeWeapons": "Melee Weapons",
+    "RangedWeapons": "Ranged Weapons",
+    "Attachments": "Attachments",
+    "RangedWeaponAttachments": "Ranged Weapon Attachments",
     "AmmoTypes": {
       "LightPistol": "Light Pistol",
       "HeavyPistol": "Heavy Pistol",
       "LightRifle": "Light Rifle",
-      "Heavy Rifle": "Heavy Rifle",
+      "HeavyRifle": "Heavy Rifle",
       "Antimaterial": "Antimaterial",
       "Shells": "Shells",
       "Arrows": "Arrows",
       "Grenades": "Grenades",
       "Rockets": "Rockets"
     },
+    "RangedAttachPoints": {
+      "optics": "Optics"
+    },
     "Tabs": {
       "Attributes": "Attributes",
-      "Arsenal": "Arsenal",
       "Inventory": "Inventory"
     },
     "WeaponTypes": {
@@ -36,6 +43,13 @@
       "Light": "Light",
       "Medium": "Medium",
       "Heavy": "Heavy"
+    }
+  },
+  "GUI": {
+    "Errors": {
+      "IncompatibleAttachmentType": "Incompatible weapon attachment",
+      "AlreadyAttached": "An attachment is already attached on \"{point}\"",
+      "NoAttachPoint": "This weapon does not have a \"{point}\" attachment point"
     }
   }
 }

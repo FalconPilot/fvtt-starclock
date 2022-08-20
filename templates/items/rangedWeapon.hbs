@@ -2,16 +2,42 @@
   {{> "systems/starclock/templates/items/parts/header-illustrated.hbs" neon="pink" }}
   <div class="flexcol topv item-body">
     {{> "systems/starclock/templates/items/parts/description.hbs" }}
-    <select
-      name="data.data.weaponSkill"
-      class="line-input mgv"
-    >
-      {{#select data.data.weaponSkill}}
-        {{#each config.rangedWeaponTypes as |name type|}}
-          <option value="{{type}}">{{localize name}}</option>
-        {{/each}}
-      {{/select}}
-    </select>
+    <div class="flexrow mgv">
+      <select
+        name="data.data.weaponSkill"
+        class="line-input mgr"
+      >
+        {{#select data.data.weaponSkill}}
+          {{#each config.rangedWeaponTypes as |name type|}}
+            <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+        {{/select}}
+      </select>
+      <select
+        name="data.data.ammoType"
+        class="line-input mgl"
+      >
+        {{#select data.data.ammoType}}
+          {{#each config.ammoTypes as |name type|}}
+            <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+        {{/select}}
+      </select>
+    </div>
     {{> "systems/starclock/templates/items/parts/damage.hbs" }}
+    {{!-- {{#each attachments as |attachment|}}
+      <div class="flexrow weapon-attachment">
+        <a
+          class="entity-link content-link"
+          data-pack="{{attachment.pack}}"
+          data-id="{{attachment.id}}"
+        >
+          {{attachment.name}}
+        </a>
+        <button class="delete-attachment" data-id="{{attachment.id}}">
+          Delete
+        </button>
+      </div>
+    {{/each}} --}}
   </div>
 </form>

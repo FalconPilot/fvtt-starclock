@@ -1,12 +1,14 @@
-<form class="{{cssClass}}" autocomplete="off">
-  <nav class="character-navbar">
-    {{#each config.tabs as |name key|}}
-      <a data-tab="{{key}}">{{localize name}}</a>
-    {{/each}}
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <nav class="tabs" data-group="primary">
+    <a class="item" data-tab="attributes">{{localize "SCLK.Tabs.Attributes"}}</a>
+    <a class="item" data-tab="inventory">{{localize "SCLK.Tabs.Inventory"}}</a>
   </nav>
-  {{log inventory}}
-  {{#each config.tabs as |name key|}}
-    <div data-tab="{{key}}">
+  <section class="tab-content">
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      {{> (actortab "attributes") }}
     </div>
-  {{/each}}
+    <div class="tab inventory" data-group="primary" data-tab="inventory">
+      {{> (actortab "inventory") }}
+    </div>
+  </section>
 </form>

@@ -13,6 +13,9 @@
     "ammoType": "heavyRifle",
     "ammoMax": 20,
     "ammoCurrent": 20,
-    "thumbnailOffsetY": -20
+    "ranges": {
+      "accurate": "medium",
+      "maximum": "long"
+    }
   }
 }

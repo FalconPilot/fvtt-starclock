@@ -10,16 +10,20 @@ const rangedWeaponTypes = {
     bow: 'SCLK.WeaponTypes.Bow',
     thrown: 'SCLK.WeaponTypes.Thrown',
 };
+const rangedWeaponAttachPoints = {
+    optics: 'SCLK.RangedAttachPoints.optics',
+};
 export const starclock = {
     meleeWeaponTypes,
     rangedWeaponTypes,
+    rangedWeaponAttachPoints,
     woundTypes: {
         stun: 'SCLK.Wounds.Stun',
         light: 'SCLK.Wounds.Light',
         medium: 'SCLK.Wounds.Medium',
         heavy: 'SCLK.Wounds.Heavy,'
     },
-    ammoType: {
+    ammoTypes: {
         lightPistol: 'SCLK.AmmoTypes.LightPistol',
         heavyPistol: 'SCLK.AmmoTypes.HeavyPistol',
         lightRifle: 'SCLK.AmmoTypes.LightRifle',
@@ -30,7 +34,4 @@ export const starclock = {
         grenades: 'SCLK.AmmoTypes.Grenades',
         rockets: 'SCLK.AmmoTypes.Rockets',
     },
-    tabs: {
-        attributes: 'SCLK.Tabs.Attributes'
-    }
 };

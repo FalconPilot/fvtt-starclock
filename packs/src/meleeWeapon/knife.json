@@ -9,6 +9,7 @@
     "hits": 3,
     "wounds": 1,
     "pierce": 1,
-    "woundType": "light"
+    "woundType": "light",
+    "attachPoints": ["blade", "hilt"]
   }
 }

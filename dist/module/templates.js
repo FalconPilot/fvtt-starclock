@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { basePath } from '../constants.js';
+import { basePath, systemName } from '../constants.js';
 export const preloadHandlebarTemplates = () => __awaiter(void 0, void 0, void 0, function* () {
     return loadTemplates([
         // Actor partials
@@ -21,6 +21,5 @@ export const preloadHandlebarTemplates = () => __awaiter(void 0, void 0, void 0,
     ]);
 });
 export const registerHandlebarHelpers = () => {
-    Handlebars.registerHelper('log', console.log);
-    // Handlebars.registerHelper('arsenal', (actor: Actors['']))
+    Handlebars.registerHelper('actortab', (tab) => `systems/${systemName}/templates/actors/parts/${tab}.hbs`);
 };

@@ -2,7 +2,7 @@ import StarclockItemSheet from './module/item/sheet.js'
 import StarclockActorSheet from './module/actor/sheet.js'
 
 import { systemName } from './constants.js'
-import { preloadHandlebarTemplates } from './module/templates.js'
+import { preloadHandlebarTemplates, registerHandlebarHelpers } from './module/templates.js'
 import { starclock } from './module/config.js'
 
 const ASCIIART = `
@@ -25,6 +25,7 @@ Hooks.once('init', () => {
   Items.unregisterSheet('core', ItemSheet)
   Items.registerSheet(systemName, StarclockItemSheet, { makeDefault: true })
 
-  // Handlebar preloading
+  // Handlebar preconfiguring
   preloadHandlebarTemplates()
+  registerHandlebarHelpers()
 })
