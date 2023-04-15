@@ -1,5 +1,6 @@
 # Artifacts
 node_modules/
+dist/
 yarn-error.log
 
 # OS Specific

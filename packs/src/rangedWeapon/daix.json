@@ -11,8 +11,8 @@
     "pierce": 2,
     "woundType": "medium",
     "ammoType": "lightRifle",
-    "ammoMax": 30,
-    "ammoCurrent": 30,
+    "ammoMax": 32,
+    "ammoCurrent": 32,
     "ranges": {
       "accurate": "medium",
       "maximum": "long"

@@ -8,11 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { basePath, systemName } from '../constants.js';
+import { starclock } from './config.js';
 export const preloadHandlebarTemplates = () => __awaiter(void 0, void 0, void 0, function* () {
     return loadTemplates([
+        // Actor tabs
+        ...Object.keys(starclock.tabs).map(tab => (`${basePath}/templates/actors/parts/${tab}.hbs`)),
         // Actor partials
-        `${basePath}/templates/actors/parts/attributes.hbs`,
-        `${basePath}/templates/actors/parts/inventory.hbs`,
+        `${basePath}/templates/actors/parts/infos.hbs`,
         // Item partials
         `${basePath}/templates/items/parts/damage.hbs`,
         `${basePath}/templates/items/parts/description.hbs`,
@@ -22,4 +24,17 @@ export const preloadHandlebarTemplates = () => __awaiter(void 0, void 0, void 0,
 });
 export const registerHandlebarHelpers = () => {
     Handlebars.registerHelper('actortab', (tab) => `systems/${systemName}/templates/actors/parts/${tab}.hbs`);
+    Handlebars.registerHelper('woundTypeLoc', (key) => starclock.woundTypes[key]);
+    Handlebars.registerHelper('hasElements', (obj) => (Object.keys(obj).length > 0));
+    Handlebars.registerHelper('getAttributeValue', (data, key, subKey) => (data[key][subKey]));
+    Handlebars.registerHelper('getKey', (data, key) => (data[key]));
+    Handlebars.registerHelper('times', (n, block) => {
+        return new Array(n).fill(null).reduce((acc, e, idx) => {
+            return acc + block.fn(idx);
+        }, '');
+    });
+    Handlebars.registerHelper('woundKey', (type) => (`data.wounds.${type}`));
+    Handlebars.registerHelper('woundChoices', () => (new Array(4)
+        .fill(null)
+        .reduce((acc, _, idx) => (Object.assign(Object.assign({}, acc), { [idx]: idx })), {})));
 };

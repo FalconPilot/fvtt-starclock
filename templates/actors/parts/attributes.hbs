@@ -1,1 +1,31 @@
-ATTRIBUTES
+<div class="flexrow attributes-list">
+  {{#each @root/config.attributes as |name key|}}
+    <div class="character-attribute flexcol">
+      <h4 class="mgv">{{localize name}}</h4>
+      <div class="flexrow pgh attribute-box">
+        <div class="flexcol attribute-value">
+          <label>{{localize "SCLK.AttributeValue"}}</label>
+          <input
+            type="number"
+            name="data.{{key}}.value"
+            value="{{getAttributeValue @root/data.data key "value"}}"
+            min="0"
+            max="{{getAttributeValue @root/data.data key "limit"}}"
+            data-dtype="Number"
+          />
+        </div>
+        <div class="flexcol attribute-limit">
+          <label>{{localize "SCLK.AttributeLimit"}}</label>
+          <input
+            type="number"
+            name="data.{{key}}.limit"
+            value="{{getAttributeValue @root/data.data key "limit"}}"
+            min="0"
+            max="4"
+            data-dtype="Number"
+          />
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,16 @@
+<div class="character-aside flexrow">
+  <div class="character-silhouette flexcol centerv centerh pgh">
+    <img
+      class="character-image neon-green"
+      src="systems/starclock/assets/races/{{actor.data.data.race}}_sil_{{actor.data.data.bodyType}}.png"
+    />
+  </div>
+  <div class="character-wounds flexcol topv centerh">
+    <h4>{{localize "SCLK.Wounds.Label"}}</h4>
+    {{#each config.woundTypes as |name type|}}
+      <div class="flexrow wounds-row centerh {{type}}">
+        {{radioBoxes (woundKey type) (woundChoices) checked=(getKey @root/wounds type) localize=false}}
+      </div>
+    {{/each}}
+  </div>
+</div>

@@ -1,18 +1,21 @@
 {
-  "name": "starclock",
   "title": "StarClock",
   "description": "The official StarClock game system",
   "version": "0.1.0",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10"
+  },
   "authors": [
     {
       "name": "FalconPilot",
-      "url": "https://github.com/FalconPilot"
+      "url": "https://github.com/FalconPilot",
+      "flags": {}
     }
   ],
-  "scripts": [],
-  "esmodules": ["dist/starclock.js"],
+  "esmodules": [
+    "dist/starclock.js"
+  ],
   "styles": [
     "styles/framework/fonts.css",
     "styles/actors.css",
@@ -30,30 +33,33 @@
       "name": "meleeWeapons",
       "label": "Melee Weapons",
       "system": "starclock",
-      "path": "./packs/meleeWeapon.db",
-      "type": "Item"
+      "path": "packs/meleeWeapon.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "rangedWeapons",
       "label": "Ranged Weapons",
       "system": "starclock",
-      "path": "./packs/rangedWeapon.db",
-      "type": "Item"
+      "path": "packs/rangedWeapon.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     }
   ],
   "languages": [
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     }
   ],
-  "socket": false,
   "gridDistance": 5,
   "gridUnits": "m",
-  "primaryTokenAttribute": null,
-  "secondaryTokenAttribute": null,
   "url": "https://github.com/FalconPilot/fvtt-starclock",
   "manifest": "https://raw.githubusercontent.com/FalconPilot/fvtt-starclock/main/system.json",
-  "download": "https://github.com/FalconPilot/fvtt-starclock/releases/download/foobar.zip"
+  "download": "https://github.com/FalconPilot/fvtt-starclock/releases/download/starclock.zip",
+  "id": "starclock"
 }

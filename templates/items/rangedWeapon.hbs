@@ -4,7 +4,7 @@
     {{> "systems/starclock/templates/items/parts/description.hbs" }}
     <div class="flexrow mgv">
       <select
-        name="data.data.weaponSkill"
+        name="data.weaponSkill"
         class="line-input mgr"
       >
         {{#select data.data.weaponSkill}}
@@ -14,7 +14,7 @@
         {{/select}}
       </select>
       <select
-        name="data.data.ammoType"
+        name="data.ammoType"
         class="line-input mgl"
       >
         {{#select data.data.ammoType}}
@@ -25,19 +25,5 @@
       </select>
     </div>
     {{> "systems/starclock/templates/items/parts/damage.hbs" }}
-    {{!-- {{#each attachments as |attachment|}}
-      <div class="flexrow weapon-attachment">
-        <a
-          class="entity-link content-link"
-          data-pack="{{attachment.pack}}"
-          data-id="{{attachment.id}}"
-        >
-          {{attachment.name}}
-        </a>
-        <button class="delete-attachment" data-id="{{attachment.id}}">
-          Delete
-        </button>
-      </div>
-    {{/each}} --}}
   </div>
 </form>

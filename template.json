@@ -2,7 +2,7 @@
   "Actor": {
     "types": ["character"],
     "templates": {
-      "common": {
+      "stats": {
         "phy": {
           "value": 1,
           "limit": 2
@@ -47,22 +47,37 @@
       },
       "wallet": {
         "starCredits": 0
+      },
+      "identity": {
+        "bodyType": "m",
+        "age": 20,
+        "heightMeters": 1,
+        "heightCentimeters": 70
       }
     },
     "character": {
       "templates": [
         "stats",
         "playableRace",
-        "wallet"
-      ]
+        "wallet",
+        "identity"
+      ],
+      "xp": 0,
+      "skillGroups": {
+        "proficient": [],
+        "bonuses": []
+      },
+      "skills": {
+        "proficient": [],
+        "mastered": [],
+        "bonuses": []
+      }
     }
   },
   "Item": {
     "types": [
       "meleeWeapon",
-      "rangedWeapon",
-      "meleeWeaponAttachment",
-      "rangedWeaponAttachment"
+      "rangedWeapon"
     ],
     "templates": {
       "basicItem": {

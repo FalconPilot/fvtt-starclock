@@ -1,5 +1,13 @@
+h1, h2, h3, h4, h5 {
+  font-family: 'OstrichSans';
+}
+
+h4 {
+  font-size: 18px;
+}
+
 .window-app .window-content {
-  background: rgba(15, 15, 15, 0.7);
+  background: rgba(15, 15, 15, 0.8);
 }
 
 .window-app .window-content,
@@ -45,7 +53,6 @@ li.directory-item.document.item > img.thumbnail {
   position: relative;
   margin: 0;
   font-size: 24px;
-  font-family: 'OstrichSans';
   z-index: 3;
 }
 

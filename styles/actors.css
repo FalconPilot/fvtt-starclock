@@ -1,0 +1,265 @@
+.app.window-app.sheet[id*='actor']:not([id*='item']) {
+  box-shadow: none;
+  background: none;
+  padding: 35px 30px 55px 30px;
+}
+
+.app.window-app.sheet[id*='actor']:not([id*='item']):after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/gui/tablet-backdrop.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, 0.7));
+}
+
+.app.window-app.sheet[id*='actor']:not([id*='item']) > header {
+  background: none;
+  background-color: rgba(2, 2, 2, 0.9);
+}
+
+.app.window-app.sheet[id*='actor']:not([id*='item']) .window-content {
+  padding-top: 0;
+}
+
+.character-tablet {
+  height: 100%;
+}
+
+.character-tablet h2 {
+  position: relative;
+  border-bottom: none;
+}
+
+.character-tablet h2:after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #333;
+}
+
+.character-tablet-middle {
+  overflow: hidden;
+}
+
+.character-tablet .tab-content {
+  max-height: 100%;
+  padding: 0 10px;
+  flex: 0 0 60%;
+  overflow: auto;
+}
+
+.sheet-navigation {
+  position: relative;
+  flex: 0;
+}
+
+.sheet-navigation a {
+  background-color: rgba(100, 100, 100, 0.5);
+  font-size: 20px;
+  font-family: 'OstrichSans';
+  border-radius: 4px;
+}
+
+.character-infos {
+  position: relative;
+}
+
+.character-infos:before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #333;
+}
+
+.attributes-list {
+  flex-wrap: wrap;
+}
+
+.character-attribute {
+  flex-basis: 25%;
+}
+
+.character-attribute h4,
+.character-attribute label {
+  text-align: center;
+}
+
+.character-attribute label {
+  font-variant: small-caps;
+  padding: 4px;
+}
+
+.attribute-value,
+.attribute-limit {
+  border: 1px solid #CCC;
+}
+
+.attribute-value {
+  border-radius: 4px 0 0 4px;
+}
+
+.attribute-limit {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+
+.character-attribute input[type=number] {
+  width: 100%;
+  border: none;
+  text-align: center;
+}
+
+.attribute-box {
+  flex-wrap: nowrap;
+}
+
+.inventory .item-list {
+  padding: 0;
+}
+
+.inventory-item {
+  border: 1px solid #CCC;
+  border-radius: 2px;
+  flex-basis: 100px;
+}
+
+.inventory-item > div {
+  margin-bottom: auto;
+}
+
+.inv-item-mini {
+  flex: 0;
+  flex-basis: 200px;
+  align-self: center;
+}
+
+.inv-item-mini > img {
+  border: none;
+}
+
+.inv-item-name {
+  font-size: 20px;
+}
+
+.inventory-item .item-controls {
+  flex: 0;
+}
+
+.item-damage > strong {
+  white-space: nowrap;
+}
+
+.character-silhouette {
+  flex: 0 0 180px;
+}
+
+.character-infos,
+.character-aside,
+.character-silhouette {
+  height: 100%;
+  max-height: 100%;
+}
+
+.character-silhouette > img {
+  max-height: 100%;
+  flex: 0 0 auto;
+  border: none;
+}
+
+.character-wounds > h4 {
+  text-align: center;
+  flex: 0;
+}
+
+.wounds-row {
+  width: 100%;
+  flex-wrap: nowrap;
+  flex: 0 0 20px;
+}
+
+.wounds-row label {
+  position: relative;
+  height: 100%;
+  flex: 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #CCC;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.wounds-row:first-of-type label:first-of-type {
+  border-radius: 4px 0 0 0;
+}
+
+.wounds-row:first-of-type label:last-of-type {
+  border-radius: 0 4px 0 0;
+}
+
+.wounds-row:last-of-type label:first-of-type {
+  border-radius: 0 0 0 4px;
+}
+
+.wounds-row:last-of-type label:last-of-type {
+  border-radius: 0 0 4px 0;
+}
+
+.wounds-row label:not(:first-of-type) {
+  border-left: none;
+}
+
+.wounds-row:not(:first-of-type) label {
+  border-top: none;
+}
+
+.wounds-row label:hover {
+  cursor: pointer;
+}
+
+.wounds-row input[type=radio] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  margin: 0;
+  z-index: -1;
+  filter: none;
+}
+
+.wounds-row.stun input[type=radio]:checked {
+  background-color: #0ABDC6;
+}
+
+.wounds-row.light input[type=radio]:checked {
+  background-color: rgb(49 206 38);
+}
+
+.wounds-row.medium input[type=radio]:checked {
+  background-color: rgb(255 227 25);
+}
+
+.wounds-row.heavy input[type=radio]:checked {
+  background-color: #BB1F1F;
+}
+
+.line-input[name='data.bodyType'] {
+  flex: 0 0 45px;
+}

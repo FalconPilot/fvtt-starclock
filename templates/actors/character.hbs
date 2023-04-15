@@ -1,14 +1,25 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
-  <nav class="tabs" data-group="primary">
-    <a class="item" data-tab="attributes">{{localize "SCLK.Tabs.Attributes"}}</a>
-    <a class="item" data-tab="inventory">{{localize "SCLK.Tabs.Inventory"}}</a>
+<form class="{{cssClass}} character-tablet flexcol" autocomplete="off">
+  <nav class="sheet-navigation tabs flexrow" data-group="primary">
+    {{#each config.tabs as |name tab|}}
+      <a class="item flexrow centerv centerh mg" data-tab="{{tab}}">
+        {{localize name}}
+      </a>
+    {{/each}}
   </nav>
-  <section class="tab-content">
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
-      {{> (actortab "attributes") }}
-    </div>
-    <div class="tab inventory" data-group="primary" data-tab="inventory">
-      {{> (actortab "inventory") }}
-    </div>
-  </section>
+  <div class="flexrow character-tablet-middle">
+    <section class="tab-content">
+      {{~#each config.tabs as |name tab|}}
+      <div
+        class="tab {{tab}} flexcol topv"
+        data-group="primary"
+        data-tab="{{tab}}"
+      >
+        {{> (actortab tab)}}
+      </div>
+      {{/each}}
+    </section>
+    <section class="character-infos flexcol neon-pink-pseudo">
+      {{> "systems/starclock/templates/actors/parts/infos.hbs" }}
+    </section>
+  </div>
 </form>

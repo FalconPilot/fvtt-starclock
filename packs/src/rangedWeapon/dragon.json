@@ -1,0 +1,21 @@
+{
+  "name": "Dragon",
+  "img": "systems/starclock/assets/weapons/dragon.png",
+  "data": {
+    "description": "An ultralight submachinegun with a very fast rate of fire. What it lacks in firepower, it makes up by shooting hails of bullets.",
+    "weaponSkill": "rifle",
+    "price": 1800,
+    "weight": 3000,
+    "hits": 6,
+    "wounds": 1,
+    "pierce": 1,
+    "woundType": "light",
+    "ammoType": "lightPistol",
+    "ammoMax": 25,
+    "ammoCurrent": 25,
+    "ranges": {
+      "accurate": "short",
+      "maximum": "medium"
+    }
+  }
+}

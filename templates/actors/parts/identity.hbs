@@ -1,0 +1,61 @@
+<div class="character-identity flexcol">
+  <div class="flexrow quoted-box bottomv neon-pink-pseudo mgb">
+    {{localize "SCLK.MyNameIs"}}
+    <input
+      type="text"
+      class="line-input mgl neon-pink"
+      name="name"
+      value="{{@root/actor.name}}"
+    />
+  </div>
+  <div class="flexrow bottomv pgh mgv">
+    {{localize "SCLK.RaceLabel"}}
+    <select
+      name="data.race"
+      class="line-input mgh neon-pink"
+    >
+      {{#select @root/data.data.race}}
+        {{#each @root/config.races as |name race|}}
+          <option value="{{race}}">{{localize name}}</option>
+        {{/each}}
+      {{/select}}
+    </select>
+    {{localize "SCLK.BodyTypeLabel"}}
+    <select
+      name="data.bodyType"
+      class="line-input mgl neon-pink"
+    >
+      {{#select @root/data.data.bodyType}}
+        {{#each @root/config.bodyTypes as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+        {{/each}}
+      {{/select}}
+    </select>
+  </div>
+  <div class="flexrow bottomv pgh mgv">
+    {{localize "SCLK.AgeLabel"}}
+    <input
+      type="number"
+      class="line-input mgh neon-pink"
+      name="data.age"
+      value="{{@root/data.data.age}}"
+    />
+    {{localize "SCLK.HeightLabel"}}
+    <input
+      type="number"
+      class="line-input mgl neon-pink"
+      name="data.heightMeters"
+      value="{{@root/data.data.heightMeters}}"
+    />
+    <span class="line-input pgh neon-pink">m</span>
+    <input
+      type="number"
+      class="line-input neon-pink"
+      name="data.heightCentimeters"
+      min="0"
+      max="99"
+      value="{{@root/data.data.heightCentimeters}}"
+    />
+    <span class="line-input pgl neon-pink">cm</span>
+  </div>
+</div>

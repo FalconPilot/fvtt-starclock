@@ -1,7 +1,9 @@
-.line-input {
+.line-input.line-input {
   border: none;
   border-bottom: 1px solid #333;
   border-radius: 4px 4px 0 0;
+  background-color: transparent;
+  height: auto;
 }
 
 .quoted-box:before,
