@@ -2,20 +2,20 @@
   "name": "Dragon",
   "img": "systems/starclock/assets/weapons/dragon.png",
   "data": {
-    "description": "An ultralight submachinegun with a very fast rate of fire. What it lacks in firepower, it makes up by shooting hails of bullets.",
-    "weaponSkill": "rifle",
-    "price": 1800,
-    "weight": 3000,
-    "hits": 6,
-    "wounds": 1,
-    "pierce": 1,
-    "woundType": "light",
-    "ammoType": "lightPistol",
-    "ammoMax": 25,
-    "ammoCurrent": 25,
-    "ranges": {
-      "accurate": "short",
-      "maximum": "medium"
+    "description": "This short rifle is extremely compact, yet packs a very serious punch. A favorite of smugglers and bandits all across the galaxy.",
+    "weaponShape": "rifle",
+    "price": 1500,
+    "weight": 3500,
+    "damage": 4,
+    "pierce": 2,
+    "range": "medium",
+    "ammoType": "heavyRifle",
+    "ammoMax": 10,
+    "ammoCurrent": 10,
+    "firingRates": {
+      "single": 1,
+      "semi": 3,
+      "auto": 5
     }
   }
 }

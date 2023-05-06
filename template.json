@@ -1,40 +1,16 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["character", "spaceship", "mechsuit"],
     "templates": {
-      "stats": {
-        "phy": {
-          "value": 1,
-          "limit": 2
-        },
-        "agi": {
-          "value": 1,
-          "limit": 2
-        },
-        "acu": {
-          "value": 1,
-          "limit": 2
-        },
-        "hab": {
-          "value": 1,
-          "limit": 2
-        },
-        "cha": {
-          "value": 1,
-          "limit": 2
-        },
-        "emp": {
-          "value": 1,
-          "limit": 2
-        },
-        "int": {
-          "value": 1,
-          "limit": 2
-        },
-        "wil": {
-          "value": 1,
-          "limit": 2
-        },
+      "attributes": {
+        "phy": 1,
+        "agi": 1,
+        "acu": 1,
+        "hab": 1,
+        "cha": 1,
+        "emp": 1,
+        "int": 1,
+        "wil": 1,
         "wounds": {
           "stun": 0,
           "light": 0,
@@ -46,38 +22,59 @@
         "race": "human"
       },
       "wallet": {
-        "starCredits": 0
+        "starCredits": 0,
+        "bank": 0
       },
       "identity": {
         "bodyType": "m",
         "age": 20,
         "heightMeters": 1,
         "heightCentimeters": 70
+      },
+      "combat": {
+        "melee": 0,
+        "shooting": 0,
+        "defense": 0
+      },
+      "skills": {
+        "acrobatics": 0,
+        "arts": 0,
+        "craftsmanship": 0,
+        "dialog": 0,
+        "knowledge": 0,
+        "perception": 0,
+        "piloting": 0,
+        "roguery": 0,
+        "sports": 0,
+        "understanding": 0
       }
     },
     "character": {
       "templates": [
-        "stats",
+        "attributes",
         "playableRace",
         "wallet",
-        "identity"
+        "identity",
+        "combat",
+        "skills"
       ],
-      "xp": 0,
-      "skillGroups": {
-        "proficient": [],
-        "bonuses": []
-      },
-      "skills": {
-        "proficient": [],
-        "mastered": [],
-        "bonuses": []
-      }
+      "xp": 0
+    },
+    "spaceship": {
+      "templates": []
+    },
+    "mechsuit": {
+      "templates": [
+        "combat"
+      ]
     }
   },
   "Item": {
     "types": [
+      "simple",
       "meleeWeapon",
-      "rangedWeapon"
+      "rangedWeapon",
+      "trait"
     ],
     "templates": {
       "basicItem": {
@@ -94,37 +91,55 @@
         "equipped": false
       },
       "basicWeapon": {
-        "hits": 1,
-        "wounds": 1,
-        "pierce": 0,
-        "woundType": "light"
+        "damage": 1,
+        "damageType": "physical",
+        "pierce": 0
+      },
+      "stashable": {
+        "stashed": false
+      },
+      "evolution": {
+        "taken": 1,
+        "effects": ""
       }
+    },
+    "simple": {
+      "templates": [
+        "basicItem",
+        "multi",
+        "encumbrance",
+        "stashable"
+      ]
     },
     "meleeWeapon": {
       "templates": [
         "basicItem",
         "basicWeapon",
         "encumbrance",
-        "equippable"
+        "equippable",
+        "stashable"
       ],
       "attachPoints": [],
-      "weaponSkill": "oneHanded"
+      "weaponShape": "oneHanded"
     },
     "rangedWeapon": {
       "templates": [
         "basicItem",
         "basicWeapon",
         "encumbrance",
-        "equippable"
+        "equippable",
+        "stashable"
       ],
-      "weaponSkill": "pistol",
+      "weaponShape": "pistol",
       "ammoType": "lightPistol",
       "ammoMax": 1,
       "ammoCurrent": 1,
-      "ranges": {
-        "accurate": "short",
-        "maximum": "medium"
-      }
+      "range": "short"
+    },
+    "trait": {
+      "templates": [
+        "evolution"
+      ]
     }
   }
 }

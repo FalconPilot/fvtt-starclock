@@ -1,15 +1,5 @@
-<label class="flexrow gap money-input centerv mgb neon-pink-pseudo pgv">
-  <h3>{{localize "SCLK.StarCredits"}}</h3>
-  <input
-    type="number"
-    name="system.starCredits"
-    value="{{@root/actor.system.starCredits}}"
-    min="0"
-    data-dtype="Number"
-  />
-</label>
-{{#if (hasElements @root/inventory)}}
-  {{#each @root/inventory as |items sid|}}
+{{#if (hasElements @root/weapons)}}
+  {{#each @root/weapons as |items sid|}}
     <h2 class="neon-pink-pseudo">{{ localize sid }}</h2>
     <ol class="item-list">
       {{#each items as |item iid|}}
@@ -20,6 +10,9 @@
           <div class="flexcol pg topv">
             <div class="flexrow">
               <h3 class="inv-item-name">{{item.name}}</h3>
+            </div>
+            <div class="flexrow item-damage centerv">
+              <strong>{{item.system.damage}}P{{item.system.pierce}}</strong>
             </div>
           </div>
           {{#if @root/owner}}
@@ -45,5 +38,5 @@
     </ol>
   {{/each}}
 {{else}}
-  <h2 class="neon-pink-pseudo">{{localize "SCLK.EmptyInventory"}}</h2>
+  <h2 class="neon-pink-pseudo">{{localize "SCLK.EmptyArsenal"}}</h2>
 {{/if}}

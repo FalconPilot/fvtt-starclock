@@ -5,6 +5,10 @@ import { systemName } from './constants.js'
 import { preloadHandlebarTemplates, registerHandlebarHelpers } from './module/templates.js'
 import { starclock } from './module/config.js'
 
+declare global {
+  var foundry: any
+}
+
 const ASCIIART = `
 __            _             
 (_ _|_  _. ._ /  |  _   _ |  

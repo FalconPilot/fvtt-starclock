@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/mayaf1.png",
   "data": {
     "description": "The standard-issue rifle for the Confederation. Made of composite alloys, it's sturdy and boasts impressive performance.",
-    "weaponSkill": "rifle",
+    "weaponShape": "rifle",
     "price": 3500,
     "weight": 4500,
-    "hits": 6,
-    "wounds": 1,
-    "pierce": 2,
-    "woundType": "medium",
+    "damage": 3,
+    "pierce": 1,
+    "range": "medium",
     "ammoType": "lightRifle",
-    "ammoMax": 24,
-    "ammoCurrent": 24,
-    "ranges": {
-      "accurate": "medium",
-      "maximum": "long"
+    "ammoMax": 30,
+    "ammoCurrent": 30,
+    "firingRates": {
+      "single": 1,
+      "semi": 5,
+      "auto": 10
     }
   }
 }

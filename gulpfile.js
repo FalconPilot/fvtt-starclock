@@ -14,7 +14,7 @@ const dbPath = 'packs'
 const dbCache = {}
 
 const compileTS = () =>
-  gulp.src('src/**/*.ts')
+  gulp.src('src/**/*.{ts,js}')
     .pipe(project())
     .pipe(gulp.dest('dist/'))
 
@@ -98,5 +98,5 @@ exports.db = gulp.series(
 )
 
 exports.watch = () => {
-  gulp.watch(['src/**/*.ts'], {}, exports.build)
+  gulp.watch(['src/**/*.{ts,js}'], {}, exports.build)
 }

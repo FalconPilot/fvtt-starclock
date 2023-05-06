@@ -7,3 +7,6 @@ body .pgl, body .pgh, body .pg { padding-left: 8px; }
 body .pgr, body .pgh, body .pg { padding-right: 8px; }
 body .pgt, body .pgv, body .pg { padding-top: 8px; }
 body .pgb, body .pgv, body .pg { padding-bottom: 8px; }
+
+body .gapx, body .gap { column-gap: 8px; }
+body .gapy, body .gap { row-gap: 8px; }

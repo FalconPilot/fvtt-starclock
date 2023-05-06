@@ -1,5 +1,5 @@
-<div class="character-identity flexcol">
-  <div class="flexrow quoted-box bottomv neon-pink-pseudo mgb">
+<div class="character-identity flexcol pg mgb neon-pink-pseudo gap">
+  <div class="flexrow bottomv pgh">
     {{localize "SCLK.MyNameIs"}}
     <input
       type="text"
@@ -8,13 +8,13 @@
       value="{{@root/actor.name}}"
     />
   </div>
-  <div class="flexrow bottomv pgh mgv">
+  <div class="flexrow bottomv pgh">
     {{localize "SCLK.RaceLabel"}}
     <select
-      name="data.race"
+      name="system.race"
       class="line-input mgh neon-pink"
     >
-      {{#select @root/data.data.race}}
+      {{#select @root/actor.system.race}}
         {{#each @root/config.races as |name race|}}
           <option value="{{race}}">{{localize name}}</option>
         {{/each}}
@@ -22,40 +22,58 @@
     </select>
     {{localize "SCLK.BodyTypeLabel"}}
     <select
-      name="data.bodyType"
+      name="system.bodyType"
       class="line-input mgl neon-pink"
     >
-      {{#select @root/data.data.bodyType}}
+      {{#select @root/actor.system.bodyType}}
         {{#each @root/config.bodyTypes as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
         {{/each}}
       {{/select}}
     </select>
   </div>
-  <div class="flexrow bottomv pgh mgv">
+  <div class="flexrow bottomv pgh">
     {{localize "SCLK.AgeLabel"}}
     <input
       type="number"
       class="line-input mgh neon-pink"
-      name="data.age"
-      value="{{@root/data.data.age}}"
+      name="system.age"
+      value="{{@root/actor.system.age}}"
     />
     {{localize "SCLK.HeightLabel"}}
     <input
       type="number"
       class="line-input mgl neon-pink"
-      name="data.heightMeters"
-      value="{{@root/data.data.heightMeters}}"
+      name="system.heightMeters"
+      value="{{@root/actor.system.heightMeters}}"
     />
     <span class="line-input pgh neon-pink">m</span>
     <input
       type="number"
       class="line-input neon-pink"
-      name="data.heightCentimeters"
+      name="system.heightCentimeters"
       min="0"
       max="99"
-      value="{{@root/data.data.heightCentimeters}}"
+      value="{{@root/actor.system.heightCentimeters}}"
     />
-    <span class="line-input pgl neon-pink">cm</span>
+    <span class="line-input pgl neon-pink mgr">cm</span>
+    {{localize "SCLK.HeightLabel2"}}
   </div>
+</div>
+<div class="flexrow attributes-list gap">
+  {{#each @root/config.attributes as |name key|}}
+    <label class="character-attribute flexcol">
+      <h4 class="mgb">{{localize name}}</h4>
+      <div class="flexcol attribute-value">
+        <input
+          type="number"
+          name="system.{{key}}"
+          value="{{getKey @root/actor.system key}}"
+          min="0"
+          max="4"
+          data-dtype="Number"
+        />
+      </div>
+    </label>
+  {{/each}}
 </div>

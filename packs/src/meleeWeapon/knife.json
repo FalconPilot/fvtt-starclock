@@ -3,13 +3,11 @@
   "img": "systems/starclock/assets/weapons/knife.png",
   "data": {
     "description": "The most common weapon you could imagine: a sharp metal blade on a handle.",
-    "weaponSkill": "oneHanded",
+    "weaponShape": "oneHanded",
     "price": 10,
     "weight": 200,
-    "hits": 3,
-    "wounds": 1,
-    "pierce": 1,
-    "woundType": "light",
-    "attachPoints": ["blade", "hilt"]
+    "damage": 2,
+    "damageType": "physical",
+    "pierce": 1
   }
 }

@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/fantome.png",
   "data": {
     "description": "A submachine gun with an integrated suppressor widely used by special forces in the Fleuralys kingdom. Very silent, but deadly.",
-    "weaponSkill": "rifle",
+    "weaponShape": "rifle",
     "price": 3000,
     "weight": 3500,
-    "hits": 3,
-    "wounds": 2,
-    "pierce": 0,
-    "woundType": "light",
+    "damage": 2,
+    "pierce": 1,
+    "range": "medium",
     "ammoType": "heavyPistol",
     "ammoMax": 20,
     "ammoCurrent": 20,
-    "ranges": {
-      "accurate": "short",
-      "maximum": "medium"
+    "firingRates": {
+      "single": 1,
+      "semi": 3,
+      "auto": 5
     }
   }
 }

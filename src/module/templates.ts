@@ -23,10 +23,6 @@ export const registerHandlebarHelpers = () => {
     `systems/${systemName}/templates/actors/parts/${tab}.hbs`
   )
 
-  Handlebars.registerHelper('woundTypeLoc', (key: keyof typeof starclock['woundTypes']) =>
-    starclock.woundTypes[key]
-  )
-
   Handlebars.registerHelper('hasElements', <T>(obj: Record<string, T[]>): boolean => (
     Object.keys(obj).length > 0
   ))
@@ -44,17 +40,4 @@ export const registerHandlebarHelpers = () => {
       return acc + block.fn(idx)
     }, '')
   })
-
-  Handlebars.registerHelper('woundKey', (type: string): string => (
-    `data.wounds.${type}`
-  ))
-
-  Handlebars.registerHelper('woundChoices', () => (
-    new Array(4)
-      .fill(null)
-      .reduce((acc, _, idx) => ({
-        ...acc,
-        [idx]: idx
-      }), {})
-  ))
 }

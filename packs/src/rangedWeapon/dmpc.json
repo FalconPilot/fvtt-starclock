@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/dmpc.png",
   "data": {
     "description": "A cheap, lightweight pistol favored by security forces and gangers across the galaxy.",
-    "weaponSkill": "pistol",
+    "weaponShape": "pistol",
     "price": 500,
     "weight": 1000,
-    "hits": 3,
-    "wounds": 1,
-    "pierce": 1,
-    "woundType": "light",
+    "damage": 2,
+    "pierce": 0,
+    "range": "short",
     "ammoType": "lightPistol",
     "ammoMax": 15,
     "ammoCurrent": 15,
-    "ranges": {
-      "accurate": "short",
-      "maximum": "medium"
+    "firingRates": {
+      "single": 1,
+      "semi": 3,
+      "auto": null
     }
   }
 }

@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/m30.png",
   "data": {
     "description": "The most iconic and classical revolver around. It's very rustic, but as cheap as it gets when it comes to getting a decent, reliable weapon.",
-    "weaponSkill": "pistol",
+    "weaponShape": "pistol",
     "price": 200,
     "weight": 1200,
-    "hits": 1,
-    "wounds": 2,
-    "pierce": 0,
-    "woundType": "light",
-    "ammoType": "heavyPistol",
+    "damage": 2,
+    "pierce": 1,
+    "range": "short",
+    "ammoType": "lightPistol",
     "ammoMax": 6,
     "ammoCurrent": 6,
-    "ranges": {
-      "accurate": "short",
-      "maximum": "medium"
+    "firingRates": {
+      "single": 1,
+      "semi": null,
+      "auto": null
     }
   }
 }

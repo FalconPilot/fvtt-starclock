@@ -1,8 +1,0 @@
-{
-  "name": "Red dot sight",
-  "data": {
-    "description": "A simple red dot sight that allows to quickly engage a target. If you are trained with the weapon shooting it, gain +1 dice when shooting at a short range.",
-    "price": 600,
-    "weight": 100
-  }
-}

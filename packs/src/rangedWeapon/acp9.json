@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/acp9.png",
   "data": {
     "description": "An ultralight submachinegun with a very fast rate of fire. What it lacks in firepower, it makes up by shooting hails of bullets.",
-    "weaponSkill": "rifle",
+    "weaponShape": "rifle",
     "price": 1800,
     "weight": 3000,
-    "hits": 6,
-    "wounds": 1,
-    "pierce": 1,
-    "woundType": "light",
+    "damage": 2,
+    "pierce": 0,
+    "range": "medium",
     "ammoType": "lightPistol",
     "ammoMax": 25,
     "ammoCurrent": 25,
-    "ranges": {
-      "accurate": "short",
-      "maximum": "medium"
+    "firingRates": {
+      "single": 1,
+      "semi": 4,
+      "auto": 8
     }
   }
 }

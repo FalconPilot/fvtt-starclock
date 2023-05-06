@@ -1,9 +1,8 @@
 import { basePath } from "../../constants.js";
-import { starclock } from "../config.js";
 export default class StarclockActorSheet extends ActorSheet {
     // Template name
     get template() {
-        return `${basePath}/templates/actors/${this.actor.data.type}.hbs`;
+        return `${basePath}/templates/actors/${this.actor.type}.hbs`;
     }
     // Default options
     static get defaultOptions() {
@@ -39,23 +38,25 @@ export default class StarclockActorSheet extends ActorSheet {
         item.sheet.render(true);
     }
     // Get data for template
-    getData() {
-        const data = super.getData();
-        const inventory = data.items.reduce((acc, item) => {
+    getData(options = {}) {
+        const data = super.getData(options);
+        const [inventory, stash, weapons] = data.items.reduce((acc, item) => {
+            const isStashed = item.system.stashed;
+            const isWeapon = item.type === 'rangedWeapon' || item.type === 'meleeWeapon';
             const key = `ITEM.Type${item.type[0].toUpperCase()}${item.type.slice(1)}`;
-            const basis = acc[key] ? acc[key] : [];
-            return Object.assign(Object.assign({}, acc), { [key]: basis.concat([Object.assign(item, {
-                        hasDamage: item.type === 'rangedWeapon' || item.type === 'meleeWeapon'
-                    })]) });
-        }, {});
-        const wounds = Object.keys(starclock.woundTypes).reduce((acc, k) => {
-            const val = parseInt(data.data.data.wounds[k], 10);
-            return Object.assign(Object.assign({}, acc), { [k]: `${isNaN(val) ? 0 : val}` });
-        }, {});
+            const idx = isStashed ? 1 : isWeapon ? 2 : 0;
+            return acc.map((v, i) => {
+                const basis = v[key] ? v[key] : [];
+                return i !== idx
+                    ? v
+                    : Object.assign(Object.assign({}, v), { [key]: basis.concat([item]) });
+            });
+        }, [{}, {}, {}]);
         return Object.assign(data, {
             config: CONFIG.starclock,
             inventory,
-            wounds,
+            stash,
+            weapons,
         });
     }
 }

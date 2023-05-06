@@ -1,8 +1,0 @@
-{
-  "name": "Electrical Field",
-  "data": {
-    "description": "The weapon is electrified and inflicts 1 extra stunning wound to the target after every successful hit.",
-    "price": 800,
-    "weight": 200
-  }
-}

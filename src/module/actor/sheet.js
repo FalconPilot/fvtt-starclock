@@ -4,7 +4,7 @@ import { starclock } from "../config.js"
 export default class StarclockActorSheet extends ActorSheet {
   // Template name
   get template () {
-    return `${basePath}/templates/actors/${this.actor.data.type}.hbs`
+    return `${basePath}/templates/actors/${this.actor.type}.hbs`
   }
 
   // Default options
@@ -22,7 +22,7 @@ export default class StarclockActorSheet extends ActorSheet {
   }
 
   // Activate listeners
-  protected activateListeners(html: JQuery<HTMLElement>): void {
+  activateListeners(html) {
     super.activateListeners(html)
 
     html.find('.item-delete').on('click', this._onItemDelete.bind(this))
@@ -30,7 +30,7 @@ export default class StarclockActorSheet extends ActorSheet {
   }
   
   // On item delete
-  _onItemDelete (event: any) {
+  _onItemDelete (event) {
     event.preventDefault()
 
     const item = this.actor.items.get(event.currentTarget.dataset.id)
@@ -41,41 +41,38 @@ export default class StarclockActorSheet extends ActorSheet {
   }
 
   // On item edit
-  _onItemEdit (event: any) {
+  _onItemEdit (event) {
     event.preventDefault()
     const item = this.actor.items.get(event.currentTarget.dataset.id)
     item.sheet.render(true)
   }
 
   // Get data for template
-  getData () {
-    const data = super.getData()
+  getData (options = {}) {
+    const data = super.getData(options)
 
-    const inventory = data.items.reduce<Record<string, Item[]>>((acc, item) => {
+    const [inventory, stash, weapons] = data.items.reduce((acc, item) => {
+      const isStashed = item.system.stashed
+      const isWeapon = item.type === 'rangedWeapon' || item.type === 'meleeWeapon'
       const key = `ITEM.Type${item.type[0].toUpperCase()}${item.type.slice(1)}`
-      const basis = acc[key] ? acc[key] : []
+      const idx = isStashed ? 1 : isWeapon ? 2 : 0
 
-      return {
-        ...acc,
-        [key]: basis.concat([Object.assign(item, {
-          hasDamage: item.type === 'rangedWeapon' || item.type === 'meleeWeapon'
-        })])
-      }
-    }, {})
-
-    const wounds = Object.keys(starclock.woundTypes).reduce<Record<string, string>>((acc, k) => {
-      const val = parseInt((data.data as any).data.wounds[k], 10)
-
-      return {
-        ...acc,
-        [k]: `${isNaN(val) ? 0 : val}`
-      }
-    }, {})
+      return acc.map((v, i) => {
+        const basis = v[key] ? v[key] : []
+        return i !== idx
+          ? v
+          : {
+            ...v,
+            [key]: basis.concat([item])
+          }
+      })
+    }, [{}, {}, {}])
 
     return Object.assign(data, {
       config: CONFIG.starclock,
       inventory,
-      wounds,
+      stash,
+      weapons,
     })
   }
 }

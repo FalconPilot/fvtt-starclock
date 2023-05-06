@@ -26,6 +26,7 @@
     "styles/sizes.css",
     "styles/spacings.css",
     "styles/system.css",
+    "styles/text.css",
     "styles/window.css"
   ],
   "packs": [
@@ -53,6 +54,12 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json",
       "flags": {}
     }
   ],

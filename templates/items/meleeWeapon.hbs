@@ -2,8 +2,8 @@
   {{> "systems/starclock/templates/items/parts/header-illustrated.hbs" neon="pink" }}
   <div class="flexcol topv item-body">
     {{> "systems/starclock/templates/items/parts/description.hbs" }}
-    <select name="data.weaponSkill" class="line-input mgv">
-      {{#select data.data.weaponSkill}}
+    <select name="system.weaponShape" class="line-input mgv">
+      {{#select item.system.weaponShape}}
         {{#each config.meleeWeaponTypes as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
         {{/each}}

@@ -6,11 +6,19 @@
   height: auto;
 }
 
+input[type=number] {
+  font-family: 'Modesto Condensed'
+}
+
+input[type=number]:not(.line-input) {
+  font-size: 20px;
+}
+
 .quoted-box:before,
 .quoted-box:after {
   content: '"';
   color: #333;
-  margin: 12px 4px 4px 4px;
+  margin: 0 4px;
 }
 
 .textbox {
@@ -18,4 +26,14 @@
   height: 4.5em;
   resize: none;
   color: #FFF;
+}
+
+button:hover,
+select:hover {
+  cursor: pointer;
+}
+
+button:disabled:hover,
+select:disabled:hover {
+  cursor: not-allowed;
 }

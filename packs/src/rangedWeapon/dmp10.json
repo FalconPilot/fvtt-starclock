@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/dmp10.png",
   "data": {
     "description": "A variant of the DMP-C using mean rounds to cause mean wounds. Favored in action movies and gang wars alike.",
-    "weaponSkill": "pistol",
+    "weaponShape": "pistol",
     "price": 800,
     "weight": 1000,
-    "hits": 2,
-    "wounds": 2,
+    "damage": 2,
     "pierce": 1,
-    "woundType": "light",
+    "range": "short",
     "ammoType": "heavyPistol",
     "ammoMax": 10,
     "ammoCurrent": 10,
-    "ranges": {
-      "accurate": "short",
-      "maximum": "medium"
+    "firingRates": {
+      "single": 1,
+      "semi": 2,
+      "auto": null
     }
   }
 }

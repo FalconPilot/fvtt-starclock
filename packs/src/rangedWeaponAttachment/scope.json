@@ -1,8 +1,0 @@
-{
-  "name": "Short scope",
-  "data": {
-    "description": "A scope with a shorter magnification. Sets the accurate range of your weapon to \"Medium\" if it does not exceed the weapon's maximal range.",
-    "price": 500,
-    "weight": 100
-  }
-}

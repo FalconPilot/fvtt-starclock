@@ -2,7 +2,9 @@
   <nav class="sheet-navigation tabs flexrow" data-group="primary">
     {{#each config.tabs as |name tab|}}
       <a class="item flexrow centerv centerh mg" data-tab="{{tab}}">
-        {{localize name}}
+        <span>
+          {{localize name}}
+        </span>
       </a>
     {{/each}}
   </nav>

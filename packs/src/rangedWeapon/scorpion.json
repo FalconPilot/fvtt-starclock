@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/scorpion.png",
   "data": {
     "description": "Created to pierce lightly armored vehicles, this confederate-made military rifle is feared for its ability to end any living being's life in an instant.",
-    "weaponSkill": "rifle",
+    "weaponShape": "rifle",
     "price": 6000,
     "weight": 7500,
-    "hits": 1,
-    "wounds": 5,
-    "pierce": 3,
-    "woundType": "heavy",
+    "damage": 10,
+    "pierce": 5,
+    "range": "long",
     "ammoType": "antimaterial",
     "ammoMax": 5,
     "ammoCurrent": 5,
-    "ranges": {
-      "accurate": "long",
-      "maximum": "extreme"
+    "firingRates": {
+      "single": 1,
+      "semi": null,
+      "auto": null
     }
   }
 }

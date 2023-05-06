@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/kampfer.png",
   "data": {
     "description": "A hulking beast, feared by pretty much anyone with a sense of self-preservation. The best friend of any confederate anti-riot security officer.",
-    "weaponSkill": "rifle",
+    "weaponShape": "rifle",
     "price": 700,
     "weight": 6500,
-    "hits": 1,
-    "wounds": 3,
+    "damage": 5,
     "pierce": 0,
-    "woundType": "light",
+    "range": "short",
     "ammoType": "shells",
     "ammoMax": 8,
     "ammoCurrent": 8,
-    "ranges": {
-      "accurate": "short",
-      "maximum": "short"
+    "firingRates": {
+      "single": 1,
+      "semi": null,
+      "auto": null
     }
   }
 }

@@ -3,19 +3,19 @@
   "img": "systems/starclock/assets/weapons/celica2100.png",
   "data": {
     "description": "A powerful, rugged rifle favored by mercenaries accross the galaxy.",
-    "weaponSkill": "rifle",
+    "weaponShape": "rifle",
     "price": 900,
     "weight": 5000,
-    "hits": 2,
-    "wounds": 2,
-    "pierce": 1,
-    "woundType": "medium",
+    "damage": 4,
+    "pierce": 2,
+    "range": "long",
     "ammoType": "heavyRifle",
     "ammoMax": 20,
     "ammoCurrent": 20,
-    "ranges": {
-      "accurate": "medium",
-      "maximum": "long"
+    "firingRates": {
+      "single": 1,
+      "semi": 2,
+      "auto": 3
     }
   }
 }

@@ -4,20 +4,20 @@
     {{> "systems/starclock/templates/items/parts/description.hbs" }}
     <div class="flexrow mgv">
       <select
-        name="data.weaponSkill"
+        name="system.weaponShape"
         class="line-input mgr"
       >
-        {{#select data.data.weaponSkill}}
+        {{#select item.system.weaponShape}}
           {{#each config.rangedWeaponTypes as |name type|}}
             <option value="{{type}}">{{localize name}}</option>
           {{/each}}
         {{/select}}
       </select>
       <select
-        name="data.ammoType"
+        name="system.ammoType"
         class="line-input mgl"
       >
-        {{#select data.data.ammoType}}
+        {{#select item.system.ammoType}}
           {{#each config.ammoTypes as |name type|}}
             <option value="{{type}}">{{localize name}}</option>
           {{/each}}
