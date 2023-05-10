@@ -1,4 +1,24 @@
-.window-tablet {
-  width: 800px;
-  height: 500px;
+.window-app.sheet > header.window-header {
+  padding: 25px 20px 0 20px;
+  flex: 0 0 55px;
+}
+
+.window-app.sheet {
+  box-shadow: none;
+}
+
+.window-app.sheet:after {
+  content: ' ';
+  position: absolute;
+  pointer-events: none;
+  top: -10px;
+  left: -30px;
+  right: -30px;
+  bottom: -50px;
+  background-image: url('../assets/gui/tablet-backdrop.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.8));
+  z-index: 10;
 }

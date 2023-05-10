@@ -7,8 +7,8 @@ export default class StarclockActorSheet extends ActorSheet {
     // Default options
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            width: 800,
-            height: 500,
+            width: 840,
+            height: 495,
             resizable: false,
             tabs: [{
                     navSelector: '.tabs',

@@ -281,6 +281,10 @@
   flex: 0 0 45px;
 }
 
+.skill-groups > label {
+  flex-basis: 25%;
+}
+
 .skill {
   flex-basis: calc(20% - 32px);
 }

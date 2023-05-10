@@ -1,3 +1,8 @@
+.item-list {
+  margin: 0;
+  padding: 0;
+}
+
 .item-header {
   color: #FFF;
   border-radius: 8px;

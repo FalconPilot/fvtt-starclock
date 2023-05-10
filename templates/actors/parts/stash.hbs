@@ -1,10 +1,10 @@
 {{#if (hasElements @root/stash)}}
   {{#each @root/inventory as |items sid|}}
     <h2 class="neon-pink-pseudo">{{ localize sid }}</h2>
-    <ol class="item-list">
+    <ol class="item-list gap">
       {{#each items as |item iid|}}
         <li class="item flexrow inventory-item mgv" draggable="true">
-          <div class="inv-item-mini neon-pink pg">
+          <div class="inv-item-mini neon-pink">
             <img src="{{item.img}}" draggable="false" />
           </div>
           <div class="flexcol pg topv">
@@ -13,7 +13,7 @@
             </div>
           </div>
           {{#if @root/owner}}
-            <div class="item-controls flexcol pg">
+            <div class="item-controls flexcol">
               <a
                 class="item-control item-edit"
                 title="{{localize "SCLK.Edit"}}"

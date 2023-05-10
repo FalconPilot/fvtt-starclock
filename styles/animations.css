@@ -1,0 +1,178 @@
+@keyframes daicomIntro {
+  0% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  90% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes daicomLockWrapper {
+  0% {
+    border-color: #FFF;
+    box-shadow: 0px 0px 5px #FFF, 0px 0px 5px #FFF inset;
+  }
+  45% {
+    border-color: #FFF;
+    box-shadow: 0px 0px 5px #FFF, 0px 0px 5px #FFF inset;
+  }
+  55% {
+    border-color: rgb(49 206 38);
+    box-shadow: 0px 0px 5px rgb(49 206 38), 0px 0px 5px rgb(49 206 38) inset;
+  }
+  100% {
+    border-color: rgb(49 206 38);
+    box-shadow: 0px 0px 5px rgb(49 206 38), 0px 0px 5px rgb(49 206 38) inset;
+  }
+}
+
+@keyframes daicomLock {
+  0% {
+    opacity: 0;
+    filter: none;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+  }
+  45% {
+    filter: none;
+  }
+  50% {
+    transform: translateX(165px);
+  }
+  55% {
+    filter: brightness(0.7) sepia(1) hue-rotate(60deg) saturate(2) drop-shadow(0px 0px 2px rgb(49 206 38));
+  }
+  100% {
+    transform: translateX(165px);
+    filter: brightness(0.7) sepia(1) hue-rotate(60deg) saturate(2) drop-shadow(0px 0px 2px rgb(49 206 38));
+  }
+}
+
+@keyframes daicomLogo {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes daicomLine {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    width: 200px;
+    opacity: 0;
+  }
+  20% {
+    width: 180px;
+    opacity: 1;
+  }
+  70% {
+    width: 180px;
+    opacity: 1;
+  }
+  90% {
+    width: 90px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.daicom-anim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.75);
+  animation: daicomIntro linear 2s;
+}
+
+.daicom-anim:before {
+  content: ' ';
+  width: 190px;
+  height: 88px;
+  background-image: url('../assets/gui/daicom-white.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  animation: daicomLogo ease-out 2s;
+  filter: drop-shadow(0 0 2px #000);
+  z-index: 5;
+}
+
+.daicom-anim:after {
+  content: ' ';
+  width: 180px;
+  height: 2px;
+  margin-top: -25px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 5px #0ABDC6;
+  background-color: #0ABDC6;
+  animation: daicomLine ease-in 2s;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.daicom-anim-lock {
+  position: absolute;
+  height: 50px;
+  left: 312px;
+  right: 312px;
+  bottom: 100px;
+  border: 1px solid #FFF;
+  border-radius: 25px;
+  animation: daicomLockWrapper ease-in-out 2s;
+  z-index: 5;
+}
+
+.daicom-anim-lock:after {
+  content: ' ';
+  height: 35px;
+  width: 35px;
+  margin-left: 5px;
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: url('../assets/gui/lock.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: brightness(0.7) sepia(1) hue-rotate(60deg) saturate(2) drop-shadow(0px 0px 2px rgb(49 206 38));
+  animation: daicomLock ease-in-out 2s;
+}
