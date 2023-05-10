@@ -4,6 +4,14 @@ export default class StarclockItemSheet extends ItemSheet {
     get template() {
         return `${basePath}/templates/items/${this.item.type}.hbs`;
     }
+    // Default options
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            width: 500,
+            height: 400,
+            resizable: false,
+        });
+    }
     // Get item data
     getData() {
         const data = super.getData();

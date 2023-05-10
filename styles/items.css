@@ -4,6 +4,8 @@
 }
 
 .item-header {
+  position: relative;
+  height: 120px;
   color: #FFF;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5) inset;
@@ -12,22 +14,30 @@
 
 .item-header > img.full-picture {
   max-width: 100%;
-  max-height: 150px;
-  flex-basis: auto;
-  flex-grow: 0;
+  max-height: 100%;
+  flex: 0 1 auto;
   border: none;
 }
 
-.item-header > h1 {
-  width: 100%;
-  flex: 1;
-  margin-bottom: 0;
+.item-header > label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-bottom: 0;
   background-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1;
 }
 
-.item-header > h1 > input {
-  height: 1.5em;
+.item-header > label:before {
+  content: '>';
+  font-family: 'OstrichSans';
+  padding-left: 8px;
+}
+
+.item-header > label > input {
   color: #333;
   font-family: 'OstrichSans';
   background-color: transparent;

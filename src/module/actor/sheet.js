@@ -12,6 +12,7 @@ export default class StarclockActorSheet extends ActorSheet {
       width: 840,
       height: 495,
       resizable: false,
+      classes: ['daicom-tablet'],
       tabs: [{
         navSelector: '.tabs',
         contentSelector: '.tab-content',
@@ -20,12 +21,45 @@ export default class StarclockActorSheet extends ActorSheet {
     })
   }
 
+  // Override renderer
+  async _renderOuter(...args) {
+    return super._renderOuter(...args)
+      .then(this.appendAnimation())
+  }
+
   // Activate listeners
   activateListeners(html) {
     super.activateListeners(html)
 
     html.find('.item-delete').on('click', this._onItemDelete.bind(this))
     html.find('.item-edit').on('click', this._onItemEdit.bind(this))
+  }
+
+  // Append animation component
+  appendAnimation() {
+    const delay = 20
+    let count = 0
+    const intervalId = window.setInterval(() => {
+      const wrapper = document.getElementById(this.id)
+      // Display wrapper if found
+      if (wrapper) {
+        window.clearInterval(intervalId)
+        const animWrapper = document.createElement('div')
+        animWrapper.className = 'daicom-anim flexcol centerv centerh'
+  
+        const lockWrapper = document.createElement('div')
+        lockWrapper.className = 'daicom-anim-lock flexrow centerv lefth'
+  
+        animWrapper.appendChild(lockWrapper)
+        wrapper.appendChild(animWrapper)
+      // Abort animation if delay is over 200ms
+      } else if (delay * count > 200) {
+        window.clearInterval(intervalId)
+      // Increment count
+      } else {
+        count++
+      }
+    }, 20)
   }
   
   // On item delete

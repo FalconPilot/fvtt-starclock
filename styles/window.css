@@ -1,13 +1,13 @@
-.window-app.sheet > header.window-header {
+.window-app.daicom-tablet > header.window-header {
   padding: 25px 20px 0 20px;
   flex: 0 0 55px;
 }
 
-.window-app.sheet {
+.window-app.daicom-tablet {
   box-shadow: none;
 }
 
-.window-app.sheet:after {
+.window-app.daicom-tablet:after {
   content: ' ';
   position: absolute;
   pointer-events: none;
@@ -21,4 +21,19 @@
   background-position: center;
   filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.8));
   z-index: 10;
+}
+
+.window-title {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+form:not(.locked) img[data-edit=img]:hover {
+  cursor: pointer;
+}
+
+form.locked img[data-edit=img]:hover {
+  cursor: not-allowed;
 }

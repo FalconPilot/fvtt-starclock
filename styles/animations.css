@@ -118,7 +118,7 @@
   pointer-events: none;
   z-index: 3;
   background-color: rgba(0, 0, 0, 0.75);
-  animation: daicomIntro linear 2s;
+  animation: daicomIntro linear 1.6s;
 }
 
 .daicom-anim:before {
@@ -130,7 +130,7 @@
   background-repeat: no-repeat;
   background-position: center;
   pointer-events: none;
-  animation: daicomLogo ease-out 2s;
+  animation: daicomLogo ease-out 1.6s;
   filter: drop-shadow(0 0 2px #000);
   z-index: 5;
 }
@@ -143,7 +143,7 @@
   border-radius: 2px;
   box-shadow: 0px 0px 5px #0ABDC6;
   background-color: #0ABDC6;
-  animation: daicomLine ease-in 2s;
+  animation: daicomLine ease-in 1.6s;
   pointer-events: none;
   z-index: 4;
 }
@@ -156,7 +156,7 @@
   bottom: 100px;
   border: 1px solid #FFF;
   border-radius: 25px;
-  animation: daicomLockWrapper ease-in-out 2s;
+  animation: daicomLockWrapper ease-in-out 1.6s;
   z-index: 5;
 }
 
@@ -174,5 +174,5 @@
   background-repeat: no-repeat;
   background-size: contain;
   filter: brightness(0.7) sepia(1) hue-rotate(60deg) saturate(2) drop-shadow(0px 0px 2px rgb(49 206 38));
-  animation: daicomLock ease-in-out 2s;
+  animation: daicomLock ease-in-out 1.6s;
 }

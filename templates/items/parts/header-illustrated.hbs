@@ -1,11 +1,11 @@
-<header class="item-header flexcol centerh mgb">
+<header class="item-header flexcol centerh centerv mgb">
   <img
     src="{{item.img}}"
     data-edit="img"
     title="{{item.name}}"
-    class="pgv full-picture{{#if neon}} neon-{{neon}}{{/if}}"
+    class="full-picture{{#if neon}} neon-{{neon}}{{/if}}"
   />
-  <h1>
+  <label class="flexrow centerv neon-green-pseudo">
     <input
       type="text"
       name="name"
@@ -13,5 +13,5 @@
       class="pg"
       placeholder="{{ localize 'SCLK.ItemName' }}"
     />
-  </h1>
+  </label>
 </header>

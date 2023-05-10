@@ -35,6 +35,10 @@ li.directory-item.document.item > img.thumbnail {
   transition: 0.2s;
 }
 
+.directory .directory-list {
+  overflow-x: hidden;
+}
+
 .directory .directory-list .directory-item.document {
   box-shadow: 0px 0px 30px rgb(0 0 0 / 50%) inset;
 }
