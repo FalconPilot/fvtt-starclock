@@ -4,6 +4,7 @@ import StarclockActorSheet from './module/actor/sheet.js'
 import { systemName } from './constants.js'
 import { preloadHandlebarTemplates, registerHandlebarHelpers } from './module/templates.js'
 import { starclock } from './module/config.js'
+import { registerHooks } from './hooks.js'
 
 declare global {
   var foundry: any
@@ -33,3 +34,5 @@ Hooks.once('init', () => {
   preloadHandlebarTemplates()
   registerHandlebarHelpers()
 })
+
+registerHooks()

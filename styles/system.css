@@ -31,10 +31,6 @@ li.directory-item.flexrow {
   position: relative;
 }
 
-li.directory-item.document.item > img.thumbnail {
-  transition: 0.2s;
-}
-
 .directory .directory-list {
   overflow-x: hidden;
 }
@@ -47,7 +43,7 @@ li.directory-item.document.item > img.thumbnail {
   border-bottom: 1px solid var(--color-border-dark-3);
 }
 
-.directory .directory-list li.directory-item.document.item img.thumbnail {
+.directory .directory-list li.directory-item.weapon.document.item img.thumbnail {
   width: auto;
   height: auto;
   transform: rotate(-8deg);

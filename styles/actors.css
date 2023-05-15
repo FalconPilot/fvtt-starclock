@@ -147,34 +147,49 @@
 }
 
 .inventory-item {
-  border: 1px solid #CCC;
-  border-radius: 2px;
-  flex-basis: 100px;
+  position: relative;
+  border-radius: 8px;
+  flex-basis: 60px;
+  background-color: rgba(100, 100, 100, 0.3);
+  overflow: hidden;
 }
 
-.inventory-item > div {
-  margin-bottom: auto;
+.inventory-item .item-infos {
+  flex: 0 0;
 }
 
-.inv-item-mini {
-  flex: 0;
-  flex-basis: 200px;
-  align-self: center;
+.inventory-item > a.item-edit {
+  flex: 1;
+  height: 60px;
 }
 
-.inv-item-mini > img {
+.inventory-item.weapon .item-img {
+  position: absolute;
+  top: 0;
+  right: -25px;
+  bottom: 0;
+  clip-path: polygon(0 -20px, 100% 0px, 100% 90px, 0 40px);
+  transform: rotate(-8deg);
   border: none;
+  pointer-events: none;
 }
 
 .inv-item-name {
   font-size: 20px;
+  border: none;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .inventory-item .item-controls {
+  position: relative;
+  height: 60px;
   flex: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
-.item-damage > strong {
+.item-damage > i {
   white-space: nowrap;
 }
 
@@ -196,85 +211,8 @@
   border: none;
 }
 
-.character-wounds > h4 {
-  text-align: center;
+.character-common-data > * {
   flex: 0;
-}
-
-.wounds-row {
-  width: 100%;
-  flex-wrap: nowrap;
-  flex: 0 0 20px;
-}
-
-.wounds-row label {
-  position: relative;
-  height: 100%;
-  flex: 0 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #CCC;
-  border-radius: 0;
-  overflow: hidden;
-}
-
-.wounds-row:first-of-type label:first-of-type {
-  border-radius: 4px 0 0 0;
-}
-
-.wounds-row:first-of-type label:last-of-type {
-  border-radius: 0 4px 0 0;
-}
-
-.wounds-row:last-of-type label:first-of-type {
-  border-radius: 0 0 0 4px;
-}
-
-.wounds-row:last-of-type label:last-of-type {
-  border-radius: 0 0 4px 0;
-}
-
-.wounds-row label:not(:first-of-type) {
-  border-left: none;
-}
-
-.wounds-row:not(:first-of-type) label {
-  border-top: none;
-}
-
-.wounds-row label:hover {
-  cursor: pointer;
-}
-
-.wounds-row input[type=radio] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  appearance: none;
-  margin: 0;
-  z-index: -1;
-  filter: none;
-}
-
-.wounds-row.stun input[type=radio]:checked {
-  background-color: #0ABDC6;
-}
-
-.wounds-row.light input[type=radio]:checked {
-  background-color: rgb(49 206 38);
-}
-
-.wounds-row.medium input[type=radio]:checked {
-  background-color: rgb(255 227 25);
-}
-
-.wounds-row.heavy input[type=radio]:checked {
-  background-color: #BB1F1F;
 }
 
 .line-input[name='data.bodyType'] {
@@ -299,8 +237,29 @@
   flex: 1;
 }
 
+.profile-img-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+}
+
+.profile-img-wrapper:before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #000;
+  border-radius: 8px;
+  z-index: 2;
+  pointer-events: none;
+}
+
 .profile-img {
-  width: 130px;
-  height: 130px;
-  flex: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 8px;
 }

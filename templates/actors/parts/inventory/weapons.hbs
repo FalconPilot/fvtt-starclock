@@ -1,0 +1,29 @@
+{{#if (hasElements itemsList)}}
+  {{#each itemsList as |items sid|}}
+    <h2 class="neon-pink-pseudo">{{ localize sid }}</h2>
+    <ol class="item-list gap flexcol">
+      {{#each items as |item iid|}}
+        <li class="item flexrow inventory-item weapon gap topv" draggable="true">
+          <div class="item-infos flexcol topv pg gap">
+            <div class="flexrow">
+              <h3 class="inv-item-name">{{item.name}}</h3>
+            </div>
+            <div class="flexrow item-damage centerv">
+              <i>{{item.system.damage}}{{localize "SCLK.DamageAbridged"}} {{item.system.pierce}}{{localize "SCLK.PierceAbridged"}}</i>
+            </div>
+          </div>
+          <a class="item-edit neon-pink neon-white-hover" data-id="{{item._id}}">
+            <img
+              class="item-img"
+              src="{{item.img}}"
+              draggable="false"
+            />
+          </a>
+          {{> "systems/starclock/templates/actors/parts/inventory/controls.hbs" item=item }}
+        </li>
+      {{/each}}
+    </ol>
+  {{/each}}
+{{else}}
+  <h2 class="neon-pink-pseudo">{{localize emptyKey}}</h2>
+{{/if}}

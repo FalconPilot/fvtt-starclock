@@ -5,12 +5,25 @@
       src="systems/starclock/assets/races/{{actor.system.race}}_sil_{{actor.system.bodyType}}.png"
     />
   </div>
-  <div class="character-wounds flexcol topv centerh">
-    <img
-      class="profile-img"
-      src="{{actor.img}}"
-      data-edit="img"
-      title="{{actor.name}}"
-    />
+  <div class="character-common-data flexcol topv centerh gap">
+    <div class="profile-img-wrapper neon-pink-pseudo">
+      <img
+        class="profile-img"
+        data-edit="img"
+        src="{{actor.img}}"
+        title="{{actor.name}}"
+      />
+    </div>
+    <label class="flexrow money-input bottomv neon-pink-pseudo">
+      <input
+        class="line-input"
+        type="number"
+        name="system.starCredits"
+        value="{{@root/actor.system.starCredits}}"
+        min="0"
+        data-dtype="Number"
+      />
+      <h3 class="line-input pgl">{{localize "SCLK.StarCredits"}}</h3>
+    </label>
   </div>
 </div>

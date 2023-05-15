@@ -10,6 +10,9 @@ export const preloadHandlebarTemplates = async () =>
 
     // Actor partials
     `${basePath}/templates/actors/parts/infos.hbs`,
+    `${basePath}/templates/actors/parts/inventory/controls.hbs`,
+    `${basePath}/templates/actors/parts/inventory/items.hbs`,
+    `${basePath}/templates/actors/parts/inventory/weapons.hbs`,
 
     // Item partials
     `${basePath}/templates/items/parts/damage.hbs`,

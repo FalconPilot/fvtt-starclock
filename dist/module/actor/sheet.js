@@ -89,7 +89,7 @@ export default class StarclockActorSheet extends ActorSheet {
         const [inventory, stash, weapons] = data.items.reduce((acc, item) => {
             const isStashed = item.system.stashed;
             const isWeapon = item.type === 'rangedWeapon' || item.type === 'meleeWeapon';
-            const key = `ITEM.Type${item.type[0].toUpperCase()}${item.type.slice(1)}`;
+            const key = `ITEM.Type${item.type[0].toUpperCase()}${item.type.slice(1).toLowerCase()}`;
             const idx = isStashed ? 1 : isWeapon ? 2 : 0;
             return acc.map((v, i) => {
                 const basis = v[key] ? v[key] : [];

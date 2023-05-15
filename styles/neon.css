@@ -1,10 +1,11 @@
 .neon-pink,
 .neon-pink-pseudo:before,
 .neon-pink-pseudo:after,
+.neon-pink-hover:hover,
 /* Apply to filepicker buttons */
 .filepicker .display-modes a.active,
 /* Apply to thumbnail */
-li.directory-item.document.item:not(:hover) > img.thumbnail,
+li.directory-item.weapon.document.item:not(:hover) > img.thumbnail,
 /* Apply to lightbox */
 .lightbox-image[style*='/weapons'],
 /* Apply to active tab */
@@ -15,14 +16,16 @@ li.directory-item.document.item:not(:hover) > img.thumbnail,
 .neon-white,
 .neon-white-pseudo:before,
 .neon-white-pseudo:after,
+.neon-white-hover:hover,
 /* Apply to thumbnail */
-li.directory-item.document.item:hover > img.thumbnail {
+li.directory-item.weapon.document.item:hover > img.thumbnail {
   filter: contrast(0.0) brightness(1.5) drop-shadow(0px 0px 3px #FFF);
 }
 
 .neon-green,
 .neon-green-pseudo:before,
 .neon-green-pseudo:after,
+.neon-green-hover:hover,
 /* Apply to tablet header */
 .app.window-app.sheet[id*='actor']:not([id*='item']) .window-header {
   filter: brightness(0.55) sepia(1) saturate(2.4) hue-rotate(60deg) drop-shadow(0px 0px 2px rgb(49 206 38));

@@ -3,6 +3,7 @@ import StarclockActorSheet from './module/actor/sheet.js';
 import { systemName } from './constants.js';
 import { preloadHandlebarTemplates, registerHandlebarHelpers } from './module/templates.js';
 import { starclock } from './module/config.js';
+import { registerHooks } from './hooks.js';
 const ASCIIART = `
 __            _             
 (_ _|_  _. ._ /  |  _   _ |  
@@ -22,3 +23,4 @@ Hooks.once('init', () => {
     preloadHandlebarTemplates();
     registerHandlebarHelpers();
 });
+registerHooks();
