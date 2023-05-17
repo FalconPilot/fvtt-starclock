@@ -30,3 +30,32 @@ li.directory-item.weapon.document.item:hover > img.thumbnail {
 .app.window-app.sheet[id*='actor']:not([id*='item']) .window-header {
   filter: brightness(0.55) sepia(1) saturate(2.4) hue-rotate(60deg) drop-shadow(0px 0px 2px rgb(49 206 38));
 }
+
+.neon-red,
+.neon-red-pseudo:before,
+.neon-red-pseudo:after,
+.neon-red-hover:hover {
+  filter: contrast(0.5) sepia(1) hue-rotate(300deg) brightness(1.5) contrast(1.5) saturate(3) drop-shadow(0px 0px 3px #F00);
+}
+
+.neon-blue,
+.neon-blue-pseudo:before,
+.neon-blue-pseudo:after,
+.neon-blue-hover:hover {
+  filter: contrast(0.1) sepia(1) hue-rotate(150deg) brightness(1.5) contrast(1.5) saturate(3) drop-shadow(0px 0px 3px #5CF);
+}
+
+.neon-yellow,
+.neon-yellow-pseudo:before,
+.neon-yellow-pseudo:after,
+.neon-yellow-hover:hover {
+  filter: contrast(0.35) sepia(1) hue-rotate(335deg) brightness(1.7) contrast(1.7) saturate(3) drop-shadow(0px 0px 3px #FC0);
+}
+
+input.neon-pink::selection,
+input.neon-white::selection,
+input.neon-red::selection,
+input.neon-blue::selection,
+input.neon-yellow::selection {
+  background: rgba(0, 0, 0, 0.3);
+}

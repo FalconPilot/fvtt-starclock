@@ -134,6 +134,7 @@
       "ammoType": "lightPistol",
       "ammoMax": 1,
       "ammoCurrent": 1,
+      "reliability": 2,
       "range": "short"
     },
     "trait": {

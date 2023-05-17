@@ -1,20 +1,16 @@
-{{#if (hasElements itemsList)}}
-  {{#each itemsList as |items sid|}}
-    <h2 class="neon-pink-pseudo">{{ localize sid }}</h2>
-    <ol class="item-list gap flexcol">
-      {{#each items as |item iid|}}
-        <li class="item flexrow inventory-item pg gap centerv" draggable="true">
-          <img class="inv-item-mini" src="{{item.img}}" draggable="false" />
-          <div class="flexcol pg topv">
-            <div class="flexrow">
-              <h3 class="inv-item-name">{{item.name}}</h3>
-            </div>
+{{#each itemsList as |items sid|}}
+  <h2 class="neon-pink-pseudo">{{ localize sid }}</h2>
+  <ol class="item-list gap flexcol">
+    {{#each items as |item iid|}}
+      <li class="item flexrow inventory-item gap centerv" draggable="true">
+        <img class="inv-item-mini" src="{{item.img}}" draggable="false" />
+        <div class="flexcol pg topv">
+          <div class="flexrow">
+            <h3 class="inv-item-name">{{item.name}}</h3>
           </div>
-          {{> "systems/starclock/templates/actors/parts/inventory/controls.hbs" item=item }}
-        </li>
-      {{/each}}
-    </ol>
-  {{/each}}
-{{else}}
-  <h2 class="neon-pink-pseudo">{{localize emptyKey}}</h2>
-{{/if}}
+        </div>
+        {{> "systems/starclock/templates/actors/parts/inventory/controls.hbs" item=item isStash=../../isStash }}
+      </li>
+    {{/each}}
+  </ol>
+{{/each}}

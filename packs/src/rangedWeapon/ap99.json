@@ -1,0 +1,23 @@
+{
+  "name": "AP99",
+  "img": "systems/starclock/assets/weapons/ap99.png",
+  "data": {
+    "description": "Malgré son canon court et son absence de crosse, ce fusil possède un chargeur tambour dérivé d'un modèle confédéré se révèle terrifiant entre les mains d'un contrebandier.",
+    "weaponShape": "rifle",
+    "price": 2000,
+    "weight": 4200,
+    "damage": 5,
+    "damageType": "physical",
+    "pierce": 0,
+    "reliability": 1,
+    "range": "short",
+    "ammoType": "shells",
+    "ammoMax": 20,
+    "ammoCurrent": 20,
+    "firingRates": {
+      "single": 1,
+      "semi": 2,
+      "auto": null
+    }
+  }
+}

@@ -20,7 +20,7 @@
     "EmptyArsenal": "Arsenal vide",
     "EmptyInventory": "Inventaire vide",
     "EmptyStash": "Réserve vide",
-    "HeightLabel": "ans et mesure",
+    "HeightLabel": "ans je et mesure",
     "HeightLabel2": "de hauteur.",
     "ItemDescription": "Description",
     "ItemName": "Nom",
@@ -33,9 +33,14 @@
       "HeavyPistol": "Pistolet lourd",
       "LightRifle": "Fusil léger",
       "HeavyRifle": "Fusil lourd",
+      "SmallVial": "Petite fiole",
+      "LargeVial": "Grande fiole",
+      "LightCell": "Cellule légère",
+      "HeavyCell": "Cellule lourde",
       "Antimaterial": "Antimatériel",
       "Shells": "Cartouches",
       "Arrows": "Flèches",
+      "Bolts": "Carreaux",
       "Grenades": "Grenades",
       "Rockets": "Missiles"
     },
@@ -56,6 +61,10 @@
     "DamageType": {
       "Physical": "Physique",
       "Energy": "Energie"
+    },
+    "ShortDamageType": {
+      "Physical": "PHY",
+      "Energy": "ENE"
     },
     "Races": {
       "Human": "Humain",

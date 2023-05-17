@@ -3,12 +3,36 @@
   --color-bg-btn-minor-active: rgba(0, 0, 0, 0.5);
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFF;
+  border: none;
+  border-radius: 2px;
+}
+
 h1, h2, h3, h4, h5 {
   font-family: 'OstrichSans';
 }
 
+h2 {
+  font-size: 1.6em;
+}
+
 h4 {
   font-size: 18px;
+}
+
+img {
+  border-radius: 0;
+  border: none;
+}
+
+input[type=text],
+input[type=number] {
+  width: auto;
 }
 
 .window-app .window-content {

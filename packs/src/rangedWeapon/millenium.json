@@ -1,0 +1,23 @@
+{
+  "name": "Millenium",
+  "img": "systems/starclock/assets/weapons/millenium.png",
+  "data": {
+    "description": "Le Millenium est le fusil standard de l'armée Impériale. Son apparence exotique le rend très icônique chez les amateurs d'histoire militaire.",
+    "weaponShape": "rifle",
+    "price": 5000,
+    "weight": 4000,
+    "damage": 4,
+    "damageType": "energy",
+    "pierce": 1,
+    "reliability": 2,
+    "range": "medium",
+    "ammoType": "heavyCell",
+    "ammoMax": 20,
+    "ammoCurrent": 20,
+    "firingRates": {
+      "single": 1,
+      "semi": 2,
+      "auto": 3
+    }
+  }
+}

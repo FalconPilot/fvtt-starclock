@@ -1,0 +1,23 @@
+{
+  "name": "Mousquetaire",
+  "img": "systems/starclock/assets/weapons/mousquetaire.png",
+  "data": {
+    "description": "Ce fusil à levier du royaume de Fleuralys est très répandu chez les riches éleveurs, propriétaires terriens et industriels souhaitant s'équiper d'armes à la pointe de la technologie pour défendre leurs terres.",
+    "weaponShape": "rifle",
+    "price": 3000,
+    "weight": 4500,
+    "damage": 5,
+    "damageType": "energy",
+    "pierce": 2,
+    "reliability": 2,
+    "range": "medium",
+    "ammoType": "largeVial",
+    "ammoMax": 4,
+    "ammoCurrent": 4,
+    "firingRates": {
+      "single": 1,
+      "semi": null,
+      "auto": null
+    }
+  }
+}

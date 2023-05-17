@@ -54,17 +54,80 @@
 .item-damage {
   width: 100%;
   flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
-.item-damage > *:not(select) {
-  flex-grow: 0;
-  flex-shrink: 0;
+.item-damage > * {
+  flex: 0;
 }
 
-.item-damage select {
-  flex-grow: 1;
+.item-damage > select {
+  flex: 1;
 }
 
-.weapon-attachment a.entity-link {
-  background-color: transparent;
+.item-damage input[type=number] {
+  width: 28px;
+  text-align: center;
+}
+
+.item-damage > span > span {
+  font-size: 16px;
+  font-family: 'OstrichSans';
+}
+
+.item-damage i.neon-red {
+  color: #111;
+}
+
+.damage-type {
+  color: #333;
+  font-size: 18px;
+  font-family: 'OstrichSans';
+}
+
+.weapon-ammo {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 65px;
+  flex: 0;
+  color: #111;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.weapon-ammo > div {
+  width: 100%;
+}
+
+.weapon-ammo > div > input[type=number],
+.weapon-ammo > div > span {
+  font-family: 'OstrichSans';
+  font-size: 18px;
+  color: #111 !important;
+  flex: 0;
+}
+
+.weapon-ammo > div > input[type=number]:first-of-type,
+.weapon-ammo > div > input[type=number]:last-of-type {
+  flex: 1;
+}
+
+.weapon-ammo > div > input[type=number]:first-of-type {
+  text-align: right;
+}
+
+.weapon-ammo > div > input[type=number]:last-of-type {
+  text-align: left;
+}
+
+.weapon-ammo input[type=number] {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
 }

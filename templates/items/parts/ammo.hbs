@@ -1,0 +1,39 @@
+{{#if (exists item.system.ammoMax)}}
+  <div class="weapon-ammo flexcol centerv centerh">
+    <div class="flexrow centerv centerh">
+      {{#if displayOnly}}
+        <span class="{{damageNeon item.system.damageType}}">
+          {{item.system.ammoCurrent}}
+        </span>
+        <span class="neon-white">/</span>
+        <span class="{{damageNeon item.system.damageType}}">
+          {{item.system.ammoMax}}
+        </span>
+      {{else}}
+        <input
+          type="number"
+          class="{{damageNeon item.system.damageType}}"
+          min="0"
+          max="{{item.system.ammoMax}}"
+          name="system.ammoCurrent"
+          value="{{item.system.ammoCurrent}}"
+          data-dtype="Number"
+        />
+        <span class="neon-white">/</span>
+        <input
+          type="number"
+          class="{{damageNeon item.system.damageType}}"
+          min="0"
+          name="system.ammoMax"
+          value="{{item.system.ammoMax}}"
+          data-dtype="Number"
+        />
+      {{/if}}
+    </div>
+    <img
+      class="{{damageNeon item.system.damageType}}"
+      src="systems/starclock/assets/ammo/{{item.system.ammoType}}.png"
+      onerror="this.style.display='none'"
+    />
+  </div>
+{{/if}}

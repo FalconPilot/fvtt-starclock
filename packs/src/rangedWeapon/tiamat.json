@@ -1,0 +1,23 @@
+{
+  "name": "Tiamat AMR",
+  "img": "systems/starclock/assets/weapons/tiamat.png",
+  "data": {
+    "description": "Le fusil antimatériel Tiamat est utilisé par l'armée confédérée pour endommager les véhicules légers. Pour un humanoïde, prendre un tir d'un si gros calibre signifie en général une mort brusque et inévitable.",
+    "weaponShape": "rifle",
+    "price": 6000,
+    "weight": 7500,
+    "damage": 10,
+    "damageType": "physical",
+    "pierce": 10,
+    "reliability": 2,
+    "range": "long",
+    "ammoType": "antimaterial",
+    "ammoMax": 8,
+    "ammoCurrent": 8,
+    "firingRates": {
+      "single": 1,
+      "semi": null,
+      "auto": null
+    }
+  }
+}

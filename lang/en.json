@@ -33,9 +33,14 @@
       "HeavyPistol": "Heavy Pistol",
       "LightRifle": "Light Rifle",
       "HeavyRifle": "Heavy Rifle",
+      "SmallVial": "Small Vial",
+      "LargeVial": "Large Vial",
+      "LightCell": "Light Energy Cell",
+      "HeavyCell": "Heavy Energy Cell",
       "Antimaterial": "Antimaterial",
       "Shells": "Shells",
       "Arrows": "Arrows",
+      "Bolts": "Bolts",
       "Grenades": "Grenades",
       "Rockets": "Rockets"
     },
@@ -56,6 +61,10 @@
     "DamageType": {
       "Physical": "Physical",
       "Energy": "Energy"
+    },
+    "ShortDamageType": {
+      "Physical": "PHY",
+      "Energy": "ENE"
     },
     "Races": {
       "Human": "Human",

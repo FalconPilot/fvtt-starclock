@@ -1,0 +1,23 @@
+{
+  "name": "UMG90",
+  "img": "systems/starclock/assets/weapons/umg90.png",
+  "data": {
+    "description": "L'UMG90 est le fusil mitrailleur standard de l'armée confédérée. Sa cadence de tir phénoménale en fait une arme particulièrement redoutée et dangereuse.",
+    "weaponShape": "rifle",
+    "price": 12000,
+    "weight": 11000,
+    "damage": 4,
+    "damageType": "physical",
+    "pierce": 2,
+    "reliability": 2,
+    "range": "medium",
+    "ammoType": "heavyRifle",
+    "ammoMax": 100,
+    "ammoCurrent": 100,
+    "firingRates": {
+      "single": 1,
+      "semi": 5,
+      "auto": 10
+    }
+  }
+}

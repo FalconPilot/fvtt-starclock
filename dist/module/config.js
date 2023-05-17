@@ -35,14 +35,23 @@ export const starclock = {
         lightRifle: 'SCLK.AmmoTypes.LightRifle',
         heavyRifle: 'SCLK.AmmoTypes.HeavyRifle',
         antimaterial: 'SCLK.AmmoTypes.Antimaterial',
+        smallVial: 'SCLK.AmmoTypes.SmallVial',
+        largeVial: 'SCLK.AmmoTypes.LargeVial',
+        lightCell: 'SCLK.AmmoTypes.LightCell',
+        heavyCell: 'SCLK.AmmoTypes.HeavyCell',
         shells: 'SCLK.AmmoTypes.Shells',
         arrows: 'SCLK.AmmoTypes.Arrows',
+        bolts: 'SCLK.AmmoTypes.Bolts',
         grenades: 'SCLK.AmmoTypes.Grenades',
         rockets: 'SCLK.AmmoTypes.Rockets',
     },
     damageType: {
         physical: 'SCLK.DamageType.Physical',
         energy: 'SCLK.DamageType.Energy',
+    },
+    shortDamageType: {
+        physical: 'SCLK.ShortDamageType.Physical',
+        energy: 'SCLK.ShortDamageType.Energy',
     },
     races: {
         human: "SCLK.Races.Human",
@@ -75,4 +84,18 @@ export const starclock = {
         sports: 'SCLK.Skills.Sports',
         understanding: 'SCLK.Skills.Understanding',
     },
+    credits: [
+        {
+            authorName: 'Nariilya',
+            authorLink: 'https://nariilya.com',
+            contributions: [
+                'All species silhouettes',
+            ],
+        },
+        {
+            authorName: 'Robbe',
+            authorLink: 'https://www.flickr.com/photos/145236510@N06/',
+            contributions: [],
+        },
+    ]
 };

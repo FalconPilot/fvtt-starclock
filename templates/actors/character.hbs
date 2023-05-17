@@ -11,13 +11,13 @@
   <div class="flexrow character-tablet-middle">
     <section class="tab-content">
       {{~#each config.tabs as |name tab|}}
-      <div
-        class="tab {{tab}} flexcol topv"
-        data-group="primary"
-        data-tab="{{tab}}"
-      >
-        {{> (actortab tab)}}
-      </div>
+        <div
+          class="tab {{tab}} flexcol topv pgb gap"
+          data-group="primary"
+          data-tab="{{tab}}"
+        >
+          {{> (actortab tab)}}
+        </div>
       {{/each}}
     </section>
     <section class="character-infos flexcol neon-pink-pseudo">

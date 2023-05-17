@@ -1,21 +1,44 @@
 <div class="flexrow item-damage centerv gap">
-  <strong>{{localize "SCLK.Damage"}}</strong>
-  <input
-    type="text"
-    name="system.damage"
-    value="{{item.system.damage}}"
-    data-dtype="Number"
-  />
-  <strong>P</strong>
-  <input
-    type="text"
-    name="system.pierce"
-    value="{{item.system.pierce}}"
-    data-dtype="Number"
-  />
-  {{#select item.system.damageType}}
-    {{#each config.damageType as |name type|}}
-      <option value="{{type}}">{{localize name}}</option>
-    {{/each}}
-  {{/select}}
+  <span title="{{localize "SCLK.Damage"}}">
+    {{#if displayOnly}}
+      <span>{{item.system.damage}}</span>
+    {{else}}
+      <input
+        type="number"
+        name="system.damage"
+        value="{{item.system.damage}}"
+        data-dtype="Number"
+      />
+    {{/if}}
+    <i class="fas fa-hand-fist neon-red"></i>
+  </span>
+  <span title="{{localize "SCLK.Pierce"}}">
+    {{#if displayOnly}}
+      <span>{{item.system.pierce}}</span>
+    {{else}}
+      <input
+        type="number"
+        name="system.pierce"
+        value="{{item.system.pierce}}"
+        data-dtype="Number"
+      />
+    {{/if}}
+    <i class="fas fa-explosion neon-blue"></i>
+  </span>
+  {{#if displayOnly}}
+    <span class="damage-type {{damageNeon item.system.damageType}}">
+      {{localize (getKey @root/config.shortDamageType item.system.damageType)}}
+    </span>
+  {{else}}
+    <select
+      name="system.damageType"
+      class="line-input"
+    >
+      {{#select item.system.damageType}}
+        {{#each @root/config.damageType as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+        {{/each}}
+      {{/select}}
+    </select>
+  {{/if}}
 </div>

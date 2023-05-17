@@ -1,2 +1,7 @@
-{{> "systems/starclock/templates/actors/parts/inventory/items.hbs" itemsList=@root/stash emptyKey="SCLK.EmptyStash" }}
+{{#if (hasElements2 @root/stash @root/weaponsStash)}}
+  {{> "systems/starclock/templates/actors/parts/inventory/items.hbs" itemsList=@root/stash isStash=true }}
+  {{> "systems/starclock/templates/actors/parts/inventory/weapons.hbs" itemsList=@root/weaponsStash isStash=true }}
+{{else}}
+  <h2 class="neon-pink-pseudo">{{localize "SCLK.EmptyStash"}}</h2>
+{{/if}}
 

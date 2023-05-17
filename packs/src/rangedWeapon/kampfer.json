@@ -1,13 +1,15 @@
 {
-  "name": "Kämpfer GRU-12",
+  "name": "GRU-12",
   "img": "systems/starclock/assets/weapons/kampfer.png",
   "data": {
-    "description": "A hulking beast, feared by pretty much anyone with a sense of self-preservation. The best friend of any confederate anti-riot security officer.",
+    "description": "Ce fusil à pompe confédéré est le compagnon idéal des agents de sécurité, chasseurs, policiers et autres. Doté d'une grande capacité de munitions, costaud et lourd, sa seule apparence impose autant le respect que la puissance de ses cartouches.",
     "weaponShape": "rifle",
     "price": 700,
     "weight": 6500,
     "damage": 5,
+    "damageType": "physical",
     "pierce": 0,
+    "reliability": 2,
     "range": "short",
     "ammoType": "shells",
     "ammoMax": 8,

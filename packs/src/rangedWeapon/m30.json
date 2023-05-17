@@ -1,15 +1,17 @@
 {
-  "name": "M-30 Revolver",
+  "name": "Revolver M-30",
   "img": "systems/starclock/assets/weapons/m30.png",
   "data": {
-    "description": "The most iconic and classical revolver around. It's very rustic, but as cheap as it gets when it comes to getting a decent, reliable weapon.",
+    "description": "Ce revolver icônique et classique est l'une des armes les moins chères de la Confédération. Sa simplicité de fabrication fait qu'on en trouve aux quatres coins de la galaxie, même dans certains endroits reculés et improbables.",
     "weaponShape": "pistol",
     "price": 200,
     "weight": 1200,
     "damage": 2,
+    "damageType": "physical",
     "pierce": 1,
+    "reliability": 3,
     "range": "short",
-    "ammoType": "lightPistol",
+    "ammoType": "heavyPistol",
     "ammoMax": 6,
     "ammoCurrent": 6,
     "firingRates": {

@@ -155,7 +155,13 @@
 }
 
 .inventory-item .item-infos {
-  flex: 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  flex: 0;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .inventory-item > a.item-edit {
@@ -166,11 +172,16 @@
 .inventory-item.weapon .item-img {
   position: absolute;
   top: 0;
-  right: -25px;
+  right: -20px;
   bottom: 0;
   clip-path: polygon(0 -20px, 100% 0px, 100% 90px, 0 40px);
   transform: rotate(-8deg);
   border: none;
+  pointer-events: none;
+}
+
+.inventory-item.weapon .weapon-ammo {
+  right: 36px;
   pointer-events: none;
 }
 
@@ -181,16 +192,38 @@
   white-space: nowrap;
 }
 
+.inv-item-mini {
+  height: 60px;
+  width: 60px;
+  flex: 0;
+  border: none;
+}
+
 .inventory-item .item-controls {
   position: relative;
   height: 60px;
   flex: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 3;
 }
 
-.item-damage > i {
-  white-space: nowrap;
+.inventory-item .item-controls:before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  background-color: #000;
+}
+
+.item-controls > a {
+  position: relative;
+  color: #FFF;
+  text-align: center;
+  text-shadow: 1px 1px 4px #000;
+  z-index: 3;
 }
 
 .character-silhouette {

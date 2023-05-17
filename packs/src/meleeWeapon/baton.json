@@ -1,8 +1,8 @@
 {
-  "name": "Collapsible baton",
+  "name": "Matraque téléscopique",
   "img": "systems/starclock/assets/weapons/baton.png",
   "data": {
-    "description": "A compact, concealable club specifically made to hurt, not to kill... as long as you control yourself.",
+    "description": "Une matraque légère, compacte et très souvent employée pour l'autodéfense.",
     "weaponShape": "oneHanded",
     "price": 20,
     "weight": 300,

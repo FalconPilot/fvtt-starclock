@@ -1,0 +1,23 @@
+{
+  "name": "Caiman",
+  "img": "systems/starclock/assets/weapons/caiman.png",
+  "data": {
+    "description": "Emblématique des seigneurs pirates, le Caiman est l'un des revolvers lourds les plus prisés chez les hauts-gradés de la pègre. Il est fabriqué par l'arsenal militaire Impérial, ce qui le rend également particulièrement introuvable...",
+    "weaponShape": "pistol",
+    "price": 4500,
+    "weight": 2000,
+    "damage": 4,
+    "damageType": "energy",
+    "pierce": 1,
+    "reliability": 2,
+    "range": "medium",
+    "ammoType": "heavyCell",
+    "ammoMax": 5,
+    "ammoCurrent": 5,
+    "firingRates": {
+      "single": 1,
+      "semi": null,
+      "auto": null
+    }
+  }
+}
