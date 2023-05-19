@@ -55,6 +55,12 @@ export const registerHandlebarHelpers = () => {
     Handlebars.registerHelper('notEquals', (x, y) => (x !== y));
     Handlebars.registerHelper('inferior', (x, y) => (x < y));
     Handlebars.registerHelper('superior', (x, y) => (x > y));
+    Handlebars.registerHelper('concat', (...arrs) => {
+        const [args] = extractArgs(arrs);
+        return args.every(Array.isArray)
+            ? args.flat()
+            : args.reduce((acc, x) => (Object.assign(Object.assign({}, acc), x)), {});
+    });
     Handlebars.registerHelper('actortab', tab => `systems/${systemName}/templates/actors/parts/${tab}.hbs`);
     Handlebars.registerHelper('hasElements', (...args) => (extractArgs(args)[0].every(hasElt)));
     Handlebars.registerHelper('anyHasElements', (...args) => (extractArgs(args)[0].some(hasElt)));

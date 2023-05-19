@@ -34,6 +34,8 @@
     "RaceLabel": "My species is",
     "RangedWeapons": "Ranged Weapons",
     "Roll": "Roll",
+    "SkillsHeader": "Skills",
+    "WeaponMasteries": "Weapon Masteries",
     "AmmoTypes": {
       "LightPistol": "Light Pistol",
       "HeavyPistol": "Heavy Pistol",
@@ -104,11 +106,11 @@
       "TwoHanded": "Two handed",
       "Fist": "Brawling",
       "Shield": "Shield",
-      "Pistol": "Pistol",
+      "Pistol": "Handgun",
       "Rifle": "Rifle",
-      "Bow": "Bow",
+      "Bow": "Bow/Crossbow",
       "Thrown": "Thrown",
-      "Heavy": "Heavy",
+      "Heavy": "Heavy weapon",
       "Artillery": "Artillery"
     }
   },

@@ -1,4 +1,5 @@
 import { basePath } from "../../constants.js"
+import { getRollResults } from "../../utils/roll.js"
 
 export default class StarclockActorSheet extends ActorSheet {
   // Template name
@@ -86,8 +87,11 @@ export default class StarclockActorSheet extends ActorSheet {
       return ui.notifications.error('No loaded ammo found')
     }
 
+    const isMastered = this.actor.system.weaponMasteries[item.system.weaponShape]
+
     const content = await renderTemplate('systems/starclock/templates/dialogs/gunroll.hbs', {
-      item
+      item,
+      mastered: isMastered,
     })
 
     const dialog = new Dialog({
@@ -102,8 +106,74 @@ export default class StarclockActorSheet extends ActorSheet {
         submit: {
           icon: '<i class="fas fa-dice-d6"></i>',
           label: game.i18n.localize('SCLK.Roll'),
-          callback: html => {
-            console.log(html)
+          callback: async html => {
+            const firingRate = html.find('select[name=firingRate]').val()
+            const range = html.find('select[name=range]').val()
+            const hitMod = parseInt(html.find('input[name=hitMod]').val(), 10)
+
+            const weaponMaxRange = {
+              short: 1,
+              medium: 2,
+              long: 3,
+            }[item.system.range] ?? 0
+
+            const firingRateMalus = {
+              single: 0,
+              semi: 1,
+              auto: 2,
+            }[firingRate] ?? 0
+
+            const ammoFired = item.system.firingRates[firingRate]
+            const firingRateDmg = ammoFired - 1
+            const masteryBonus = isMastered ? 1 : 0
+            const rangeMalus = Math.max(0, range - weaponMaxRange)
+
+            // Calculate final amount of dice
+            const hitDice = this.actor.system.acu
+              + this.actor.system.shooting
+              + hitMod
+              + masteryBonus
+              - rangeMalus
+              - firingRateMalus
+
+            // Calculate final amount of damage
+            const finalDmg = loadedAmmoData.system.damage
+              + firingRateDmg
+
+            // Generate roll
+            const roll = await new Roll(`${Math.max(hitDice, 1)}D6`).roll({ async: true })
+
+            // Patch ammo data
+            const patchedAmmo = Object.assign({}, loadedAmmoData)
+            patchedAmmo.system.damage = finalDmg
+
+            // Compile header
+            const flavorHeader = await renderTemplate('systems/starclock/templates/chat/gunroll.hbs', {
+              item,
+              loadedAmmo: patchedAmmo,
+              config: CONFIG.starclock,
+            })
+
+            // Compile content
+            const messageContent = await renderTemplate('systems/starclock/templates/chat/diceroll.hbs', {
+              results: getRollResults(roll),
+            })
+
+            const sound = item.system.firingSound
+              ? `${item.system.firingSound}_${firingRate}.ogg`
+              : CONFIG.sounds.dice
+  
+            // Send roll to chat
+            return ChatMessage.create({
+              user: game.user.id,
+              flavor: flavorHeader,
+              speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+              rollMode: game.settings.get('core', 'rollMode'),
+              content: messageContent,
+              sound,
+            }).then(() => {
+              item.update({ 'system.ammoCurrent': item.system.ammoCurrent - ammoFired })
+            })
           }
         }
       },

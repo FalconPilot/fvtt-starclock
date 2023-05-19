@@ -7,6 +7,8 @@
 /* Apply to thumbnail */
 li.directory-item.weapon.document.item:not(:hover) > img.thumbnail,
 li.directory-item.ammo.document.item:not(:hover) > img.thumbnail,
+/* Apply to message sender */
+.message-sender,
 /* Apply to lightbox */
 .lightbox-image[style*='/weapons'],
 /* Apply to active tab */

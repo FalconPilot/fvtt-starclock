@@ -1,0 +1,45 @@
+<form autocomplete="off" onsubmit="event.preventDefault();">
+  <div class="flexcol lefth centerv gap">
+    <label class="flexrow centerv gap">
+      <h4>Firing rate</h4>
+      <select name="firingRate" data-dtype="Number">
+        {{#if item.system.firingRates.single}}
+          <option
+            value="single"
+            {{#if (inferior item.system.ammoCurrent item.system.firingRates.single)}} disabled{{/if}}
+          >
+            Single shot{{#if (notEquals item.system.firingRates.single 1)}} ({{item.system.firingRates.single}}){{/if}}
+          </option>
+        {{/if}}
+        {{#if item.system.firingRates.semi}}
+          <option
+            value="semi"
+            {{#if (inferior item.system.ammoCurrent item.system.firingRates.semi)}} disabled{{/if}}
+          >
+            Semi-automatic ({{item.system.firingRates.semi}})
+          </option>
+        {{/if}}
+        {{#if item.system.firingRates.auto}}
+          <option
+            value="auto"
+            {{#if (inferior item.system.ammoCurrent item.system.firingRates.auto)}} disabled{{/if}}
+          >
+            Full-auto ({{item.system.firingRates.auto}})
+          </option>
+        {{/if}}
+      </select>
+    </label>
+    <label class="flexrow centerv gap">
+      <h4>Range</h4>
+      <select name="range" data-dtype="Number">
+        <option value="1">Short</option>
+        <option value="2">Medium</option>
+        <option value="3">Long</option>
+      </select>
+    </label>
+    <label class="flexrow centerv gap">
+      <h4>Additional hit modifier</h4>
+      <input  name="hitMod" type="number" value="0" data-dtype="Number" />
+    </label>
+  </div>
+</form>

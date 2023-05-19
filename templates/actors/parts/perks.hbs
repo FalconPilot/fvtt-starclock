@@ -1,16 +1,35 @@
-<div class="flexrow attributes-list skills gap">
-  {{#each @root/config.skills as |name key|}}
-    <label class="character-attribute flexcol">
-      <h4 class="mgb">{{localize name}}</h4>
-      <div class="flexcol attribute-value">
-        <input
-          type="number"
-          name="system.{{key}}"
-          value="{{getKey @root/actor.system key}}"
-          min="0"
-          data-dtype="Number"
-        />
-      </div>
-    </label>
-  {{/each}}
+<div class="flexcol gap">
+  <h2 class="neon-pink-pseudo">{{localize "SCLK.SkillsHeader"}}</h2>
+  <div class="flexrow attributes-list skills gap">
+    {{#each @root/config.skills as |name key|}}
+      <label class="character-attribute flexcol">
+        <h4 class="mgb">{{localize name}}</h4>
+        <div class="flexcol attribute-value">
+          <input
+            type="number"
+            name="system.{{key}}"
+            value="{{getKey @root/actor.system key}}"
+            min="0"
+            data-dtype="Number"
+          />
+        </div>
+      </label>
+    {{/each}}
+  </div>
+  <h2 class="neon-pink-pseudo">{{localize "SCLK.WeaponMasteries"}}</h2>
+  <div class="flexrow attributes-list masteries gap">
+    {{#each (concat @root/config.meleeWeaponTypes @root/config.rangedWeaponTypes) as |name key|}}
+      <label class="character-attribute flexcol">
+        <h4 class="mgb">{{localize name}}</h4>
+        <div class="flexcol attribute-value centerv centerh">
+          <input
+            type="checkbox"
+            name="system.weaponMasteries.{{key}}"
+            {{#if (getKey @root/actor.system.weaponMasteries key)}}checked{{/if}}
+            data-dtype="Boolean"
+          />
+        </div>
+      </label>
+    {{/each}}
+  </div>
 </div>

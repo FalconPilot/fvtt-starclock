@@ -1,0 +1,9 @@
+<div class="flexcol gap">
+  {{#each results as |result|}}
+    <div class="flexrow flex-wrap dicerow gap">
+      {{#each result as |dice|}}
+        <i class="fas fa-dice-{{dice}}"></i>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>

@@ -76,6 +76,14 @@ export const registerHandlebarHelpers = () => {
     x > y
   ))
 
+  Handlebars.registerHelper('concat', (...arrs) => {
+    const [args] = extractArgs(arrs)
+
+    return args.every(Array.isArray)
+      ? args.flat()
+      : args.reduce((acc, x) => ({ ...acc, ...x }), {})
+  })
+
   Handlebars.registerHelper('actortab', tab =>
     `systems/${systemName}/templates/actors/parts/${tab}.hbs`
   )

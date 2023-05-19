@@ -114,7 +114,8 @@ export const starclock = {
                 'Revolver reload sound',
                 'Rifle reload sound',
                 'Lever-action reload sound',
-            ]
+                'Handgun reload sound',
+            ],
         },
     ]
 };

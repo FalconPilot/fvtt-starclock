@@ -34,6 +34,8 @@
     "RaceLabel": "Mon espèce est",
     "RangedWeapons": "Armes à distance",
     "Roll": "Jet de dés",
+    "SkillsHeader": "Compétences",
+    "WeaponMasteries": "Maîtrises d'armes",
     "AmmoTypes": {
       "LightPistol": "Pistolet léger",
       "HeavyPistol": "Pistolet lourd",
@@ -104,11 +106,11 @@
       "TwoHanded": "Deux mains",
       "Fist": "Mêlée",
       "Shield": "Bouclier",
-      "Pistol": "Pistolet",
+      "Pistol": "Arme de poing",
       "Rifle": "Fusil",
-      "Bow": "Arc",
+      "Bow": "Arc/Arbalète",
       "Thrown": "Lancer",
-      "Heavy": "Lourd",
+      "Heavy": "Arme lourde",
       "Artillery": "Artillerie"
     }
   },

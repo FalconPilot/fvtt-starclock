@@ -11,12 +11,8 @@
         "emp": 1,
         "int": 1,
         "wil": 1,
-        "wounds": {
-          "stun": 0,
-          "light": 0,
-          "medium": 0,
-          "heavy": 0
-        }
+        "currentStamina": 10,
+        "maxStaminaBonus": 0
       },
       "playableRace": {
         "race": "human"
@@ -34,7 +30,19 @@
       "combat": {
         "melee": 0,
         "shooting": 0,
-        "defense": 0
+        "defense": 0,
+        "weaponMasteries": {
+          "pistol": false,
+          "rifle": false,
+          "bow": false,
+          "thrown": false,
+          "artillery": false,
+          "heavyWeapon": false,
+          "oneHanded": false,
+          "twoHanded": false,
+          "fists": false,
+          "shields": false
+        }
       },
       "skills": {
         "acrobatics": 0,

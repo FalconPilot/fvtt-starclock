@@ -25,8 +25,6 @@ const appendWeaponClasses = (items = [], parent = document) => {
         return
       }
 
-      console.log(extraClass)
-
       const nodes = parent.querySelectorAll(`[data-document-id="${item._id}"]`)
       nodes.forEach(node => node.classList.add(...extraClass.split(' ')))
     })

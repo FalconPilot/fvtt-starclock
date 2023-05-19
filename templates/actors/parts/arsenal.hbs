@@ -1,4 +1,4 @@
-{{#if (anyHasElements @root/weapons)}}
+{{#if (anyHasElements @root/weapons @root/ammo)}}
   {{> "systems/starclock/templates/actors/parts/inventory/weapons.hbs" itemsList=@root/weapons }}
   {{> "systems/starclock/templates/actors/parts/inventory/ammo.hbs" itemsList=@root/ammo }}
 {{else}}
