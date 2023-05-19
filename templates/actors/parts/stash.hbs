@@ -1,7 +1,7 @@
 {{#if (anyHasElements @root/stash @root/weaponsStash @root/ammo)}}
-  {{> "systems/starclock/templates/actors/parts/inventory/ammo.hbs" itemsList=@root/ammo isStash=true }}
   {{> "systems/starclock/templates/actors/parts/inventory/items.hbs" itemsList=@root/stash isStash=true }}
   {{> "systems/starclock/templates/actors/parts/inventory/weapons.hbs" itemsList=@root/weaponsStash isStash=true }}
+  {{> "systems/starclock/templates/actors/parts/inventory/ammo.hbs" itemsList=@root/ammo isStash=true }}
 {{else}}
   <h2 class="neon-pink-pseudo">{{localize "SCLK.EmptyStash"}}</h2>
 {{/if}}

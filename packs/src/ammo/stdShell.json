@@ -1,0 +1,17 @@
+{
+  "name": "Cartouches à plombs SF",
+  "img": "systems/starclock/assets/ammo/shells.png",
+  "data": {
+    "description": "Ces cartouches à plombs alimentent les armes à cartouches confédérées. Elles sont au Standard Fédéral (SF).",
+    "ammoType": "shells",
+    "quantity": 0,
+    "quantityStash": 0,
+    "damage": 5,
+    "damageType": "physical",
+    "pierce": 0,
+    "weight": 35,
+    "price": 4,
+    "reliabilityMod": 0,
+    "accuracyMod": 0
+  }
+}

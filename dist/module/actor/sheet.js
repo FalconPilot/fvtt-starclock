@@ -45,6 +45,7 @@ export default class StarclockActorSheet extends ActorSheet {
         html.find('.item-stash').on('click', this._onItemStash.bind(this));
         html.find('.item-unstash').on('click', this._onItemUnstash.bind(this));
         html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this));
+        html.find('.gun-roll').on('click', this._onGunRoll.bind(this));
     }
     // Append animation component
     appendAnimation() {
@@ -72,58 +73,90 @@ export default class StarclockActorSheet extends ActorSheet {
             }
         }, 20);
     }
+    // Gun roll macro
+    _onGunRoll(event) {
+        event.preventDefault();
+        const item = this.actor.items.get(event.currentTarget.dataset.id);
+        if (!item) {
+            return ui.notifications.error('Item not found');
+        }
+        const dialog = new Dialog({
+            title: item.name,
+            content: '',
+            buttons: {
+                cancel: {
+                    icon: '<i class="fas fa-times"></i>',
+                    label: game.i18n.localize('SCLK.Cancel'),
+                    callback: () => { },
+                },
+                submit: {
+                    icon: '<i class="fas fa-dice-d6"></i>',
+                    label: game.i18n.localize('SCLK.Roll'),
+                    callback: html => {
+                        console.log(html);
+                    }
+                }
+            },
+        });
+        return dialog.render(true);
+    }
     // On weapon reload
     _onWeaponReload(event) {
         event.preventDefault();
         const item = this.actor.items.get(event.currentTarget.dataset.id);
-        if (item) {
-            return item.reloadGun();
+        if (!item) {
+            return ui.notifications.error('Item not found');
         }
+        return item.reloadGun();
     }
     // On item delete
     _onItemDelete(event) {
         event.preventDefault();
         const item = this.actor.items.get(event.currentTarget.dataset.id);
-        if (item) {
-            return item.delete({}).then(() => {
-                ui.notifications.info(`${item.name} has been deleted`);
-            });
+        if (!item) {
+            return ui.notifications.error('Item not found');
         }
+        return item.delete({}).then(() => {
+            ui.notifications.info(`${item.name} has been deleted`);
+        });
     }
     // On item edit
     _onItemEdit(event) {
         event.preventDefault();
         const item = this.actor.items.get(event.currentTarget.dataset.id);
-        if (item) {
-            return item.sheet.render(true);
+        if (!item) {
+            return ui.notifications.error('Item not found');
         }
+        return item.sheet.render(true);
     }
     // On item stash
     _onItemStash(event) {
         event.preventDefault();
         const item = this.actor.items.get(event.currentTarget.dataset.id);
-        if (item) {
-            return item.update({
-                'system.stashed': true
-            }).then(() => {
-                ui.notifications.info(`${item.name} has been stashed`);
-            });
+        if (!item) {
+            return ui.notifications.error('Item not found');
         }
+        return item.update({
+            'system.stashed': true
+        }).then(() => {
+            ui.notifications.info(`${item.name} has been stashed`);
+        });
     }
     // On item stash
     _onItemUnstash(event) {
         event.preventDefault();
         const item = this.actor.items.get(event.currentTarget.dataset.id);
-        if (item) {
-            return item.update({
-                'system.stashed': false
-            }).then(() => {
-                const dest = item.type === 'rangedWeapon' || item.type === 'meleeWeapon'
-                    ? 'arsenal'
-                    : 'inventory';
-                ui.notifications.info(`${item.name} has been moved to ${dest}`);
-            });
+        if (!item) {
+            return ui.notifications.error('Item not found');
         }
+        return item.update({
+            'system.stashed': false
+        }).then(() => {
+            const dest = item.type === 'rangedWeapon' || item.type === 'meleeWeapon'
+                ? 'arsenal'
+                : 'inventory';
+            ui.notifications.info(`${item.name} has been moved to ${dest}`);
+        });
     }
     // On item drop
     _onDropItem(event, data) {
@@ -133,13 +166,14 @@ export default class StarclockActorSheet extends ActorSheet {
         return __awaiter(this, void 0, void 0, function* () {
             event.preventDefault();
             return _super._onDropItem.call(this, event, data)
-                .then(data => {
-                if (this._tabs.find(tab => tab.active === 'stash') && data[0]) {
-                    data[0].update({ 'system.stashed': true });
+                .then(res => {
+                if (this._tabs.find(tab => tab.active === 'stash') && res[0]) {
+                    res[0].update({ 'system.stashed': true });
                 }
             });
         });
     }
+    // Sort items lists
     sortItems(items) {
         return Object.entries(items)
             .sort(([k1], [k2]) => k1 < k2 ? -1 : 1)

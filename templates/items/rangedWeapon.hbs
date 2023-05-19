@@ -32,7 +32,7 @@
             class="line-input mgr"
           >
             {{#select item.system.loadedAmmo}}
-              <option>{{localize SCLK.AmmoNone}}</option>
+              <option>{{localize "SCLK.AmmoNone"}}</option>
               {{#each availableAmmo as |data key|}}
                 <option value="{{data.id}}">{{data.name}}</option>
               {{/each}}

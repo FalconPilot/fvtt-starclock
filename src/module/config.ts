@@ -114,6 +114,8 @@ export const starclock = {
       authorLink: 'https://pixabay.com/sound-effects',
       contributions: [
         'Revolver reload sound',
+        'Rifle reload sound',
+        'Lever-action reload sound',
       ]
     },
   ]
