@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { basePath } from "../../constants.js";
-import { getRollResults } from "../../utils/roll.js";
+import { getRollResults, getScore } from "../../utils/roll.js";
 export default class StarclockActorSheet extends ActorSheet {
     // Template name
     get template() {
@@ -149,6 +149,7 @@ export default class StarclockActorSheet extends ActorSheet {
                             // Compile content
                             const messageContent = yield renderTemplate('systems/starclock/templates/chat/diceroll.hbs', {
                                 results: getRollResults(roll),
+                                score: getScore(roll),
                             });
                             const sound = item.system.firingSound
                                 ? `${item.system.firingSound}_${firingRate}.ogg`

@@ -1,5 +1,5 @@
 import { basePath } from "../../constants.js"
-import { getRollResults } from "../../utils/roll.js"
+import { getRollResults, getScore } from "../../utils/roll.js"
 
 export default class StarclockActorSheet extends ActorSheet {
   // Template name
@@ -157,6 +157,7 @@ export default class StarclockActorSheet extends ActorSheet {
             // Compile content
             const messageContent = await renderTemplate('systems/starclock/templates/chat/diceroll.hbs', {
               results: getRollResults(roll),
+              score: getScore(roll),
             })
 
             const sound = item.system.firingSound
