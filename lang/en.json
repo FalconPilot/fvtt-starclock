@@ -13,6 +13,7 @@
     "AgeLabel": "I'm",
     "AmmoNone": "No ammo",
     "BodyTypeLabel": "and my body type is",
+    "Cancel": "Cancel",
     "Damage": "Damage",
     "DamageAbridged": "DMG",
     "Pierce": "Pierce",
@@ -32,6 +33,7 @@
     "NoAmmoLoaded": "No loaded ammo",
     "RaceLabel": "My species is",
     "RangedWeapons": "Ranged Weapons",
+    "Roll": "Roll",
     "AmmoTypes": {
       "LightPistol": "Light Pistol",
       "HeavyPistol": "Heavy Pistol",

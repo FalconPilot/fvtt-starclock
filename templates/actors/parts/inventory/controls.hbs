@@ -3,7 +3,7 @@
     {{#and (equals item.type 'rangedWeapon') (exists item.system.loadedAmmo) (superior item.system.ammoCurrent 0)}}
       <a
         class="item-control gun-roll flexrow centerv centerh pgh neon-green-hover"
-        title="{{localize SCLK.Roll}}"
+        title="{{localize "SCLK.Roll"}}"
         data-id="{{item._id}}"
         data-ammo="{{item.system.loadedAmmo}}"
       >

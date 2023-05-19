@@ -141,23 +141,28 @@
       "reliability": 2,
       "range": "short",
       "loadedAmmo": null,
-      "reloadSound": null
+      "reloadSound": null,
+      "firingRates": {
+        "single": 1,
+        "semi": null,
+        "auto": null
+      }
+    },
+    "ammo": {
+      "templates": [
+        "basicItem",
+        "damaging",
+        "encumbrance",
+        "multiStash"
+      ],
+      "ammoType": "lightPistol",
+      "accuracyMod": 0,
+      "reliabilityMod": 0
     },
     "trait": {
       "templates": [
         "evolution"
       ]
     }
-  },
-  "ammo": {
-    "templates": [
-      "basicItem",
-      "damaging",
-      "encumbrance",
-      "multiStash"
-    ],
-    "ammoType": "lightPistol",
-    "accuracyMod": 0,
-    "reliabilityMod": 0
   }
 }

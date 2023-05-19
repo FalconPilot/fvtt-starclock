@@ -13,6 +13,7 @@
     "AgeLabel": "J'ai",
     "AmmoNone": "Aucune munition",
     "BodyTypeLabel": "et mon corps est de type",
+    "Cancel": "Annuler",
     "Damage": "Dégâts",
     "DamageAbridged": "DMG",
     "Pierce": "Perforation",
@@ -32,6 +33,7 @@
     "NoAmmoLoaded": "Aucune munition chargée",
     "RaceLabel": "Mon espèce est",
     "RangedWeapons": "Armes à distance",
+    "Roll": "Jet de dés",
     "AmmoTypes": {
       "LightPistol": "Pistolet léger",
       "HeavyPistol": "Pistolet lourd",

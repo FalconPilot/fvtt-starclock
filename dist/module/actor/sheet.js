@@ -75,30 +75,42 @@ export default class StarclockActorSheet extends ActorSheet {
     }
     // Gun roll macro
     _onGunRoll(event) {
-        event.preventDefault();
-        const item = this.actor.items.get(event.currentTarget.dataset.id);
-        if (!item) {
-            return ui.notifications.error('Item not found');
-        }
-        const dialog = new Dialog({
-            title: item.name,
-            content: '',
-            buttons: {
-                cancel: {
-                    icon: '<i class="fas fa-times"></i>',
-                    label: game.i18n.localize('SCLK.Cancel'),
-                    callback: () => { },
-                },
-                submit: {
-                    icon: '<i class="fas fa-dice-d6"></i>',
-                    label: game.i18n.localize('SCLK.Roll'),
-                    callback: html => {
-                        console.log(html);
+        return __awaiter(this, void 0, void 0, function* () {
+            event.preventDefault();
+            const item = this.actor.items.get(event.currentTarget.dataset.id);
+            if (!item) {
+                return ui.notifications.error('Item not found');
+            }
+            if (item.type !== 'rangedWeapon') {
+                return ui.notifications.error('Those rolls can only be done with ranged weapons');
+            }
+            const loadedAmmoData = this.actor.items.get(item.system.loadedAmmo);
+            if (!loadedAmmoData) {
+                return ui.notifications.error('No loaded ammo found');
+            }
+            const content = yield renderTemplate('systems/starclock/templates/dialogs/gunroll.hbs', {
+                item
+            });
+            const dialog = new Dialog({
+                title: item.name,
+                content,
+                buttons: {
+                    cancel: {
+                        icon: '<i class="fas fa-times"></i>',
+                        label: game.i18n.localize('SCLK.Cancel'),
+                        callback: () => { },
+                    },
+                    submit: {
+                        icon: '<i class="fas fa-dice-d6"></i>',
+                        label: game.i18n.localize('SCLK.Roll'),
+                        callback: html => {
+                            console.log(html);
+                        }
                     }
-                }
-            },
+                },
+            });
+            return dialog.render(true);
         });
-        return dialog.render(true);
     }
     // On weapon reload
     _onWeaponReload(event) {

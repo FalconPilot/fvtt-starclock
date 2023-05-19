@@ -9,7 +9,7 @@
     "reliability": 2,
     "range": "short",
     "ammoType": "lightCell",
-    "ammoMax": 10,
+    "ammoMax": 20,
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
