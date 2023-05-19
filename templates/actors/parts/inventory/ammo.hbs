@@ -1,0 +1,24 @@
+{{#each itemsList as |items sid|}}
+  <h2 class="neon-pink-pseudo">{{ localize sid }}</h2>
+  <ol class="item-list gap flexcol">
+    {{#each items as |item iid|}}
+      <li class="item flexrow inventory-item gap centerv" draggable="true">
+        <a class="item-edit flexrow centerv" data-id="{{item._id}}">
+          <div class="flexcol pg centerv">
+            <h3 class="inv-item-name">{{item.name}}</h3>
+            <div class="flexrow centerv gap">
+              <img
+                class="ammo-img {{damageNeon item.system.damageType}}"
+                src="{{item.img}}"
+                draggable="false"
+              />
+              {{> "systems/starclock/templates/items/parts/damage.hbs" item=item displayOnly=true }}
+            </div>
+          </div>
+          {{> "systems/starclock/templates/items/parts/quantity.hbs" item=item multiStash=../../isStash displayOnly=true }}
+        </a>
+        {{> "systems/starclock/templates/actors/parts/inventory/controls.hbs" item=item isStash=../../isStash }}
+      </li>
+    {{/each}}
+  </ol>
+{{/each}}

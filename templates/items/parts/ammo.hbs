@@ -1,28 +1,32 @@
-{{#if (exists item.system.ammoMax)}}
+{{#if (equals item.type "rangedWeapon")}}
   <div class="weapon-ammo flexcol centerv centerh">
     <div class="flexrow centerv centerh">
       {{#if displayOnly}}
-        <span class="{{damageNeon item.system.damageType}}">
-          {{item.system.ammoCurrent}}
-        </span>
-        <span class="neon-white">/</span>
-        <span class="{{damageNeon item.system.damageType}}">
+        <span>
+          {{#if (exists loadedAmmo)}}
+            {{item.system.ammoCurrent}}
+          {{else}}
+            <i class="fas fa-xmark-large neon-red"></i>
+          {{/if}}
+          /
           {{item.system.ammoMax}}
         </span>
       {{else}}
+        {{#if (exists loadedAmmo)}}
+          <input
+            type="number"
+            min="0"
+            max="{{item.system.ammoMax}}"
+            name="system.ammoCurrent"
+            value="{{item.system.ammoCurrent}}"
+            data-dtype="Number"
+          />
+        {{else}}
+          <i class="fas fa-xmark-large neon-red"></i>
+        {{/if}}
+        <span>/</span>
         <input
           type="number"
-          class="{{damageNeon item.system.damageType}}"
-          min="0"
-          max="{{item.system.ammoMax}}"
-          name="system.ammoCurrent"
-          value="{{item.system.ammoCurrent}}"
-          data-dtype="Number"
-        />
-        <span class="neon-white">/</span>
-        <input
-          type="number"
-          class="{{damageNeon item.system.damageType}}"
           min="0"
           name="system.ammoMax"
           value="{{item.system.ammoMax}}"
@@ -30,10 +34,20 @@
         />
       {{/if}}
     </div>
-    <img
-      class="{{damageNeon item.system.damageType}}"
-      src="systems/starclock/assets/ammo/{{item.system.ammoType}}.png"
-      onerror="this.style.display='none'"
-    />
+    {{#if (exists loadedAmmo)}}
+      <img
+        class="{{damageNeon loadedAmmo.system.damageType}}"
+        src="systems/starclock/assets/ammo/{{loadedAmmo.system.ammoType}}.png"
+        onerror="this.style.display='none'"
+      />
+      {{#if (inferior item.system.ammoCurrent item.system.ammoMax)}}
+        <a
+          class="reload-wpn {{#if (superior item.system.ammoCurrent 0)}}partial-mag{{/if}}"
+          data-id="{{item._id}}"
+        >
+          <i class="fas fa-rotate neon-white"></i>
+        </a>
+      {{/if}}
+    {{/if}}
   </div>
 {{/if}}

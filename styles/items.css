@@ -79,17 +79,25 @@
   color: #111;
 }
 
-.damage-type {
+.item-damage i.neon-blue {
   color: #333;
-  font-size: 18px;
+}
+
+.item-damage i.neon-yellow {
+  color: #444;
+}
+
+.damage-type {
+  color: #222;
+  font-size: 19px;
   font-family: 'OstrichSans';
 }
 
 .weapon-ammo {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 65px;
+  bottom: 6px;
+  right: 6px;
+  width: 70px;
   flex: 0;
   color: #111;
   font-weight: bold;
@@ -108,8 +116,9 @@
 .weapon-ammo > div > span {
   font-family: 'OstrichSans';
   font-size: 18px;
-  color: #111 !important;
+  color: #FFF !important;
   flex: 0;
+  white-space: nowrap;
 }
 
 .weapon-ammo > div > input[type=number]:first-of-type,
@@ -117,8 +126,14 @@
   flex: 1;
 }
 
-.weapon-ammo > div > input[type=number]:first-of-type {
+.weapon-ammo > div > input[type=number]:first-of-type,
+.weapon-ammo > div > i:first-of-type {
   text-align: right;
+}
+
+.weapon-ammo > div i {
+  font-size: 14px;
+  color: #111;
 }
 
 .weapon-ammo > div > input[type=number]:last-of-type {
@@ -130,4 +145,19 @@
   margin: 0;
   background: none;
   border: none;
+}
+
+.weapon-ammo .reload-wpn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 20px;
+  pointer-events: all;
+  color: #FFF;
+  z-index: 4;
+}
+
+.weapon-ammo .reload-wpn.partial-mag:not(:hover) {
+  opacity: 0.5;
 }

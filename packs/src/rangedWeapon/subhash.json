@@ -1,0 +1,23 @@
+{
+  "name": "Subhash",
+  "img": "systems/starclock/assets/weapons/subhash.png",
+  "data": {
+    "description": "Ce fusil d'assaut utilisé par les forces spéciales confédérées possède un silencieux massif permettant de limiter au maximum le son du tir. Sa cadence de tir lui a conféré une solide réputation.",
+    "weaponShape": "rifle",
+    "price": 5000,
+    "weight": 4500,
+    "reliability": 2,
+    "range": "medium",
+    "ammoType": "lightRifle",
+    "ammoMax": 30,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "reloadSound": "systems/starclock/assets/sfx/reload_rifleMag.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": 5,
+      "auto": 10
+    }
+  }
+}

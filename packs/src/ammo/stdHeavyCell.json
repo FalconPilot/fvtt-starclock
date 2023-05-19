@@ -1,0 +1,17 @@
+{
+  "name": "Cellules énergétiques lourdes SI",
+  "img": "systems/starclock/assets/ammo/heavyCell.png",
+  "data": {
+    "description": "Ces cellules à énergie haute-charge équipent les armes lourdes de l'Empire Galactique Endaari. Elles sont au Standard Impérial (SI).",
+    "ammoType": "heavyCell",
+    "quantity": 0,
+    "quantityStash": 0,
+    "damage": 4,
+    "damageType": "energy",
+    "pierce": 1,
+    "weight": 20,
+    "price": 30,
+    "reliabilityMod": 0,
+    "accuracyMod": 0
+  }
+}

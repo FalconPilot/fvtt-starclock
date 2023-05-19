@@ -4,6 +4,7 @@
   "data": {
     "description": "L'arme et l'outil le plus ancien de l'histoire de la galaxie à encore exister.",
     "weaponShape": "oneHanded",
+    "stashed": false,
     "price": 10,
     "weight": 200,
     "damage": 2,

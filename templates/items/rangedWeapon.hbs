@@ -1,8 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
   {{> "systems/starclock/templates/items/parts/header-illustrated.hbs" neon="pink" }}
-  <div class="flexcol topv item-body">
+  <div class="flexcol topv item-body gap">
     {{> "systems/starclock/templates/items/parts/description.hbs" }}
-    <div class="flexrow mgv">
+    <div class="flexrow">
       <select
         name="system.weaponShape"
         class="line-input mgr"
@@ -24,6 +24,25 @@
         {{/select}}
       </select>
     </div>
-    {{> "systems/starclock/templates/items/parts/damage.hbs" }}
+    <div class="flexrow">
+      {{#if @root/owner}}
+        {{#if (anyHasElements availableAmmo)}}
+          <select
+            name="system.loadedAmmo"
+            class="line-input mgr"
+          >
+            {{#select item.system.loadedAmmo}}
+              <option>{{localize SCLK.AmmoNone}}</option>
+              {{#each availableAmmo as |data key|}}
+                <option value="{{data.id}}">{{data.name}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
+        {{else}}
+          <span>{{localize "SCLK.NoAmmoAvailable"}}</span>
+        {{/if}}
+      {{/if}}
+      {{> "systems/starclock/templates/items/parts/damage.hbs" item=loadedAmmo displayOnly=true }}
+    </div>
   </div>
 </form>

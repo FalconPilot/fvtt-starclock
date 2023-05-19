@@ -1,0 +1,10 @@
+<form class="{{cssClass}}" autocomplete="off">
+  {{> "systems/starclock/templates/items/parts/header.hbs" }}
+  <div class="flexcol topv item-body">
+    {{> "systems/starclock/templates/items/parts/description.hbs" }}
+    <div class="flexrow">
+      {{> "systems/starclock/templates/items/parts/quantity.hbs" }}
+      {{> "systems/starclock/templates/items/parts/quantity.hbs" multiStash=true }}
+    </div>
+  </div>
+</form>

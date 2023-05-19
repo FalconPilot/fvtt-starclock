@@ -1,0 +1,17 @@
+{
+  "name": "Cellules énergétiques légères SI",
+  "img": "systems/starclock/assets/ammo/lightCell.png",
+  "data": {
+    "description": "Ces cellules à énergie légères impériales équipent les armes légères de l'Empire Galactique Endaari. Elles sont au Standard Impérial (SI).",
+    "ammoType": "lightCell",
+    "quantity": 0,
+    "quantityStash": 0,
+    "damage": 3,
+    "damageType": "energy",
+    "pierce": 0,
+    "weight": 10,
+    "price": 20,
+    "reliabilityMod": 0,
+    "accuracyMod": 0
+  }
+}

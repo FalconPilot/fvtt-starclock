@@ -1,0 +1,17 @@
+{
+  "name": "Cartouches de pistolet lourd SF",
+  "img": "systems/starclock/assets/ammo/heavyPistol.png",
+  "data": {
+    "description": "Ces balles épaisses de 10mm ont un impact puissant sur leurs cibles. Elles sont conformes au Standard Fédéral (SF).",
+    "ammoType": "heavyPistol",
+    "quantity": 0,
+    "quantityStash": 0,
+    "damage": 3,
+    "damageType": "physical",
+    "pierce": 0,
+    "weight": 10,
+    "price": 5,
+    "reliabilityMod": 0,
+    "accuracyMod": 0
+  }
+}

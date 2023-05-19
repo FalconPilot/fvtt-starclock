@@ -1,4 +1,4 @@
-{{#if (hasElements @root/inventory)}}
+{{#if (anyHasElements @root/inventory)}}
   {{> "systems/starclock/templates/actors/parts/inventory/items.hbs" itemsList=@root/inventory }}
 {{else}}
   <h2 class="neon-pink-pseudo">{{localize "SCLK.EmptyInventory"}}</h2>

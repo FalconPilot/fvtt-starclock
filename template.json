@@ -74,6 +74,7 @@
       "simple",
       "meleeWeapon",
       "rangedWeapon",
+      "ammo",
       "trait"
     ],
     "templates": {
@@ -87,10 +88,14 @@
       "multi": {
         "quantity": 1
       },
+      "multiStash": {
+        "quantity": 0,
+        "quantityStash": 0
+      },
       "equippable": {
         "equipped": false
       },
-      "basicWeapon": {
+      "damaging": {
         "damage": 1,
         "damageType": "physical",
         "pierce": 0
@@ -114,7 +119,7 @@
     "meleeWeapon": {
       "templates": [
         "basicItem",
-        "basicWeapon",
+        "damaging",
         "encumbrance",
         "equippable",
         "stashable"
@@ -125,7 +130,6 @@
     "rangedWeapon": {
       "templates": [
         "basicItem",
-        "basicWeapon",
         "encumbrance",
         "equippable",
         "stashable"
@@ -135,12 +139,25 @@
       "ammoMax": 1,
       "ammoCurrent": 1,
       "reliability": 2,
-      "range": "short"
+      "range": "short",
+      "loadedAmmo": null,
+      "reloadSound": null
     },
     "trait": {
       "templates": [
         "evolution"
       ]
     }
+  },
+  "ammo": {
+    "templates": [
+      "basicItem",
+      "damaging",
+      "encumbrance",
+      "multiStash"
+    ],
+    "ammoType": "lightPistol",
+    "accuracyMod": 0,
+    "reliabilityMod": 0
   }
 }

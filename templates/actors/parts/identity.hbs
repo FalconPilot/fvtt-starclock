@@ -3,7 +3,7 @@
     {{localize "SCLK.MyNameIs"}}
     <input
       type="text"
-      class="line-input mgl neon-pink"
+      class="line-input mgl neon-white"
       name="name"
       value="{{@root/actor.name}}"
     />
@@ -12,7 +12,7 @@
     {{localize "SCLK.RaceLabel"}}
     <select
       name="system.race"
-      class="line-input mgh neon-pink"
+      class="line-input mgh neon-white"
     >
       {{#select @root/actor.system.race}}
         {{#each @root/config.races as |name race|}}
@@ -23,7 +23,7 @@
     {{localize "SCLK.BodyTypeLabel"}}
     <select
       name="system.bodyType"
-      class="line-input mgl neon-pink"
+      class="line-input mgl neon-white"
     >
       {{#select @root/actor.system.bodyType}}
         {{#each @root/config.bodyTypes as |name type|}}
@@ -36,27 +36,27 @@
     {{localize "SCLK.AgeLabel"}}
     <input
       type="number"
-      class="line-input mgh neon-pink"
+      class="line-input mgh neon-white"
       name="system.age"
       value="{{@root/actor.system.age}}"
     />
     {{localize "SCLK.HeightLabel"}}
     <input
       type="number"
-      class="line-input mgl neon-pink"
+      class="line-input mgl neon-white"
       name="system.heightMeters"
       value="{{@root/actor.system.heightMeters}}"
     />
-    <span class="line-input pgh neon-pink">m</span>
+    <span class="line-input pgh neon-white">m</span>
     <input
       type="number"
-      class="line-input neon-pink"
+      class="line-input neon-white"
       name="system.heightCentimeters"
       min="0"
       max="99"
       value="{{@root/actor.system.heightCentimeters}}"
     />
-    <span class="line-input pgl neon-pink mgr">cm</span>
+    <span class="line-input pgl neon-white mgr">cm</span>
     {{localize "SCLK.HeightLabel2"}}
   </div>
 </div>

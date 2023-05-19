@@ -1,0 +1,23 @@
+{
+  "name": "RH70",
+  "img": "systems/starclock/assets/weapons/rh70.png",
+  "data": {
+    "description": "Ce fusil d'assaut est l'arme réglementaire standard de l'armée confédérée. Icônique, il est doté d'une lunette courte portée et est apprécié pour son ergonomie.",
+    "weaponShape": "rifle",
+    "price": 3500,
+    "weight": 4000,
+    "reliability": 2,
+    "range": "medium",
+    "ammoType": "lightRifle",
+    "ammoMax": 30,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "reloadSound": "systems/starclock/assets/sfx/reload_rifleMag.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": 4,
+      "auto": 8
+    }
+  }
+}

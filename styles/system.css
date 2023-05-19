@@ -78,6 +78,15 @@ li.directory-item.flexrow {
   clip-path: polygon(0 -21px, 100% 21px, 100% 70px, 0 25px);
 }
 
+.directory .directory-list li.directory-item.ammo.document.item img.thumbnail {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: calc(50% - 10px);
+  pointer-events: none;
+}
+
 .directory .directory-list li.directory-item.document.item h4 {
   position: relative;
   margin: 0;

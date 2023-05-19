@@ -1,4 +1,5 @@
-{{#if (hasElements2 @root/stash @root/weaponsStash)}}
+{{#if (anyHasElements @root/stash @root/weaponsStash @root/ammo)}}
+  {{> "systems/starclock/templates/actors/parts/inventory/ammo.hbs" itemsList=@root/ammo isStash=true }}
   {{> "systems/starclock/templates/actors/parts/inventory/items.hbs" itemsList=@root/stash isStash=true }}
   {{> "systems/starclock/templates/actors/parts/inventory/weapons.hbs" itemsList=@root/weaponsStash isStash=true }}
 {{else}}

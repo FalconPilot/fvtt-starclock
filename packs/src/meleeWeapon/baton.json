@@ -4,6 +4,7 @@
   "data": {
     "description": "Une matraque légère, compacte et très souvent employée pour l'autodéfense.",
     "weaponShape": "oneHanded",
+    "stashed": false,
     "price": 20,
     "weight": 300,
     "damage": 1,

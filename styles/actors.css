@@ -182,11 +182,12 @@
 
 .inventory-item.weapon .weapon-ammo {
   right: 36px;
+  bottom: 2px;
   pointer-events: none;
 }
 
 .inv-item-name {
-  font-size: 20px;
+  font-size: 19px;
   border: none;
   margin: 0;
   white-space: nowrap;
@@ -197,6 +198,21 @@
   width: 60px;
   flex: 0;
   border: none;
+}
+
+.inventory-item .item-qty {
+  text-align: right;
+  font-family: 'OstrichSans';
+}
+
+.inventory-item .item-qty > strong {
+  font-size: 21px;
+}
+
+.ammo-img {
+  width: 60px;
+  height: 20px;
+  flex: 0;
 }
 
 .inventory-item .item-controls {

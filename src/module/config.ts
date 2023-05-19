@@ -97,7 +97,24 @@ export const starclock = {
     {
       authorName: 'Robbe',
       authorLink: 'https://www.flickr.com/photos/145236510@N06/',
-      contributions: [],
+      contributions: [
+        'Caiman base image',
+        'Dai-X base image',
+        'Kampfer base image',
+        'Millenium base image',
+        'Mousquetaire base image',
+        'Stavog base image',
+        'Subhash base image',
+        'Tiamat base image',
+        'UMG90 base image',
+      ],
+    },
+    {
+      authorName: 'Pixabay',
+      authorLink: 'https://pixabay.com/sound-effects',
+      contributions: [
+        'Revolver reload sound',
+      ]
     },
   ]
 }

@@ -3,12 +3,14 @@
   <ol class="item-list gap flexcol">
     {{#each items as |item iid|}}
       <li class="item flexrow inventory-item gap centerv" draggable="true">
-        <img class="inv-item-mini" src="{{item.img}}" draggable="false" />
-        <div class="flexcol pg topv">
-          <div class="flexrow">
-            <h3 class="inv-item-name">{{item.name}}</h3>
+        <a class="item-edit flexrow centerv" data-id="{{item._id}}">
+          <img class="inv-item-mini" src="{{item.img}}" draggable="false" />
+          <div class="flexcol pg topv">
+            <div class="flexrow">
+              <h3 class="inv-item-name">{{item.name}}</h3>
+            </div>
           </div>
-        </div>
+        </a>
         {{> "systems/starclock/templates/actors/parts/inventory/controls.hbs" item=item isStash=../../isStash }}
       </li>
     {{/each}}

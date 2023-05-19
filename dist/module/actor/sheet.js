@@ -44,6 +44,7 @@ export default class StarclockActorSheet extends ActorSheet {
         html.find('.item-edit').on('click', this._onItemEdit.bind(this));
         html.find('.item-stash').on('click', this._onItemStash.bind(this));
         html.find('.item-unstash').on('click', this._onItemUnstash.bind(this));
+        html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this));
     }
     // Append animation component
     appendAnimation() {
@@ -70,6 +71,14 @@ export default class StarclockActorSheet extends ActorSheet {
                 count++;
             }
         }, 20);
+    }
+    // On weapon reload
+    _onWeaponReload(event) {
+        event.preventDefault();
+        const item = this.actor.items.get(event.currentTarget.dataset.id);
+        if (item) {
+            return item.reloadGun();
+        }
     }
     // On item delete
     _onItemDelete(event) {
@@ -141,24 +150,42 @@ export default class StarclockActorSheet extends ActorSheet {
         const data = super.getData(options);
         // Separate items into subcategories and
         // sort them alphabetically
-        const [inventory, stash, weapons, weaponsStash] = data.items
+        const [inventory, stash, weapons, weaponsStash, ammo] = data.items
             .reduce((acc, item) => {
+            var _a, _b, _c;
             const isStashed = item.system.stashed;
             const isWeapon = item.type === 'rangedWeapon' || item.type === 'meleeWeapon';
+            const isAmmo = item.type === 'ammo';
             const key = `ITEM.Type${item.type[0].toUpperCase()}${item.type.slice(1).toLowerCase()}`;
-            const idx = isWeapon ? isStashed ? 3 : 2 : isStashed ? 1 : 0;
+            // Match index with condition
+            const idx = (_b = (_a = [{
+                    index: 4,
+                    cond: isAmmo,
+                }, {
+                    index: 3,
+                    cond: isWeapon && isStashed,
+                }, {
+                    index: 2,
+                    cond: isWeapon,
+                }, {
+                    index: 1,
+                    cond: isStashed,
+                }].find(obj => obj.cond)) === null || _a === void 0 ? void 0 : _a.index) !== null && _b !== void 0 ? _b : 0;
+            const finalItem = item.type !== 'rangedWeapon'
+                ? item
+                : Object.assign(Object.assign({}, item), { loadedAmmoData: (_c = data.items.find(it => it._id === item.system.loadedAmmo)) !== null && _c !== void 0 ? _c : null });
             return acc.map((v, i) => {
                 const basis = v[key] ? v[key] : [];
-                return i !== idx ? v : Object.assign(Object.assign({}, v), { [key]: basis.concat([item]) });
+                return i !== idx ? v : Object.assign(Object.assign({}, v), { [key]: basis.concat([finalItem]) });
             });
-        }, [{}, {}, {}, {}])
+        }, [{}, {}, {}, {}, {}])
             .map(obj => Object.entries(obj)
             .reduce((acc, [k, v]) => (Object.assign(Object.assign({}, acc), { [k]: v.sort((i1, i2) => i1.name < i2.name ? -1 : 1) })), {}));
-        console.log(weapons);
         return Object.assign(data, {
             config: CONFIG.starclock,
             inventory,
             stash,
+            ammo,
             weapons: this.sortItems(weapons),
             weaponsStash: this.sortItems(weaponsStash),
         });

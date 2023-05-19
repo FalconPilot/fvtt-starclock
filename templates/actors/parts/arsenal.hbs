@@ -1,5 +1,6 @@
-{{#if (hasElements @root/weapons)}}
+{{#if (anyHasElements @root/weapons)}}
   {{> "systems/starclock/templates/actors/parts/inventory/weapons.hbs" itemsList=@root/weapons }}
+  {{> "systems/starclock/templates/actors/parts/inventory/ammo.hbs" itemsList=@root/ammo }}
 {{else}}
   <h2 class="neon-pink-pseudo">{{localize "SCLK.EmptyArsenal"}}</h2>
 {{/if}}

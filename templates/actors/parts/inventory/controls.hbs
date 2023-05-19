@@ -1,21 +1,23 @@
 {{#if @root/owner}}
   <div class="item-controls flexcol neon-pink-pseudo">
-    {{#if isStash}}
-      <a
-        class="item-control item-unstash flexrow centerv centerh pgh neon-green-hover"
-        title="{{localize "SCLK.ActionUnstash"}}"
-        data-id="{{item._id}}"
-      >
-        <i class="fas fa-sack"></i>
-      </a>
-    {{else}}
-      <a
-        class="item-control item-stash flexrow centerv centerh pgh neon-green-hover"
-        title="{{localize "SCLK.ActionStash"}}"
-        data-id="{{item._id}}"
-      >
-        <i class="fas fa-treasure-chest"></i>
-      </a>
+    {{#if (notEquals item.type "ammo")}}
+      {{#if isStash}}
+        <a
+          class="item-control item-unstash flexrow centerv centerh pgh neon-green-hover"
+          title="{{localize "SCLK.ActionUnstash"}}"
+          data-id="{{item._id}}"
+        >
+          <i class="fas fa-sack"></i>
+        </a>
+      {{else}}
+        <a
+          class="item-control item-stash flexrow centerv centerh pgh neon-green-hover"
+          title="{{localize "SCLK.ActionStash"}}"
+          data-id="{{item._id}}"
+        >
+          <i class="fas fa-treasure-chest"></i>
+        </a>
+      {{/if}}
     {{/if}}
     <a
       class="item-control item-delete flexrow centerv centerh pgh neon-green-hover"

@@ -1,0 +1,23 @@
+{
+  "name": "Traqueur",
+  "img": "systems/starclock/assets/weapons/traqueur.png",
+  "data": {
+    "description": "Le Traqueur est un fusil extrêmement apprécié des nobles du royaume de Fleuralys s'adonnant à de longues parties de chasse. Précis, élégant et puissant, peu de proies peuvent résister à ses tirs cinglants.",
+    "weaponShape": "rifle",
+    "price": 6000,
+    "weight": 5000,
+    "reliability": 2,
+    "range": "long",
+    "ammoType": "largeVial",
+    "ammoMax": 6,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "reloadSound": "systems/starclock/assets/sfx/reload_revolver.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": null,
+      "auto": null
+    }
+  }
+}

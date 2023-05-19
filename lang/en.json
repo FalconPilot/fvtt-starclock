@@ -5,6 +5,7 @@
   "ITEM.TypeSimple": "Simple item",
   "ITEM.TypeMeleeweapon": "Melee Weapon",
   "ITEM.TypeRangedweapon": "Ranged Weapon",
+  "ITEM.TypeAmmo": "Ammunition",
   "ITEM.TypeTrait": "Trait",
   "SCLK": {
     "ActionStash": "Put in stash",
@@ -26,6 +27,8 @@
     "ItemName": "Name",
     "MeleeWeapons": "Melee Weapons",
     "MyNameIs": "Hello, my name is",
+    "NoAmmoAvailable": "No ammunition available",
+    "NoAmmoLoaded": "No loaded ammo",
     "RaceLabel": "My species is",
     "RangedWeapons": "Ranged Weapons",
     "AmmoTypes": {

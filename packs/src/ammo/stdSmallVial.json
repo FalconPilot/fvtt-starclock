@@ -1,0 +1,17 @@
+{
+  "name": "Petites fioles à plasma SR",
+  "img": "systems/starclock/assets/ammo/smallVial.png",
+  "data": {
+    "description": "Ces petites fioles à plasma confectionnées par des alchimistes sont utilisées par la plupart des armes du Royaume de Fleuralys. Elles sont au Standard Royal (SR).",
+    "ammoType": "smallVial",
+    "quantity": 0,
+    "quantityStash": 0,
+    "damage": 4,
+    "damageType": "energy",
+    "pierce": 1,
+    "weight": 25,
+    "price": 25,
+    "reliabilityMod": 0,
+    "accuracyMod": 0
+  }
+}

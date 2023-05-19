@@ -7,7 +7,7 @@
           <div class="flexrow">
             <h3 class="inv-item-name">{{item.name}}</h3>
           </div>
-          {{> "systems/starclock/templates/items/parts/damage.hbs" item=item displayOnly=true }}
+          {{> "systems/starclock/templates/items/parts/damage.hbs" item=item.loadedAmmoData displayOnly=true }}
         </div>
         <a class="item-edit neon-pink neon-white-hover" data-id="{{item._id}}">
           <img
@@ -16,7 +16,7 @@
             draggable="false"
           />
         </a>
-        {{> "systems/starclock/templates/items/parts/ammo.hbs" item=item displayOnly=true }}
+        {{> "systems/starclock/templates/items/parts/ammo.hbs" item=item displayOnly=true loadedAmmo=item.loadedAmmoData }}
         {{> "systems/starclock/templates/actors/parts/inventory/controls.hbs" item=item isStash=../../isStash }}
       </li>
     {{/each}}

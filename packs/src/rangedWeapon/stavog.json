@@ -1,0 +1,22 @@
+{
+  "name": "Stavog",
+  "img": "systems/starclock/assets/weapons/stavog.png",
+  "data": {
+    "description": "Le Stavog est le pistolet réglementaire de l'armée impériale. Il est léger, facile à manier et polyvalent.",
+    "weaponShape": "pistol",
+    "price": 2500,
+    "weight": 1000,
+    "reliability": 2,
+    "range": "short",
+    "ammoType": "lightCell",
+    "ammoMax": 10,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "firingRates": {
+      "single": 1,
+      "semi": 3,
+      "auto": null
+    }
+  }
+}

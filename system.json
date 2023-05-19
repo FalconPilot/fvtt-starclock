@@ -33,7 +33,7 @@
   "packs": [
     {
       "name": "meleeWeapons",
-      "label": "Melee Weapons",
+      "label": "Armes de corps-à-corps",
       "system": "starclock",
       "path": "packs/meleeWeapon.db",
       "type": "Item",
@@ -42,9 +42,18 @@
     },
     {
       "name": "rangedWeapons",
-      "label": "Ranged Weapons",
+      "label": "Armes à distance",
       "system": "starclock",
       "path": "packs/rangedWeapon.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "ammo",
+      "label": "Munitions",
+      "system": "starclock",
+      "path": "packs/ammo.db",
       "type": "Item",
       "private": false,
       "flags": {}

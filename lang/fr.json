@@ -5,6 +5,7 @@
   "ITEM.TypeSimple": "Objet simple",
   "ITEM.TypeMeleeweapon": "Arme de corps-à-corps",
   "ITEM.TypeRangedweapon": "Arme à distance",
+  "ITEM.TypeAmmo": "Munition",
   "ITEM.TypeTrait": "Trait",
   "SCLK": {
     "ActionStash": "Mettre en réserve",
@@ -26,6 +27,8 @@
     "ItemName": "Nom",
     "MeleeWeapons": "Armes de corps-à-corps",
     "MyNameIs": "Bonjour, je m'appelle",
+    "NoAmmoAvailable": "Pas de munitions disponibles",
+    "NoAmmoLoaded": "Aucune munition chargée",
     "RaceLabel": "Mon espèce est",
     "RangedWeapons": "Armes à distance",
     "AmmoTypes": {

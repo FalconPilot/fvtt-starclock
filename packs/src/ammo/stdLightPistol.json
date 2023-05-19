@@ -1,0 +1,17 @@
+{
+  "name": "Cartouches de pistolet léger SF",
+  "img": "systems/starclock/assets/ammo/lightPistol.png",
+  "data": {
+    "description": "Ces balles de 8mm sont le standard le plus courant pour les armes de poing et carabines civiles confédérées. Elles sont au Standard Fédéral (SF).",
+    "ammoType": "lightPistol",
+    "quantity": 0,
+    "quantityStash": 0,
+    "damage": 2,
+    "damageType": "physical",
+    "pierce": 0,
+    "weight": 8,
+    "price": 2,
+    "reliabilityMod": 0,
+    "accuracyMod": 0
+  }
+}
