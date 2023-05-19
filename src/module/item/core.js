@@ -48,7 +48,6 @@ export default class StarclockItem extends Item {
   }
 
   async reloadGun() {
-    console.log(this.system)
     if (this.type !== 'rangedWeapon') {
       return ui.notifications.error('You can only reload ranged weapons')
     }
