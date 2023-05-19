@@ -81,11 +81,11 @@ export const registerHandlebarHelpers = () => {
   )
 
   Handlebars.registerHelper('hasElements', (...args) => (
-    args.every(hasElt)
+    extractArgs(args)[0].every(hasElt)
   ))
 
   Handlebars.registerHelper('anyHasElements', (...args) => (
-    args.some(hasElt)
+    extractArgs(args)[0].some(hasElt)
   ))
 
   Handlebars.registerHelper('getAttributeValue', (data, key, subKey) => (

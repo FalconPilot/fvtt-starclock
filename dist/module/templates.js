@@ -56,8 +56,8 @@ export const registerHandlebarHelpers = () => {
     Handlebars.registerHelper('inferior', (x, y) => (x < y));
     Handlebars.registerHelper('superior', (x, y) => (x > y));
     Handlebars.registerHelper('actortab', tab => `systems/${systemName}/templates/actors/parts/${tab}.hbs`);
-    Handlebars.registerHelper('hasElements', (...args) => (args.every(hasElt)));
-    Handlebars.registerHelper('anyHasElements', (...args) => (args.some(hasElt)));
+    Handlebars.registerHelper('hasElements', (...args) => (extractArgs(args)[0].every(hasElt)));
+    Handlebars.registerHelper('anyHasElements', (...args) => (extractArgs(args)[0].some(hasElt)));
     Handlebars.registerHelper('getAttributeValue', (data, key, subKey) => (data[key][subKey]));
     Handlebars.registerHelper('getKey', (data, key) => (data[key]));
     Handlebars.registerHelper('times', (n, block) => new Array(n).fill(null).reduce((acc, _e, idx) => {
