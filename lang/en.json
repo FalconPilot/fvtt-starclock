@@ -16,6 +16,7 @@
     "Cancel": "Cancel",
     "Damage": "Damage",
     "DamageAbridged": "DMG",
+    "Damaged": "Damaged!",
     "Pierce": "Pierce",
     "PierceAbridged": "P",
     "Delete": "Delete",
@@ -28,6 +29,7 @@
     "ItemDescription": "Description",
     "ItemName": "Name",
     "MeleeWeapons": "Melee Weapons",
+    "Misfire": "Gun jammed!",
     "MyNameIs": "Hello, my name is",
     "NoAmmoAvailable": "No ammunition available",
     "NoAmmoLoaded": "No loaded ammo",
@@ -69,6 +71,11 @@
     "DamageType": {
       "Physical": "Physical",
       "Energy": "Energy"
+    },
+    "FiringRates": {
+      "single": "Single shot",
+      "semi": "Semi-automatic",
+      "auto": "Full-auto"
     },
     "ShortDamageType": {
       "Physical": "PHY",

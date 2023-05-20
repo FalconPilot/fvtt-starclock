@@ -146,6 +146,7 @@
       "ammoType": "lightPistol",
       "ammoMax": 1,
       "ammoCurrent": 1,
+      "fumbleAmount": 0,
       "reliability": 2,
       "range": "short",
       "loadedAmmo": null,
@@ -165,7 +166,7 @@
       ],
       "ammoType": "lightPistol",
       "accuracyMod": 0,
-      "reliabilityMod": 0
+      "dangerous": false
     },
     "trait": {
       "templates": [

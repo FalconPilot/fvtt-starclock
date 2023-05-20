@@ -1,0 +1,24 @@
+{
+  "name": "Duelliste",
+  "img": "systems/starclock/assets/weapons/duelliste.png",
+  "data": {
+    "description": "Le Duelliste est un revolver lourd très populaire chez les nobles du royaume de Fleuralys. Il s'agit d'une des rares armes compactes utilisant de larges fioles à Plasma, ce qui lui a donné une réputation légendaire chez les amateurs d'armes.",
+    "weaponShape": "pistol",
+    "price": 6000,
+    "weight": 2000,
+    "reliability": 2,
+    "range": "medium",
+    "ammoType": "largeVial",
+    "ammoMax": 6,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "firingSound": "systems/starclock/assets/sfx/plasma",
+    "reloadSound": "systems/starclock/assets/sfx/reload_revolver.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": null,
+      "auto": null
+    }
+  }
+}

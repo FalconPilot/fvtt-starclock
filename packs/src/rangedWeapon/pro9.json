@@ -1,0 +1,24 @@
+{
+  "name": "PRO-9",
+  "img": "systems/starclock/assets/weapons/pro9.png",
+  "data": {
+    "description": "Le PRO-9 est un pistolet très courant chez les forces de police confédérées. Il s'agit d'une arme de service polyvalente disposant d'un mode de tir automatique extrêmement élevé.",
+    "weaponShape": "pistol",
+    "price": 3500,
+    "weight": 1200,
+    "reliability": 2,
+    "range": "short",
+    "ammoType": "lightPistol",
+    "ammoMax": 20,
+    "ammoCurrent": 20,
+    "loadedAmmo": null,
+    "stashed": false,
+    "firingSound": "systems/starclock/assets/sfx/pistol",
+    "reloadSound": "systems/starclock/assets/sfx/reload_pistol.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": 3,
+      "auto": 10
+    }
+  }
+}

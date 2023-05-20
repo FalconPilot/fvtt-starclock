@@ -11,7 +11,7 @@
     "pierce": 10,
     "weight": 40,
     "price": 50,
-    "reliabilityMod": 0,
+    "dangerous": false,
     "accuracyMod": 0
   }
 }

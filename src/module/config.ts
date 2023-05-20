@@ -117,7 +117,16 @@ export const starclock = {
         'Rifle reload sound',
         'Lever-action reload sound',
         'Handgun reload sound',
+        'Laser firing sound',
+        'Plasma firing sound',
       ],
     },
+    {
+      authorName: 'Mike Koenig',
+      authorLink: 'https://soundcloud.com/pro-sound-library-mike-koenig',
+      contributions: [
+        'Pistol firing sound',
+      ]
+    }
   ]
 }

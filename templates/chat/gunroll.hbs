@@ -1,4 +1,7 @@
 <div class="flexcol mgt">
   <h3 class="neon-white">{{item.name}}</h3>
-  {{> "systems/starclock/templates/items/parts/damage.hbs" item=loadedAmmo displayOnly=true }}
+  <div class="flexrow centerv lefth gap">
+    {{> "systems/starclock/templates/items/parts/damage.hbs" item=loadedAmmo displayOnly=true }}
+    <span>{{firingRate}}{{#if (superior ammoFired 1)}} ({{ammoFired}}){{/if}}</span>
+  </div>
 </div>

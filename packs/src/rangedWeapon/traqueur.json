@@ -13,6 +13,7 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
+    "firingSound": "systems/starclock/assets/sfx/plasma",
     "reloadSound": "systems/starclock/assets/sfx/reload_revolver.ogg",
     "firingRates": {
       "single": 1,

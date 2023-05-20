@@ -16,6 +16,7 @@
     "Cancel": "Annuler",
     "Damage": "Dégâts",
     "DamageAbridged": "DMG",
+    "Damaged": "Endommagée !",
     "Pierce": "Perforation",
     "PierceAbridged": "P",
     "Delete": "Supprimer",
@@ -28,6 +29,7 @@
     "ItemDescription": "Description",
     "ItemName": "Nom",
     "MeleeWeapons": "Armes de corps-à-corps",
+    "Misfire": "Enrayement !",
     "MyNameIs": "Bonjour, je m'appelle",
     "NoAmmoAvailable": "Pas de munitions disponibles",
     "NoAmmoLoaded": "Aucune munition chargée",
@@ -69,6 +71,11 @@
     "DamageType": {
       "Physical": "Physique",
       "Energy": "Energie"
+    },
+    "FiringRates": {
+      "single": "Tir unique",
+      "semi": "Semi-automatique",
+      "auto": "Rafale automatique"
     },
     "ShortDamageType": {
       "Physical": "PHY",

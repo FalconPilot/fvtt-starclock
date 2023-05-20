@@ -7,4 +7,7 @@
     </div>
   {{/each}}
   <strong>Score: {{score}}</strong>
+  {{#if isFumble}}
+  <strong class="neon-red">{{localize "SCLK.Misfire"}}</strong>
+  {{/if}}
 </div>

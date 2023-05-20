@@ -9,6 +9,11 @@
           </div>
           {{> "systems/starclock/templates/items/parts/damage.hbs" item=item.loadedAmmoData displayOnly=true }}
         </div>
+        {{#if (equals item.system.reliability item.system.fumbleAmount)}}
+        <div class="item-jammed neon-red flexrow centerv centerh">
+          {{ localize "SCLK.Damaged" }}
+        </div>
+        {{/if}}
         <a class="item-edit neon-pink neon-white-hover" data-id="{{item._id}}">
           <img
             class="item-img"

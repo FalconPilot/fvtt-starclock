@@ -13,7 +13,8 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
-    "reloadSound": "systems/starclock/assets/sfx/reload_leveraction.ogg",
+    "firingSound": "systems/starclock/assets/sfx/shotgun",
+    "reloadSound": "systems/starclock/assets/sfx/reload_shotgun.ogg",
     "firingRates": {
       "single": 1,
       "semi": null,

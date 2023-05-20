@@ -1,5 +1,5 @@
 import { basePath } from "../../constants.js"
-import { getRollResults, getScore } from "../../utils/roll.js"
+import { getRollResults, getScore, onlyHasOnes } from "../../utils/roll.js"
 
 export default class StarclockActorSheet extends ActorSheet {
   // Template name
@@ -36,6 +36,7 @@ export default class StarclockActorSheet extends ActorSheet {
     html.find('.item-edit').on('click', this._onItemEdit.bind(this))
     html.find('.item-stash').on('click', this._onItemStash.bind(this))
     html.find('.item-unstash').on('click', this._onItemUnstash.bind(this))
+    html.find('.item-repair').on('click', this._onItemRepair.bind(this))
     html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this))
     html.find('.gun-roll').on('click', this._onGunRoll.bind(this))
   }
@@ -68,6 +69,31 @@ export default class StarclockActorSheet extends ActorSheet {
     }, 20)
   }
 
+  // On item repair
+  _onItemRepair (event) {
+    event.preventDefault()
+    const item = this.actor.items.get(event.currentTarget.dataset.id)
+
+    if (!item) {
+      return ui.notifications.error('Item not found')
+    }
+
+    if (item.type !== 'rangedWeapon') {
+      return ui.notifications.error('Those rolls can only be done with ranged weapons')
+    }
+
+    return item.update({ 'system.fumbleAmount': 0 })
+      .then(() => {
+        AudioHelper.play({
+          src: 'systems/starclock/assets/sfx/repair.ogg',
+          volume: 1,
+          autoplay: true,
+          loop: false
+        }, false)
+        return ui.notifications.info(`${item.name} repaired`)
+      })
+  }
+
   // Gun roll macro
   async _onGunRoll (event) {
     event.preventDefault()
@@ -79,6 +105,10 @@ export default class StarclockActorSheet extends ActorSheet {
 
     if (item.type !== 'rangedWeapon') {
       return ui.notifications.error('Those rolls can only be done with ranged weapons')
+    }
+
+    if (item.system.fumbleAmount >= item.system.reliability) {
+      return ui.notifications.warn('Item must be repaired!')
     }
 
     const loadedAmmoData = this.actor.items.get(item.system.loadedAmmo)
@@ -133,6 +163,7 @@ export default class StarclockActorSheet extends ActorSheet {
               + this.actor.system.shooting
               + hitMod
               + masteryBonus
+              + (loadedAmmoData.system.accuracyMod ?? 0)
               - rangeMalus
               - firingRateMalus
 
@@ -143,24 +174,35 @@ export default class StarclockActorSheet extends ActorSheet {
             // Generate roll
             const roll = await new Roll(`${Math.max(hitDice, 1)}D6`).roll({ async: true })
 
+            // Generate roll result data
+            const results = getRollResults(roll)
+            const score = getScore(roll)
+
             // Patch ammo data
             const patchedAmmo = Object.assign({}, loadedAmmoData)
             patchedAmmo.system.damage = finalDmg
+
+            const isFumble = onlyHasOnes(roll)
 
             // Compile header
             const flavorHeader = await renderTemplate('systems/starclock/templates/chat/gunroll.hbs', {
               item,
               loadedAmmo: patchedAmmo,
               config: CONFIG.starclock,
+              firingRate: game.i18n.localize(`SCLK.FiringRates.${firingRate}`),
+              ammoFired,
             })
 
             // Compile content
             const messageContent = await renderTemplate('systems/starclock/templates/chat/diceroll.hbs', {
-              results: getRollResults(roll),
-              score: getScore(roll),
+              results,
+              score,
+              isFumble,
             })
 
-            const sound = item.system.firingSound
+            const sound = isFumble
+              ? 'systems/starclock/assets/sfx/trigger_click.ogg'
+              : item.system.firingSound
               ? `${item.system.firingSound}_${firingRate}.ogg`
               : CONFIG.sounds.dice
   
@@ -173,7 +215,11 @@ export default class StarclockActorSheet extends ActorSheet {
               content: messageContent,
               sound,
             }).then(() => {
-              item.update({ 'system.ammoCurrent': item.system.ammoCurrent - ammoFired })
+              if (isFumble) {
+                return item.update({ 'system.fumbleAmount': item.system.fumbleAmount + 1 })
+              }
+
+              return item.update({ 'system.ammoCurrent': item.system.ammoCurrent - ammoFired })
             })
           }
         }
@@ -204,6 +250,30 @@ export default class StarclockActorSheet extends ActorSheet {
       return ui.notifications.error('Item not found')
     }
 
+    if (!event.shiftKey) {
+      const dialog = new Dialog({
+        title: `Delete ${item.name}?`,
+        buttons: {
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: game.i18n.localize('SCLK.Cancel'),
+            callback: () => {},
+          },
+          submit: {
+            icon: '<i class="fas fa-dice-d6"></i>',
+            label: game.i18n.localize('SCLK.Confirm'),
+            callback: () => {
+              return item.delete({}).then(() => {
+                ui.notifications.info(`${item.name} has been deleted`)
+              })
+            }
+          }
+        }
+      })
+
+      return dialog.render(true)
+    }
+
     return item.delete({}).then(() => {
       ui.notifications.info(`${item.name} has been deleted`)
     })
@@ -230,9 +300,7 @@ export default class StarclockActorSheet extends ActorSheet {
       return ui.notifications.error('Item not found')
     }
 
-    return item.update({
-      'system.stashed': true
-    }).then(() => {
+    return item.update({ 'system.stashed': true }).then(() => {
       ui.notifications.info(`${item.name} has been stashed`)
     })
   }

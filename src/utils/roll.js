@@ -29,3 +29,21 @@ export const getScore = roll =>
 
       return Math.max(score, lengthScore, minScore)
     }, 0)
+
+export const getRollNums = num => roll =>
+  extractMatrix(roll)
+    .flat()
+    .filter(dice => dice === num)
+    .length
+
+export const onlyHasOnes = roll =>
+  getRollNums(1)(roll) === extractMatrix(roll).flat().length
+
+export const getLowest = roll =>
+  extractMatrix(roll)
+    .flat()
+    .reverse()[0]
+
+export const getHighest = roll =>
+  extractMatrix(roll)
+    .flat()[0]

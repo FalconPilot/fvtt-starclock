@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { basePath } from "../../constants.js";
-import { getRollResults, getScore } from "../../utils/roll.js";
+import { getRollResults, getScore, onlyHasOnes } from "../../utils/roll.js";
 export default class StarclockActorSheet extends ActorSheet {
     // Template name
     get template() {
@@ -45,6 +45,7 @@ export default class StarclockActorSheet extends ActorSheet {
         html.find('.item-edit').on('click', this._onItemEdit.bind(this));
         html.find('.item-stash').on('click', this._onItemStash.bind(this));
         html.find('.item-unstash').on('click', this._onItemUnstash.bind(this));
+        html.find('.item-repair').on('click', this._onItemRepair.bind(this));
         html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this));
         html.find('.gun-roll').on('click', this._onGunRoll.bind(this));
     }
@@ -74,6 +75,27 @@ export default class StarclockActorSheet extends ActorSheet {
             }
         }, 20);
     }
+    // On item repair
+    _onItemRepair(event) {
+        event.preventDefault();
+        const item = this.actor.items.get(event.currentTarget.dataset.id);
+        if (!item) {
+            return ui.notifications.error('Item not found');
+        }
+        if (item.type !== 'rangedWeapon') {
+            return ui.notifications.error('Those rolls can only be done with ranged weapons');
+        }
+        return item.update({ 'system.fumbleAmount': 0 })
+            .then(() => {
+            AudioHelper.play({
+                src: 'systems/starclock/assets/sfx/repair.ogg',
+                volume: 1,
+                autoplay: true,
+                loop: false
+            }, false);
+            return ui.notifications.info(`${item.name} repaired`);
+        });
+    }
     // Gun roll macro
     _onGunRoll(event) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -84,6 +106,9 @@ export default class StarclockActorSheet extends ActorSheet {
             }
             if (item.type !== 'rangedWeapon') {
                 return ui.notifications.error('Those rolls can only be done with ranged weapons');
+            }
+            if (item.system.fumbleAmount >= item.system.reliability) {
+                return ui.notifications.warn('Item must be repaired!');
             }
             const loadedAmmoData = this.actor.items.get(item.system.loadedAmmo);
             if (!loadedAmmoData) {
@@ -107,7 +132,7 @@ export default class StarclockActorSheet extends ActorSheet {
                         icon: '<i class="fas fa-dice-d6"></i>',
                         label: game.i18n.localize('SCLK.Roll'),
                         callback: (html) => __awaiter(this, void 0, void 0, function* () {
-                            var _a, _b;
+                            var _a, _b, _c;
                             const firingRate = html.find('select[name=firingRate]').val();
                             const range = html.find('select[name=range]').val();
                             const hitMod = parseInt(html.find('input[name=hitMod]').val(), 10);
@@ -130,6 +155,7 @@ export default class StarclockActorSheet extends ActorSheet {
                                 + this.actor.system.shooting
                                 + hitMod
                                 + masteryBonus
+                                + ((_c = loadedAmmoData.system.accuracyMod) !== null && _c !== void 0 ? _c : 0)
                                 - rangeMalus
                                 - firingRateMalus;
                             // Calculate final amount of damage
@@ -137,23 +163,32 @@ export default class StarclockActorSheet extends ActorSheet {
                                 + firingRateDmg;
                             // Generate roll
                             const roll = yield new Roll(`${Math.max(hitDice, 1)}D6`).roll({ async: true });
+                            // Generate roll result data
+                            const results = getRollResults(roll);
+                            const score = getScore(roll);
                             // Patch ammo data
                             const patchedAmmo = Object.assign({}, loadedAmmoData);
                             patchedAmmo.system.damage = finalDmg;
+                            const isFumble = onlyHasOnes(roll);
                             // Compile header
                             const flavorHeader = yield renderTemplate('systems/starclock/templates/chat/gunroll.hbs', {
                                 item,
                                 loadedAmmo: patchedAmmo,
                                 config: CONFIG.starclock,
+                                firingRate: game.i18n.localize(`SCLK.FiringRates.${firingRate}`),
+                                ammoFired,
                             });
                             // Compile content
                             const messageContent = yield renderTemplate('systems/starclock/templates/chat/diceroll.hbs', {
-                                results: getRollResults(roll),
-                                score: getScore(roll),
+                                results,
+                                score,
+                                isFumble,
                             });
-                            const sound = item.system.firingSound
-                                ? `${item.system.firingSound}_${firingRate}.ogg`
-                                : CONFIG.sounds.dice;
+                            const sound = isFumble
+                                ? 'systems/starclock/assets/sfx/trigger_click.ogg'
+                                : item.system.firingSound
+                                    ? `${item.system.firingSound}_${firingRate}.ogg`
+                                    : CONFIG.sounds.dice;
                             // Send roll to chat
                             return ChatMessage.create({
                                 user: game.user.id,
@@ -163,7 +198,10 @@ export default class StarclockActorSheet extends ActorSheet {
                                 content: messageContent,
                                 sound,
                             }).then(() => {
-                                item.update({ 'system.ammoCurrent': item.system.ammoCurrent - ammoFired });
+                                if (isFumble) {
+                                    return item.update({ 'system.fumbleAmount': item.system.fumbleAmount + 1 });
+                                }
+                                return item.update({ 'system.ammoCurrent': item.system.ammoCurrent - ammoFired });
                             });
                         })
                     }
@@ -188,6 +226,28 @@ export default class StarclockActorSheet extends ActorSheet {
         if (!item) {
             return ui.notifications.error('Item not found');
         }
+        if (!event.shiftKey) {
+            const dialog = new Dialog({
+                title: `Delete ${item.name}?`,
+                buttons: {
+                    cancel: {
+                        icon: '<i class="fas fa-times"></i>',
+                        label: game.i18n.localize('SCLK.Cancel'),
+                        callback: () => { },
+                    },
+                    submit: {
+                        icon: '<i class="fas fa-dice-d6"></i>',
+                        label: game.i18n.localize('SCLK.Confirm'),
+                        callback: () => {
+                            return item.delete({}).then(() => {
+                                ui.notifications.info(`${item.name} has been deleted`);
+                            });
+                        }
+                    }
+                }
+            });
+            return dialog.render(true);
+        }
         return item.delete({}).then(() => {
             ui.notifications.info(`${item.name} has been deleted`);
         });
@@ -208,9 +268,7 @@ export default class StarclockActorSheet extends ActorSheet {
         if (!item) {
             return ui.notifications.error('Item not found');
         }
-        return item.update({
-            'system.stashed': true
-        }).then(() => {
+        return item.update({ 'system.stashed': true }).then(() => {
             ui.notifications.info(`${item.name} has been stashed`);
         });
     }

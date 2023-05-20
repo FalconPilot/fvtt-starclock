@@ -90,7 +90,12 @@ export default class StarclockItem extends Item {
       })
       .then(() => {
         if (this.system.reloadSound) {
-          AudioHelper.play({ src: this.system.reloadSound, volume: 1, autoplay: true, loop: false }, false);
+          AudioHelper.play({
+            src: this.system.reloadSound,
+            volume: 1,
+            autoplay: true,
+            loop: false
+          }, false)
         }
       })
   }
