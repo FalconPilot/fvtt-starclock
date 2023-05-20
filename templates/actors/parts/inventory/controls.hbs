@@ -16,7 +16,6 @@
               class="item-control gun-roll flexrow centerv centerh pgh neon-green-hover"
               title="{{localize "SCLK.Roll"}}"
               data-id="{{item._id}}"
-              data-ammo="{{item.system.loadedAmmo}}"
             >
               <i class="fas fa-dice-six"></i>
             </a>
@@ -30,6 +29,15 @@
           </a>
         {{/if}}
       {{/if}}
+    {{/and}}
+    {{#and (equals item.type 'meleeWeapon') (notEquals item.system.stashed true)}}
+      <a
+        class="item-control melee-roll flexrow centerv centerh pgh neon-green-hover"
+        title="{{localize "SCLK.Roll"}}"
+        data-id="{{item._id}}"
+      >
+        <i class="fas fa-dice-six"></i>
+      </a>
     {{/and}}
     {{#if (notEquals item.type "ammo")}}
       {{#if isStash}}

@@ -7,13 +7,17 @@
           <div class="flexrow">
             <h3 class="inv-item-name">{{item.name}}</h3>
           </div>
-          {{> "systems/starclock/templates/items/parts/damage.hbs" item=item.loadedAmmoData displayOnly=true }}
+          {{#if (equals item.type "rangedWeapon")}}
+            {{> "systems/starclock/templates/items/parts/damage.hbs" item=item.loadedAmmoData displayOnly=true }}
+          {{else}}
+            {{> "systems/starclock/templates/items/parts/damage.hbs" item=item displayOnly=true }}
+          {{/if}}
         </div>
-        {{#if (equals item.system.reliability item.system.fumbleAmount)}}
+        {{#and (equals item.type "rangedWeapon") (equals item.system.reliability item.system.fumbleAmount)}}
         <div class="item-jammed neon-red flexrow centerv centerh">
           {{ localize "SCLK.Damaged" }}
         </div>
-        {{/if}}
+        {{/and}}
         <a class="item-edit neon-pink neon-white-hover" data-id="{{item._id}}">
           <img
             class="item-img"
@@ -21,7 +25,9 @@
             draggable="false"
           />
         </a>
-        {{> "systems/starclock/templates/items/parts/ammo.hbs" item=item displayOnly=true loadedAmmo=item.loadedAmmoData }}
+        {{#if (equals item.type "rangedWeapon")}}
+          {{> "systems/starclock/templates/items/parts/ammo.hbs" item=item displayOnly=true loadedAmmo=item.loadedAmmoData }}
+        {{/if}}
         {{> "systems/starclock/templates/actors/parts/inventory/controls.hbs" item=item isStash=../../isStash }}
       </li>
     {{/each}}

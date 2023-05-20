@@ -48,6 +48,7 @@ export default class StarclockActorSheet extends ActorSheet {
         html.find('.item-repair').on('click', this._onItemRepair.bind(this));
         html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this));
         html.find('.gun-roll').on('click', this._onGunRoll.bind(this));
+        html.find('.melee-roll').on('click', this._onMeleeRoll.bind(this));
     }
     // Append animation component
     appendAnimation() {
@@ -119,18 +120,15 @@ export default class StarclockActorSheet extends ActorSheet {
                 item,
                 mastered: isMastered,
             });
+            // Create Dialog
             const dialog = new Dialog({
                 title: item.name,
                 content,
+                default: 'submit',
                 buttons: {
-                    cancel: {
-                        icon: '<i class="fas fa-times"></i>',
-                        label: game.i18n.localize('SCLK.Cancel'),
-                        callback: () => { },
-                    },
                     submit: {
-                        icon: '<i class="fas fa-dice-d6"></i>',
-                        label: game.i18n.localize('SCLK.Roll'),
+                        icon: '<i class="fas fa-dice-six"></i>',
+                        label: game.i18n.localize('SCLK.Confirm'),
                         callback: (html) => __awaiter(this, void 0, void 0, function* () {
                             var _a, _b, _c;
                             const firingRate = html.find('select[name=firingRate]').val();
@@ -183,6 +181,7 @@ export default class StarclockActorSheet extends ActorSheet {
                                 results,
                                 score,
                                 isFumble,
+                                fumbleText: game.i18n.localize('SCLK.Misfire'),
                             });
                             const sound = isFumble
                                 ? 'systems/starclock/assets/sfx/trigger_click.ogg'
@@ -203,8 +202,89 @@ export default class StarclockActorSheet extends ActorSheet {
                                 }
                                 return item.update({ 'system.ammoCurrent': item.system.ammoCurrent - ammoFired });
                             });
-                        })
-                    }
+                        }),
+                    },
+                    cancel: {
+                        icon: '<i class="fas fa-times"></i>',
+                        label: game.i18n.localize('SCLK.Cancel'),
+                        callback: () => { },
+                    },
+                },
+            });
+            return dialog.render(true);
+        });
+    }
+    // On melee weapon roll
+    _onMeleeRoll(event) {
+        return __awaiter(this, void 0, void 0, function* () {
+            event.preventDefault();
+            const item = this.actor.items.get(event.currentTarget.dataset.id);
+            if (!item) {
+                return ui.notifications.error('Item not found');
+            }
+            if (item.type !== 'meleeWeapon') {
+                return ui.notifications.error('Those rolls can only be done with melee weapons');
+            }
+            const isMastered = this.actor.system.weaponMasteries[item.system.weaponShape];
+            const content = yield renderTemplate('systems/starclock/templates/dialogs/meleeroll.hbs', {
+                item,
+                mastered: isMastered,
+            });
+            // Create Dialog
+            const dialog = new Dialog({
+                title: item.name,
+                content,
+                default: 'submit',
+                buttons: {
+                    submit: {
+                        icon: '<i class="fas fa-dice-six"></i>',
+                        label: game.i18n.localize('SCLK.Confirm'),
+                        callback: (html) => __awaiter(this, void 0, void 0, function* () {
+                            var _a;
+                            const hitMod = parseInt(html.find('input[name=hitMod]').val(), 10);
+                            const masteryBonus = isMastered ? 1 : 0;
+                            // Calculate final amount of dice
+                            const hitDice = this.actor.system.acu
+                                + this.actor.system.melee
+                                + hitMod
+                                + masteryBonus;
+                            // Generate roll
+                            const roll = yield new Roll(`${Math.max(hitDice, 1)}D6`).roll({ async: true });
+                            // Generate roll result data
+                            const results = getRollResults(roll);
+                            const score = getScore(roll);
+                            const isFumble = onlyHasOnes(roll);
+                            // Compile header
+                            const flavorHeader = yield renderTemplate('systems/starclock/templates/chat/meleeroll.hbs', {
+                                item,
+                                config: CONFIG.starclock,
+                            });
+                            // Compile content
+                            const messageContent = yield renderTemplate('systems/starclock/templates/chat/diceroll.hbs', {
+                                results,
+                                score,
+                                isFumble,
+                                fumbleText: game.i18n.localize('SCLK.Fumble'),
+                            });
+                            const sound = isFumble
+                                ? 'systems/starclock/assets/sfx/melee_woosh.ogg'
+                                : ((_a = item.system.firingSound) !== null && _a !== void 0 ? _a : CONFIG.sounds.dice);
+                            // Send roll to chat
+                            return ChatMessage.create({
+                                user: game.user.id,
+                                flavor: flavorHeader,
+                                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                                rollMode: game.settings.get('core', 'rollMode'),
+                                content: messageContent,
+                                sound,
+                            });
+                        }),
+                    },
+                    cancel: {
+                        icon: '<i class="fas fa-times"></i>',
+                        label: game.i18n.localize('SCLK.Cancel'),
+                        callback: () => { },
+                    },
                 },
             });
             return dialog.render(true);
@@ -229,22 +309,23 @@ export default class StarclockActorSheet extends ActorSheet {
         if (!event.shiftKey) {
             const dialog = new Dialog({
                 title: `Delete ${item.name}?`,
+                default: 'cancel',
                 buttons: {
+                    submit: {
+                        icon: '<i class="fas fa-trash"></i>',
+                        label: game.i18n.localize('SCLK.Delete'),
+                        callback: () => {
+                            return item.delete({}).then(() => {
+                                ui.notifications.info(`${item.name} has been deleted`);
+                            });
+                        },
+                    },
                     cancel: {
                         icon: '<i class="fas fa-times"></i>',
                         label: game.i18n.localize('SCLK.Cancel'),
                         callback: () => { },
                     },
-                    submit: {
-                        icon: '<i class="fas fa-dice-d6"></i>',
-                        label: game.i18n.localize('SCLK.Confirm'),
-                        callback: () => {
-                            return item.delete({}).then(() => {
-                                ui.notifications.info(`${item.name} has been deleted`);
-                            });
-                        }
-                    }
-                }
+                },
             });
             return dialog.render(true);
         }

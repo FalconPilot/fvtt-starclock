@@ -8,6 +8,8 @@
   {{/each}}
   <strong>Score: {{score}}</strong>
   {{#if isFumble}}
-  <strong class="neon-red">{{localize "SCLK.Misfire"}}</strong>
+    <strong class="roll-fumble flexrow centerv centerh neon-red">
+      {{fumbleText}}
+    </strong>
   {{/if}}
 </div>
