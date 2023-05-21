@@ -19,6 +19,8 @@ export const preloadHandlebarTemplates = () => __awaiter(void 0, void 0, void 0,
     return loadTemplates([
         // Actor tabs
         ...Object.keys(starclock.tabs).map(tab => (`${basePath}/templates/actors/parts/${tab}.hbs`)),
+        // Common partials
+        `${basePath}/templates/common/resourcebar.hbs`,
         // Actor partials
         `${basePath}/templates/actors/parts/infos.hbs`,
         `${basePath}/templates/actors/parts/inventory/ammo.hbs`,
@@ -61,6 +63,10 @@ export const registerHandlebarHelpers = () => {
             ? args.flat()
             : args.reduce((acc, x) => (Object.assign(Object.assign({}, acc), x)), {});
     });
+    Handlebars.registerHelper('sum', (...args) => {
+        const [nums] = extractArgs(args);
+        return nums.reduce((t, n) => t + n, 0);
+    });
     Handlebars.registerHelper('actortab', tab => `systems/${systemName}/templates/actors/parts/${tab}.hbs`);
     Handlebars.registerHelper('hasElements', (...args) => (extractArgs(args)[0].every(hasElt)));
     Handlebars.registerHelper('anyHasElements', (...args) => (extractArgs(args)[0].some(hasElt)));
@@ -69,6 +75,10 @@ export const registerHandlebarHelpers = () => {
     Handlebars.registerHelper('times', (n, block) => new Array(n).fill(null).reduce((acc, _e, idx) => {
         return acc + block.fn(idx);
     }, ''));
+    Handlebars.registerHelper('percentageOf', (x, y) => {
+        const percentage = Math.round((x / y) * 100);
+        return isNaN(percentage) ? 0 : percentage;
+    });
     Handlebars.registerHelper('damageNeon', type => ({
         physical: 'neon-red',
         energy: 'neon-blue',

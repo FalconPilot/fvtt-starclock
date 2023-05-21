@@ -5,7 +5,7 @@
       src="systems/starclock/assets/races/{{actor.system.race}}_sil_{{actor.system.bodyType}}.png"
     />
   </div>
-  <div class="character-common-data flexcol topv centerh gap">
+  <div class="character-common-data flexcol topv gap">
     <div class="profile-img-wrapper neon-pink-pseudo">
       <img
         class="profile-img"
@@ -25,5 +25,14 @@
       />
       <h3 class="line-input pgl">{{localize "SCLK.StarCredits"}}</h3>
     </label>
+    <h3 class="bar-title">{{ localize "SCLK.Stamina" }}</h3>
+    {{>
+      "systems/starclock/templates/common/resourcebar.hbs"
+      currentValue=@root/actor.system.currentStamina
+      currentKey="system.currentStamina"
+      canModifyCurrent=true
+      maxValue=@root/maxStamina
+      barClass="stamina"
+    }}
   </div>
 </div>

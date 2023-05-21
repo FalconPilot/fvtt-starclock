@@ -1,0 +1,29 @@
+<div class="resource-bar flexrow centerv centerh neon-pink-pseudo {{barClass}}">
+  <div class="resource-gauge" style="width: {{percentageOf currentValue maxValue}}%"></div>
+  {{#if canModifyCurrent}}
+    <input
+      type="number"
+      data-dtype="Number"
+      class="bar-current"
+      name="{{currentKey}}"
+      value="{{currentValue}}"
+      min="0"
+      max="{{maxValue}}"
+    />
+  {{else}}
+  <span class="bar-current">{{currentValue}}</span>
+  {{/if}}
+  <span class="bar-delimiter pgh">/</span>
+  {{#if canModifyMax}}
+    <input
+      type="number"
+      data-dtype="Number"
+      class="bar-max"
+      name="{{maxKey}}"
+      value="{{maxValue}}"
+      min="0"
+    />
+  {{else}}
+    <span class="bar-max">{{maxValue}}</span>
+  {{/if}}
+</div>

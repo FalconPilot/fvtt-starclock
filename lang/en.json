@@ -40,6 +40,7 @@
     "Repair": "Repair",
     "Roll": "Roll",
     "SkillsHeader": "Skills",
+    "Stamina": "Stamina",
     "WeaponMasteries": "Weapon Masteries",
     "AmmoTypes": {
       "LightPistol": "Light Pistol",
@@ -79,6 +80,12 @@
       "single": "Single shot",
       "semi": "Semi-automatic",
       "auto": "Full-auto"
+    },
+    "Ranges": {
+      "Short": "Short",
+      "Medium": "Medium",
+      "Long": "Long",
+      "Extreme": "Extreme"
     },
     "ShortDamageType": {
       "Physical": "PHY",

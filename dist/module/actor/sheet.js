@@ -138,6 +138,7 @@ export default class StarclockActorSheet extends ActorSheet {
                                 short: 1,
                                 medium: 2,
                                 long: 3,
+                                extreme: 4,
                             }[item.system.range]) !== null && _a !== void 0 ? _a : 0;
                             const firingRateMalus = (_b = {
                                 single: 0,
@@ -426,6 +427,7 @@ export default class StarclockActorSheet extends ActorSheet {
         }, [{}, {}, {}, {}, {}])
             .map(obj => Object.entries(obj)
             .reduce((acc, [k, v]) => (Object.assign(Object.assign({}, acc), { [k]: v.sort((i1, i2) => i1.name < i2.name ? -1 : 1) })), {}));
+        const maxStamina = this.actor.getMaxStamina();
         return Object.assign(data, {
             config: CONFIG.starclock,
             inventory,
@@ -433,6 +435,7 @@ export default class StarclockActorSheet extends ActorSheet {
             ammo,
             weapons: this.sortItems(weapons),
             weaponsStash: this.sortItems(weaponsStash),
+            maxStamina,
         });
     }
 }

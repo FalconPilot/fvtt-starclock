@@ -36,6 +36,7 @@ export default class StarclockItem extends Item {
 
     return super.update(data)
       .then(() => {
+        // Refund ammo
         if (this.type === 'rangedWeapon' && alreadyLoadedAmmo && refundedAmmo > 0) {
           const key = this.system.stashed ? 'quantityStash' : 'quantity'
           return alreadyLoadedAmmo

@@ -74,6 +74,12 @@ export const starclock = {
     shooting: "SCLK.Combat.Shooting",
     defense: "SCLK.Combat.Defense",
   },
+  ranges: {
+    short: 'SCLK.Ranges.Short',
+    medium: 'SCLK.Ranges.Medium',
+    long: 'SCLK.Ranges.Long',
+    extreme: 'SCLK.Ranges.Extreme',
+  },
   skills: {
     acrobatics: 'SCLK.Skills.Acrobatics',
     arts: 'SCLK.Skills.Arts',

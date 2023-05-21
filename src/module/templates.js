@@ -19,6 +19,9 @@ export const preloadHandlebarTemplates = async () =>
       `${basePath}/templates/actors/parts/${tab}.hbs`
     )),
 
+    // Common partials
+    `${basePath}/templates/common/resourcebar.hbs`,
+
     // Actor partials
     `${basePath}/templates/actors/parts/infos.hbs`,
     `${basePath}/templates/actors/parts/inventory/ammo.hbs`,
@@ -84,6 +87,12 @@ export const registerHandlebarHelpers = () => {
       : args.reduce((acc, x) => ({ ...acc, ...x }), {})
   })
 
+  Handlebars.registerHelper('sum', (...args) => {
+    const [nums] = extractArgs(args)
+
+    return nums.reduce((t, n) => t + n, 0)
+  })
+
   Handlebars.registerHelper('actortab', tab =>
     `systems/${systemName}/templates/actors/parts/${tab}.hbs`
   )
@@ -109,6 +118,11 @@ export const registerHandlebarHelpers = () => {
       return acc + block.fn(idx)
     }, '')
   )
+
+  Handlebars.registerHelper('percentageOf', (x, y) => {
+    const percentage = Math.round((x / y) * 100)
+    return isNaN(percentage) ? 0 : percentage
+  })
 
   Handlebars.registerHelper('damageNeon', type => ({
     physical: 'neon-red',
