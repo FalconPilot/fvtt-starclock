@@ -9,3 +9,5 @@
 
 .flexrow.bottomv, .flexcol.righth { align-items: flex-end; }
 .flexcol.bottomv, .flexrowq.righth { justify-content: flex-end; }
+
+.flexcol.nowrap, .flexrow.nowrap { flex-wrap: nowrap; }

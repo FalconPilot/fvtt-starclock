@@ -22,6 +22,7 @@
     "styles/animations.css",
     "styles/chat.css",
     "styles/common.css",
+    "styles/dialog.css",
     "styles/flex.css",
     "styles/inputs.css",
     "styles/items.css",

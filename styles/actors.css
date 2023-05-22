@@ -326,3 +326,11 @@
   border: none;
   border-radius: 8px;
 }
+
+.side-info-icon {
+  flex: 0 0 16px;
+}
+
+.side-info-icon i.neon-yellow {
+  color: #333;
+}

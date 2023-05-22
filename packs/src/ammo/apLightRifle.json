@@ -1,0 +1,17 @@
+{
+  "name": "Cartouches de fusil léger AP",
+  "img": "systems/starclock/assets/ammo/lightRifle_ap.png",
+  "data": {
+    "description": "Ces cartouches à haute vélocité sont hors de prix, mais également capables de transpercer des couches épaisses de protections.",
+    "ammoType": "lightRifle",
+    "quantity": 0,
+    "quantityStash": 0,
+    "damage": 3,
+    "damageType": "physical",
+    "pierce": 4,
+    "weight": 12,
+    "price": 25,
+    "dangerous": false,
+    "accuracyMod": 0
+  }
+}

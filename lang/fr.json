@@ -25,9 +25,11 @@
     "EmptyArsenal": "Arsenal vide",
     "EmptyInventory": "Inventaire vide",
     "EmptyStash": "Réserve vide",
+    "FiringRateTitle": "Mode de tir",
     "Fumble": "Maladresse !",
     "HeightLabel": "ans je et mesure",
     "HeightLabel2": "de hauteur.",
+    "HitMod": "Bonus/Malus",
     "ItemDescription": "Description",
     "ItemName": "Nom",
     "MeleeWeapons": "Armes de corps-à-corps",
@@ -38,9 +40,11 @@
     "RaceLabel": "Mon espèce est",
     "RangedWeapons": "Armes à distance",
     "Repair": "Réparer",
+    "RangeTitle": "Distance",
     "Roll": "Jet de dés",
     "SkillsHeader": "Compétences",
     "Stamina": "Endurance",
+    "WeaponCondition": "Etat de l'arme",
     "WeaponMasteries": "Maîtrises d'armes",
     "AmmoTypes": {
       "LightPistol": "Pistolet léger",
@@ -78,8 +82,8 @@
     },
     "FiringRates": {
       "single": "Tir unique",
-      "semi": "Semi-automatique",
-      "auto": "Rafale automatique"
+      "semi": "Semi-auto",
+      "auto": "Automatique"
     },
     "Ranges": {
       "Short": "Courte",

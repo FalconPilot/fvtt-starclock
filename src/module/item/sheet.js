@@ -20,12 +20,19 @@ export default class StarclockItemSheet extends ItemSheet {
     super.activateListeners(html)
 
     html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this))
+    html.find('.item-repair').on('click', this._onItemRepair.bind(this))
   }
 
   // On weapon reload
   _onWeaponReload (event) {
     event.preventDefault()
     return this.item.reloadGun()
+  }
+
+  // On item repair
+  _onItemRepair (event) {
+    event.preventDefault()
+    return this.item.repairItem()
   }
 
   // Get item data

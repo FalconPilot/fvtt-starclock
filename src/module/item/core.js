@@ -48,6 +48,25 @@ export default class StarclockItem extends Item {
       })
   }
 
+  async repairItem() {
+    // On item repair
+
+    if (this.type !== 'rangedWeapon') {
+      return ui.notifications.error('Can only repair ranged weapons')
+    }
+
+    return this.update({ 'system.fumbleAmount': 0 })
+      .then(() => {
+        AudioHelper.play({
+          src: 'systems/starclock/assets/sfx/repair.ogg',
+          volume: 1,
+          autoplay: true,
+          loop: false
+        }, false)
+        return ui.notifications.info(`${this.name} repaired`)
+      })
+  }
+
   async reloadGun() {
     if (this.type !== 'rangedWeapon') {
       return ui.notifications.error('You can only reload ranged weapons')

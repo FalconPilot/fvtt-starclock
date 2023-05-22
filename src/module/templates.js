@@ -39,7 +39,9 @@ export const preloadHandlebarTemplates = async () =>
   ])
 
 export const registerHandlebarHelpers = () => {
-  Handlebars.registerHelper('log', console.log)
+  Handlebars.registerHelper('log', x => console.log(x))
+
+  Handlebars.registerHelper('getEachIndex', options => options.data.index)
 
   Handlebars.registerHelper('exists', elt => (
     elt !== null && elt !== undefined
@@ -91,6 +93,27 @@ export const registerHandlebarHelpers = () => {
     const [nums] = extractArgs(args)
 
     return nums.reduce((t, n) => t + n, 0)
+  })
+
+  Handlebars.registerHelper('sub', (num, ...args) => {
+    const [nums] = extractArgs(args)
+
+    return nums.reduce((t, n) => t - n, num)
+  })
+
+  Handlebars.registerHelper('rangeMalus', (item, options) => {
+    const rangeMalus = options.data.index + 1
+    const weaponRange = {
+      short: 1,
+      medium: 2,
+      long: 3,
+      extreme: 4,
+    }[item.system.range] ?? 0
+
+    const rawValue = Math.min(0, weaponRange - rangeMalus)
+    const prefix = rawValue >= 0 ? '+' : ''
+
+    return `(${prefix}${rawValue})`
   })
 
   Handlebars.registerHelper('actortab', tab =>

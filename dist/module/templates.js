@@ -37,7 +37,8 @@ export const preloadHandlebarTemplates = () => __awaiter(void 0, void 0, void 0,
     ]);
 });
 export const registerHandlebarHelpers = () => {
-    Handlebars.registerHelper('log', console.log);
+    Handlebars.registerHelper('log', x => console.log(x));
+    Handlebars.registerHelper('getEachIndex', options => options.data.index);
     Handlebars.registerHelper('exists', elt => (elt !== null && elt !== undefined));
     Handlebars.registerHelper('and', function (...conds) {
         const [args, options] = extractArgs(conds);
@@ -66,6 +67,23 @@ export const registerHandlebarHelpers = () => {
     Handlebars.registerHelper('sum', (...args) => {
         const [nums] = extractArgs(args);
         return nums.reduce((t, n) => t + n, 0);
+    });
+    Handlebars.registerHelper('sub', (num, ...args) => {
+        const [nums] = extractArgs(args);
+        return nums.reduce((t, n) => t - n, num);
+    });
+    Handlebars.registerHelper('rangeMalus', (item, options) => {
+        var _a;
+        const rangeMalus = options.data.index + 1;
+        const weaponRange = (_a = {
+            short: 1,
+            medium: 2,
+            long: 3,
+            extreme: 4,
+        }[item.system.range]) !== null && _a !== void 0 ? _a : 0;
+        const rawValue = Math.min(0, weaponRange - rangeMalus);
+        const prefix = rawValue >= 0 ? '+' : '';
+        return `(${prefix}${rawValue})`;
     });
     Handlebars.registerHelper('actortab', tab => `systems/${systemName}/templates/actors/parts/${tab}.hbs`);
     Handlebars.registerHelper('hasElements', (...args) => (extractArgs(args)[0].every(hasElt)));

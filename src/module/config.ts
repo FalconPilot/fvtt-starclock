@@ -74,6 +74,11 @@ export const starclock = {
     shooting: "SCLK.Combat.Shooting",
     defense: "SCLK.Combat.Defense",
   },
+  firingRates: {
+    single: 'SCLK.FiringRates.single',
+    semi: 'SCLK.FiringRates.semi',
+    auto: 'SCLK.FiringRates.auto',
+  },
   ranges: {
     short: 'SCLK.Ranges.Short',
     medium: 'SCLK.Ranges.Medium',
@@ -104,27 +109,15 @@ export const starclock = {
       authorName: 'Robbe',
       authorLink: 'https://www.flickr.com/photos/145236510@N06/',
       contributions: [
-        'Caiman base image',
-        'Dai-X base image',
-        'Kampfer base image',
-        'Millenium base image',
-        'Mousquetaire base image',
-        'Stavog base image',
-        'Subhash base image',
-        'Tiamat base image',
-        'UMG90 base image',
+        'Almost all of the guns base images',
       ],
     },
     {
       authorName: 'Pixabay',
       authorLink: 'https://pixabay.com/sound-effects',
       contributions: [
-        'Revolver reload sound',
-        'Rifle reload sound',
-        'Lever-action reload sound',
-        'Handgun reload sound',
-        'Laser firing sound',
-        'Plasma firing sound',
+        'Gun firing sounds',
+        'Gun reload sounds',
       ],
     },
     {
@@ -132,6 +125,14 @@ export const starclock = {
       authorLink: 'https://soundcloud.com/pro-sound-library-mike-koenig',
       contributions: [
         'Pistol firing sound',
+      ]
+    },
+    {
+      authorName: "Tyler Finck",
+      authorLink: "https://www.tyfromtheinternet.com",
+      contributions: [
+        "Taurus Mono font",
+        "Ostrich Sans font",
       ]
     }
   ]

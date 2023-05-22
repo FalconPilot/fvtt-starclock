@@ -25,14 +25,23 @@
       />
       <h3 class="line-input pgl">{{localize "SCLK.StarCredits"}}</h3>
     </label>
-    <h3 class="bar-title">{{ localize "SCLK.Stamina" }}</h3>
-    {{>
-      "systems/starclock/templates/common/resourcebar.hbs"
-      currentValue=@root/actor.system.currentStamina
-      currentKey="system.currentStamina"
-      canModifyCurrent=true
-      maxValue=@root/maxStamina
-      barClass="stamina"
-    }}
+    <div class="stamina-wrapper flexrow nowrap centerv centerh gap">
+      <div class="side-info-icon flexrow centerv centerh">
+        {{#if (superior @root/actor.system.currentStamina 0)}}
+          <i class="fas fa-bolt neon-green"></i>
+        {{else}}
+          <i class="fas fa-triangle-exclamation neon-yellow"></i>
+        {{/if}}
+      </div>
+      {{>
+        "systems/starclock/templates/common/resourcebar.hbs"
+        currentValue=@root/actor.system.currentStamina
+        currentKey="system.currentStamina"
+        currentTitle=(localize "SCLK.Stamina")
+        canModifyCurrent=true
+        maxValue=@root/maxStamina
+        barClass="stamina neon-green-pseudo"
+      }}
+    </div>
   </div>
 </div>

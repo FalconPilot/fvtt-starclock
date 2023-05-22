@@ -17,8 +17,8 @@
     "reloadSound": "systems/starclock/assets/sfx/reload_riflemag.ogg",
     "firingRates": {
       "single": 1,
-      "semi": 5,
-      "auto": 10
+      "semi": 4,
+      "auto": 8
     }
   }
 }

@@ -1,0 +1,24 @@
+{
+  "name": "Mecong",
+  "img": "systems/starclock/assets/weapons/mecong.png",
+  "data": {
+    "description": "Ce pistolet-mitrailleur confédéré bon marché est très répandu chez les milices, forces de police et autres unités régulières de maintien de l'ordre. Il est connu pour son prix très abordable... et pour sa fiabilité douteuse.",
+    "weaponShape": "rifle",
+    "price": 800,
+    "weight": 1600,
+    "reliability": 1,
+    "range": "medium",
+    "ammoType": "lightPistol",
+    "ammoMax": 25,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "firingSound": "systems/starclock/assets/sfx/pistol",
+    "reloadSound": "systems/starclock/assets/sfx/reload_pistol.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": 3,
+      "auto": 5
+    }
+  }
+}

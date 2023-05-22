@@ -9,6 +9,7 @@
       value="{{currentValue}}"
       min="0"
       max="{{maxValue}}"
+      {{~#if currentTitle}}title="{{currentTitle}}"{{/if}}
     />
   {{else}}
   <span class="bar-current">{{currentValue}}</span>
@@ -21,7 +22,7 @@
       class="bar-max"
       name="{{maxKey}}"
       value="{{maxValue}}"
-      min="0"
+      min="{{#if maxMin}}{{maxMin}}{{else}}0{{/if}}"
     />
   {{else}}
     <span class="bar-max">{{maxValue}}</span>

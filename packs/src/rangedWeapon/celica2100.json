@@ -4,7 +4,7 @@
   "data": {
     "description": "Un fusil rustique, lourd, robuste... et surtout bon marché. Pour les confédérés, c'est l'arme du peuple et des criminels de tous types.",
     "weaponShape": "rifle",
-    "price": 900,
+    "price": 500,
     "weight": 5000,
     "reliability": 1,
     "range": "long",

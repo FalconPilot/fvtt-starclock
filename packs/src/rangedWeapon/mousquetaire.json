@@ -13,7 +13,7 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
-    "firingSound": "systems/starclock/assets/sfx/plasma_lever",
+    "firingSound": "systems/starclock/assets/sfx/plasma_light_lever",
     "reloadSound": "systems/starclock/assets/sfx/reload_leveraction.ogg",
     "firingRates": {
       "single": 1,

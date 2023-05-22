@@ -6,6 +6,10 @@
   flex-basis: auto;
 }
 
+.resource-bar.stamina:before {
+  border-color: #FFF;
+}
+
 .resource-bar:before {
   content: ' ';
   position: absolute;
@@ -31,6 +35,14 @@
 
 .resource-bar.stamina .resource-gauge {
   background-color: #393;
+}
+
+.resource-bar.weapon-condition .resource-gauge {
+  background-color: #900;
+}
+
+.resource-bar.weapon-condition ~ i {
+  color: #333;
 }
 
 .bar-delimiter {

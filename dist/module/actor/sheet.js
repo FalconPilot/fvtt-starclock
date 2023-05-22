@@ -83,19 +83,7 @@ export default class StarclockActorSheet extends ActorSheet {
         if (!item) {
             return ui.notifications.error('Item not found');
         }
-        if (item.type !== 'rangedWeapon') {
-            return ui.notifications.error('Those rolls can only be done with ranged weapons');
-        }
-        return item.update({ 'system.fumbleAmount': 0 })
-            .then(() => {
-            AudioHelper.play({
-                src: 'systems/starclock/assets/sfx/repair.ogg',
-                volume: 1,
-                autoplay: true,
-                loop: false
-            }, false);
-            return ui.notifications.info(`${item.name} repaired`);
-        });
+        return item.repairItem();
     }
     // Gun roll macro
     _onGunRoll(event) {
@@ -119,6 +107,7 @@ export default class StarclockActorSheet extends ActorSheet {
             const content = yield renderTemplate('systems/starclock/templates/dialogs/gunroll.hbs', {
                 item,
                 mastered: isMastered,
+                config: CONFIG.starclock,
             });
             // Create Dialog
             const dialog = new Dialog({
@@ -255,9 +244,14 @@ export default class StarclockActorSheet extends ActorSheet {
                             const results = getRollResults(roll);
                             const score = getScore(roll);
                             const isFumble = onlyHasOnes(roll);
+                            // Calculate final damage
+                            const finalDamage = item.system.damage
+                                + score;
+                            const patchedItem = Object.assign({}, item);
+                            patchedItem.system.damage = finalDamage;
                             // Compile header
                             const flavorHeader = yield renderTemplate('systems/starclock/templates/chat/meleeroll.hbs', {
-                                item,
+                                item: patchedItem,
                                 config: CONFIG.starclock,
                             });
                             // Compile content

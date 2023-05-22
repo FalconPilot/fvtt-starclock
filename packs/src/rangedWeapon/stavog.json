@@ -13,12 +13,12 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
-    "firingSound": "systems/starclock/assets/sfx/laser",
+    "firingSound": "systems/starclock/assets/sfx/laser_light",
     "reloadSound": "systems/starclock/assets/sfx/reload_pistol.ogg",
     "firingRates": {
       "single": 1,
       "semi": 3,
-      "auto": null
+      "auto": 5
     }
   }
 }

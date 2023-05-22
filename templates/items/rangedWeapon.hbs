@@ -44,5 +44,29 @@
       {{/if}}
       {{> "systems/starclock/templates/items/parts/damage.hbs" item=loadedAmmo displayOnly=true }}
     </div>
+    <div class="flexrow centerv gap nowrap">
+      {{>
+        "systems/starclock/templates/common/resourcebar.hbs"
+        currentValue=item.system.fumbleAmount
+        currentKey="system.fumbleAmount"
+        canModifyCurrent=true
+        maxValue=item.system.reliability
+        maxKey="system.reliability"
+        canModifyMax=true
+        maxMin=1
+        barClass="weapon-condition neon-red-pseudo"
+      }}
+      {{#if (superior item.system.fumbleAmount 0)}}
+        <a
+          class="item-repair flexrow centerv centerh"
+          title="{{localize "SCLK.Repair"}}"
+          data-id="{{item._id}}"
+        >
+          <i class="fas fa-wrench"></i>
+        </a>
+      {{else}}
+        <i class="fas fa-check neon-pink"></i>
+      {{/if}}
+    </div>
   </div>
 </form>

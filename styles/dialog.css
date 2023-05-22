@@ -1,0 +1,9 @@
+.gunroll-dialog h4 {
+  margin: 0;
+  flex: 0;
+  white-space: nowrap;
+}
+
+.gunroll-dialog > div {
+  width: 100%;
+}
