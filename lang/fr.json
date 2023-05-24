@@ -112,7 +112,7 @@
       "Piloting": "Pilotage",
       "Roguery": "Roublardise",
       "Sports": "Sport",
-      "Understanding": "Compréhension"
+      "Grit": "Cran"
     },
     "StarCredits": "StarCrédits",
     "Tabs": {
@@ -123,16 +123,15 @@
       "Stash": "Réserve"
     },
     "WeaponTypes": {
-      "OneHanded": "Une main",
-      "TwoHanded": "Deux mains",
+      "LightMelee": "Contact (léger)",
+      "MediumMelee": "Contact (moyen)",
+      "HeavyMelee": "Contact (lourd)",
       "Fist": "Mêlée",
-      "Shield": "Bouclier",
       "Pistol": "Arme de poing",
-      "Rifle": "Fusil",
-      "Bow": "Arc/Arbalète",
+      "Rifle": "Arme longue",
+      "Bow": "Arc",
       "Thrown": "Lancer",
-      "Heavy": "Arme lourde",
-      "Artillery": "Artillerie"
+      "Heavy": "Arme lourde"
     }
   },
   "GUI": {

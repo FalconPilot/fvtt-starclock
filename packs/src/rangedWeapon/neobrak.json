@@ -1,0 +1,24 @@
+{
+  "name": "Neobrak",
+  "img": "systems/starclock/assets/weapons/neobrak.png",
+  "data": {
+    "description": "Ce pistolet-mitrailleur est légendaire du à sa fiabilité désastreuse, mais surtout à sa simplicité de fabrication. C'est l'arme la plus répandue chez les petits criminels de la galaxie.",
+    "weaponShape": "pistol",
+    "price": 100,
+    "weight": 1600,
+    "reliability": 1,
+    "range": "short",
+    "ammoType": "heavyPistol",
+    "ammoMax": 18,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "firingSound": "systems/starclock/assets/sfx/pistol_heavy",
+    "reloadSound": "systems/starclock/assets/sfx/reload_pistol.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": 2,
+      "auto": 4
+    }
+  }
+}

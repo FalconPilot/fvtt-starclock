@@ -37,7 +37,7 @@
     {{#if (exists loadedAmmo)}}
       <img
         class="{{damageNeon loadedAmmo.system.damageType}}"
-        src="systems/starclock/assets/ammo/{{loadedAmmo.system.ammoType}}.png"
+        src="{{loadedAmmo.img}}"
         onerror="this.style.display='none'"
       />
       {{#if (inferior item.system.ammoCurrent item.system.ammoMax)}}

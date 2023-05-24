@@ -1,0 +1,21 @@
+<div class="flexrow centerh centerv firing-rates">
+  <i class="fas fa-gun mgr neon-pink"></i>
+  {{#each @root/config.firingRates as |name key|}}
+    {{#if displayOnly}}
+      <span>{{getKey ../item.system.firingRates key}}</span>
+    {{else}}
+      <input
+        type="number"
+        data-dtype="Number"
+        class="line-input"
+        name="system.firingRates.{{key}}"
+        value="{{getKey ../item.system.firingRates key}}"
+        title="{{ localize name }}"
+        {{#if (equals key "single")}}disabled{{/if}}
+      />
+      {{#unless (isEachLast)}}
+        <span class="fr-separator neon-pink">/</span>
+      {{/unless}}
+    {{/if}}
+  {{/each}}
+</div>

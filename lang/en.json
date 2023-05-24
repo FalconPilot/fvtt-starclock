@@ -112,7 +112,7 @@
       "Piloting": "Piloting",
       "Roguery": "Roguery",
       "Sports": "Sports",
-      "Understanding": "Understanding"
+      "Grit": "Grit"
     },
     "StarCredits": "StarCredits",
     "Tabs": {
@@ -123,16 +123,15 @@
       "Stash": "Stash"
     },
     "WeaponTypes": {
-      "OneHanded": "One handed",
-      "TwoHanded": "Two handed",
+      "LightMelee": "Melee (light)",
+      "MediumMelee": "Melee (medium)",
+      "HeavyMelee": "Melee (heavy)",
       "Fist": "Brawling",
-      "Shield": "Shield",
       "Pistol": "Handgun",
       "Rifle": "Rifle",
-      "Bow": "Bow/Crossbow",
+      "Bow": "Bow",
       "Thrown": "Thrown",
-      "Heavy": "Heavy weapon",
-      "Artillery": "Artillery"
+      "Heavy": "Heavy weapon"
     }
   },
   "GUI": {

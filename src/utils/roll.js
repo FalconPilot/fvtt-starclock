@@ -47,3 +47,16 @@ export const getLowest = roll =>
 export const getHighest = roll =>
   extractMatrix(roll)
     .flat()[0]
+
+export const getBestRoll = roll =>
+  extractMatrix(roll)
+    .reduce((best, arr) =>
+      arr.length > best.length
+        ? arr
+        : arr.length === best.length
+        ? (Math.max(...arr) > Math.max(...best) ? arr : best)
+        : best
+    , [])
+
+export const checkFumble = roll =>
+  Math.max(...getBestRoll(roll)) === 1

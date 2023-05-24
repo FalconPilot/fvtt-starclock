@@ -2,8 +2,8 @@
   <h2 class="neon-pink-pseudo">{{localize "SCLK.SkillsHeader"}}</h2>
   <div class="flexrow attributes-list skills gap">
     {{#each @root/config.skills as |name key|}}
-      <label class="character-attribute flexcol">
-        <h4 class="mgb">{{localize name}}</h4>
+      <label class="character-attribute flexcol skill neon-pink-pseudo">
+        <h4 class="mgb pgh">{{localize name}}</h4>
         <div class="flexcol attribute-value">
           <input
             type="number"

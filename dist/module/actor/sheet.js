@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { basePath } from "../../constants.js";
-import { getRollResults, getScore, onlyHasOnes } from "../../utils/roll.js";
+import { checkFumble, getRollResults, getScore } from "../../utils/roll.js";
 export default class StarclockActorSheet extends ActorSheet {
     // Template name
     get template() {
@@ -147,21 +147,18 @@ export default class StarclockActorSheet extends ActorSheet {
                                 - rangeMalus
                                 - firingRateMalus;
                             // Calculate final amount of damage
-                            const finalDmg = loadedAmmoData.system.damage
+                            const finalDamage = loadedAmmoData.system.damage
                                 + firingRateDmg;
                             // Generate roll
                             const roll = yield new Roll(`${Math.max(hitDice, 1)}D6`).roll({ async: true });
                             // Generate roll result data
                             const results = getRollResults(roll);
                             const score = getScore(roll);
-                            // Patch ammo data
-                            const patchedAmmo = Object.assign({}, loadedAmmoData);
-                            patchedAmmo.system.damage = finalDmg;
-                            const isFumble = onlyHasOnes(roll);
+                            const isFumble = checkFumble(roll);
                             // Compile header
                             const flavorHeader = yield renderTemplate('systems/starclock/templates/chat/gunroll.hbs', {
                                 item,
-                                loadedAmmo: patchedAmmo,
+                                loadedAmmo: Object.assign(Object.assign({}, loadedAmmoData), { system: Object.assign(Object.assign({}, loadedAmmoData.system), { damage: finalDamage }) }),
                                 config: CONFIG.starclock,
                                 firingRate: game.i18n.localize(`SCLK.FiringRates.${firingRate}`),
                                 ammoFired,
@@ -178,6 +175,7 @@ export default class StarclockActorSheet extends ActorSheet {
                                 : item.system.firingSound
                                     ? `${item.system.firingSound}_${firingRate}.ogg`
                                     : CONFIG.sounds.dice;
+                            console.log(game.settings.get('core', 'rollMode'));
                             // Send roll to chat
                             return ChatMessage.create({
                                 user: game.user.id,
@@ -234,7 +232,7 @@ export default class StarclockActorSheet extends ActorSheet {
                             const hitMod = parseInt(html.find('input[name=hitMod]').val(), 10);
                             const masteryBonus = isMastered ? 1 : 0;
                             // Calculate final amount of dice
-                            const hitDice = this.actor.system.acu
+                            const hitDice = this.actor.system.hab
                                 + this.actor.system.melee
                                 + hitMod
                                 + masteryBonus;
@@ -243,15 +241,13 @@ export default class StarclockActorSheet extends ActorSheet {
                             // Generate roll result data
                             const results = getRollResults(roll);
                             const score = getScore(roll);
-                            const isFumble = onlyHasOnes(roll);
+                            const isFumble = checkFumble(roll);
                             // Calculate final damage
                             const finalDamage = item.system.damage
                                 + score;
-                            const patchedItem = Object.assign({}, item);
-                            patchedItem.system.damage = finalDamage;
                             // Compile header
                             const flavorHeader = yield renderTemplate('systems/starclock/templates/chat/meleeroll.hbs', {
-                                item: patchedItem,
+                                item: Object.assign(Object.assign({}, item), { system: Object.assign(Object.assign({}, item.system), { damage: finalDamage }) }),
                                 config: CONFIG.starclock,
                             });
                             // Compile content

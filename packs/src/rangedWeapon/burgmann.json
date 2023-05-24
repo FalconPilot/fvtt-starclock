@@ -1,0 +1,24 @@
+{
+  "name": "Burgmann",
+  "img": "systems/starclock/assets/weapons/burgmann.png",
+  "data": {
+    "description": "Conçu par un ingénieur civil de Fleuralys, le Burgmann est l'arme idéale des bourgeois bien-portants du Royaume.",
+    "weaponShape": "pistol",
+    "price": 5000,
+    "weight": 1200,
+    "reliability": 1,
+    "range": "short",
+    "ammoType": "smallVial",
+    "ammoMax": 8,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "firingSound": "systems/starclock/assets/sfx/plasma_light",
+    "reloadSound": "systems/starclock/assets/sfx/reload_pistol.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": 3,
+      "auto": 5
+    }
+  }
+}

@@ -161,3 +161,21 @@
 .weapon-ammo .reload-wpn.partial-mag:not(:hover) {
   opacity: 0.5;
 }
+
+.firing-rates {
+  flex: 0;
+  flex-wrap: nowrap;
+}
+
+.firing-rates input[type=number],
+.firing-rates span:not(.fr-separator) {
+  width: 25px;
+}
+
+.firing-rates * {
+  text-align: center !important;
+}
+
+.firing-rates *.neon-pink {
+  color: #333;
+}

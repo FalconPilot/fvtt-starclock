@@ -32,6 +32,11 @@ export default class StarclockItem extends Item {
       const ammoCurrent = data['system.ammoCurrent'] ?? this.system.ammoCurrent ?? 0
       data['system.ammoMax'] = Math.max(ammoMax, 0)
       data['system.ammoCurrent'] = Math.min(Math.max(ammoCurrent, 0), ammoMax)
+
+      // Nullify empty strings
+      if (!data['system.loadedAmmo']) {
+        data['system.loadedAmmo'] = null
+      }
     }
 
     return super.update(data)
@@ -48,9 +53,8 @@ export default class StarclockItem extends Item {
       })
   }
 
+  // On item repair
   async repairItem() {
-    // On item repair
-
     if (this.type !== 'rangedWeapon') {
       return ui.notifications.error('Can only repair ranged weapons')
     }

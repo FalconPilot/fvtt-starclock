@@ -3,9 +3,9 @@
   "img": "systems/starclock/assets/weapons/knife.png",
   "data": {
     "description": "L'arme et l'outil le plus ancien de l'histoire de la galaxie à encore exister.",
-    "weaponShape": "oneHanded",
+    "weaponShape": "light",
     "stashed": false,
-    "price": 10,
+    "price": 20,
     "weight": 200,
     "damage": 2,
     "damageType": "physical",

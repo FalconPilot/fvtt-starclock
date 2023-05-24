@@ -32,7 +32,7 @@
             class="line-input mgr"
           >
             {{#select item.system.loadedAmmo}}
-              <option>{{localize "SCLK.AmmoNone"}}</option>
+              <option value="">{{localize "SCLK.AmmoNone"}}</option>
               {{#each availableAmmo as |data key|}}
                 <option value="{{data.id}}">{{data.name}}</option>
               {{/each}}
@@ -67,6 +67,9 @@
       {{else}}
         <i class="fas fa-check neon-pink"></i>
       {{/if}}
+    </div>
+    <div class="flexrow centerv gap nowrap">
+      {{> "systems/starclock/templates/items/parts/firingrate.hbs" item=item }}
     </div>
   </div>
 </form>

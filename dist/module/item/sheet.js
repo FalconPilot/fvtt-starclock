@@ -17,6 +17,14 @@ export default class StarclockItemSheet extends ItemSheet {
         super.activateListeners(html);
         html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this));
         html.find('.item-repair').on('click', this._onItemRepair.bind(this));
+        // Firing sound input
+        html.find('.reload-sound-input').on('click', this._onFilePick({
+            type: 'audio',
+            current: this.item.system.reloadSound,
+            callback: value => {
+                this.item.update({ 'system.reloadSound': value });
+            }
+        }).bind(this));
     }
     // On weapon reload
     _onWeaponReload(event) {
@@ -27,6 +35,14 @@ export default class StarclockItemSheet extends ItemSheet {
     _onItemRepair(event) {
         event.preventDefault();
         return this.item.repairItem();
+    }
+    // On file pick
+    _onFilePick(options) {
+        return event => {
+            event.preventDefault();
+            const filePicker = new FilePicker(options);
+            return filePicker.render(true);
+        };
     }
     // Get item data
     getData() {

@@ -7,3 +7,7 @@
 .gunroll-dialog > div {
   width: 100%;
 }
+
+.gunroll-dialog > img {
+  align-self: center;
+}

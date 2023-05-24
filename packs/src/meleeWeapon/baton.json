@@ -3,9 +3,9 @@
   "img": "systems/starclock/assets/weapons/baton.png",
   "data": {
     "description": "Une matraque légère, compacte et très souvent employée pour l'autodéfense.",
-    "weaponShape": "oneHanded",
+    "weaponShape": "light",
     "stashed": false,
-    "price": 20,
+    "price": 10,
     "weight": 300,
     "damage": 1,
     "damageType": "physical",

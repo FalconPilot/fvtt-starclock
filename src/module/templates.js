@@ -33,6 +33,7 @@ export const preloadHandlebarTemplates = async () =>
     `${basePath}/templates/items/parts/ammo.hbs`,
     `${basePath}/templates/items/parts/damage.hbs`,
     `${basePath}/templates/items/parts/description.hbs`,
+    `${basePath}/templates/items/parts/firingrate.hbs`,
     `${basePath}/templates/items/parts/header.hbs`,
     `${basePath}/templates/items/parts/header-illustrated.hbs`,
     `${basePath}/templates/items/parts/quantity.hbs`,
@@ -42,6 +43,7 @@ export const registerHandlebarHelpers = () => {
   Handlebars.registerHelper('log', x => console.log(x))
 
   Handlebars.registerHelper('getEachIndex', options => options.data.index)
+  Handlebars.registerHelper('isEachLast', options => options.data.last)
 
   Handlebars.registerHelper('exists', elt => (
     elt !== null && elt !== undefined

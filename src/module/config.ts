@@ -1,8 +1,8 @@
 const meleeWeaponTypes = {
-  oneHanded: 'SCLK.WeaponTypes.OneHanded',
-  twoHanded: 'SCLK.WeaponTypes.TwoHanded',
+  light: 'SCLK.WeaponTypes.LightMelee',
+  medium: 'SCLK.WeaponTypes.MediumMelee',
+  heavy: 'SCLK.WeaponTypes.HeavyMelee',
   fists: 'SCLK.WeaponTypes.Fist',
-  shields: 'SCLK.WeaponTypes.Shield',
 }
 
 const rangedWeaponTypes = {
@@ -10,7 +10,6 @@ const rangedWeaponTypes = {
   rifle: 'SCLK.WeaponTypes.Rifle',
   bow: 'SCLK.WeaponTypes.Bow',
   thrown: 'SCLK.WeaponTypes.Thrown',
-  artillery: 'SCLK.WeaponTypes.Artillery',
   heavyWeapon: 'SCLK.WeaponTypes.Heavy',
 }
 
@@ -90,12 +89,12 @@ export const starclock = {
     arts: 'SCLK.Skills.Arts',
     craftsmanship: 'SCLK.Skills.Craftsmanship',
     dialog: 'SCLK.Skills.Dialog',
+    grit: 'SCLK.Skills.Grit',
     knowledge: 'SCLK.Skills.Knowledge',
     perception: 'SCLK.Skills.Perception',
     piloting: 'SCLK.Skills.Piloting',
     roguery: 'SCLK.Skills.Roguery',
     sports: 'SCLK.Skills.Sports',
-    understanding: 'SCLK.Skills.Understanding',
   },
   credits: [
     {
@@ -109,7 +108,7 @@ export const starclock = {
       authorName: 'Robbe',
       authorLink: 'https://www.flickr.com/photos/145236510@N06/',
       contributions: [
-        'Almost all of the guns base images',
+        'All guns base images',
       ],
     },
     {

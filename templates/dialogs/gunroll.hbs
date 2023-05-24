@@ -2,7 +2,7 @@
   <div class="flexcol lefth centerv gap gunroll-dialog pgb">
     <img src="{{ item.img }}" class="neon-pink"/>
     <div class="flexrow bottomv gap">
-      <label class="flexrow centerv gap nowrap">
+      <label class="flexcol centerh gap nowrap">
         <h4>{{ localize "SCLK.FiringRateTitle" }}</h4>
         <select name="firingRate" data-dtype="Number">
           {{#each config.firingRates as |name key|}}
@@ -17,7 +17,7 @@
           {{/each}}
         </select>
       </label>
-      <label class="flexrow centerv gap nowrap">
+      <label class="flexcol centerh gap nowrap">
         <h4>{{ localize "SCLK.RangeTitle" }}</h4>
         <select name="range" data-dtype="Number">
           {{#each config.ranges as |name key|}}

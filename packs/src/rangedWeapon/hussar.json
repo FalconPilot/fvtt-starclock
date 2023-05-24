@@ -1,0 +1,24 @@
+{
+  "name": "Hussar",
+  "img": "systems/starclock/assets/weapons/hussar.png",
+  "data": {
+    "description": "Le Hussar est un fusil de l'arsenal royal de Fleuralys. Principalement développé pour les cavaliers, il s'agit de l'une des seules armes automatiques fiables de tout le royaume.",
+    "weaponShape": "rifle",
+    "price": 5000,
+    "weight": 4800,
+    "reliability": 2,
+    "range": "long",
+    "ammoType": "largeVial",
+    "ammoMax": 10,
+    "ammoCurrent": 0,
+    "loadedAmmo": null,
+    "stashed": false,
+    "firingSound": "systems/starclock/assets/sfx/plasma",
+    "reloadSound": "systems/starclock/assets/sfx/reload_riflemag_heavy.ogg",
+    "firingRates": {
+      "single": 1,
+      "semi": 2,
+      "auto": 4
+    }
+  }
+}
