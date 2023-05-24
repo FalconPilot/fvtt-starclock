@@ -76,10 +76,10 @@
       "flags": {}
     }
   ],
-  "gridDistance": 5,
+  "gridDistance": 2,
   "gridUnits": "m",
   "url": "https://github.com/FalconPilot/fvtt-starclock",
   "manifest": "https://raw.githubusercontent.com/FalconPilot/fvtt-starclock/main/system.json",
-  "download": "https://github.com/FalconPilot/fvtt-starclock/releases/download/starclock.zip",
+  "download": "https://github.com/FalconPilot/fvtt-starclock/releases/download/0.1.0/starclock.zip",
   "id": "starclock"
 }
