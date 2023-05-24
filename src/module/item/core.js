@@ -34,7 +34,7 @@ export default class StarclockItem extends Item {
       data['system.ammoCurrent'] = Math.min(Math.max(ammoCurrent, 0), ammoMax)
 
       // Nullify empty strings
-      if (!data['system.loadedAmmo']) {
+      if (data['system.loadedAmmo'] === '') {
         data['system.loadedAmmo'] = null
       }
     }
