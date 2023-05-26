@@ -21,25 +21,30 @@ export default class StarclockActor extends Actor {
     return super._onDeleteEmbeddedDocuments(name, ...args)
   }
 
+  // Character max stamina equation
   getMaxStamina (data = {}) {
     const maxBonus = data['system.maxStaminaBonus'] ?? this.system.maxStaminaBonus
     const phy = data['system.phy'] ?? this.system.phy
+    const grit = data['system.grit'] ?? this.system.grit
 
     return 8
       + maxBonus
       + (phy * 2)
+      + grit
   }
 
-  async _onUpdate (data, ...args) {
-    const staminaMax = this.getMaxStamina(data)
-    const staminaCurrent = data['system.currentStamina'] ?? this.system.currentStamina
-    const cappedStamina = Math.min(Math.max(0, staminaCurrent), staminaMax)
-
-    // Cap stamina if it's out of bounds
-    if (cappedStamina !== staminaCurrent) {
-      data['system.currentStamina'] = cappedStamina
+  async update (data, ...args) {
+    if (this.type === 'character') {
+      const staminaMax = this.getMaxStamina(data)
+      const staminaCurrent = data['system.currentStamina'] ?? this.system.currentStamina
+      const cappedStamina = Math.min(Math.max(0, staminaCurrent), staminaMax)
+  
+      // Cap stamina if it's out of bounds
+      if (cappedStamina < staminaCurrent) {
+        data['system.currentStamina'] = cappedStamina
+      }
     }
 
-    return super._onUpdate(data, ...args)
+    return super.update(data, ...args)
   }
 }

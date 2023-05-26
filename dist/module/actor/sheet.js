@@ -175,16 +175,18 @@ export default class StarclockActorSheet extends ActorSheet {
                                 : item.system.firingSound
                                     ? `${item.system.firingSound}_${firingRate}.ogg`
                                     : CONFIG.sounds.dice;
-                            console.log(game.settings.get('core', 'rollMode'));
-                            // Send roll to chat
-                            return ChatMessage.create({
+                            const rollMode = game.settings.get('core', 'rollMode');
+                            // Create chat message data
+                            const msgData = ChatMessage.applyRollMode({
                                 user: game.user.id,
                                 flavor: flavorHeader,
                                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
                                 rollMode: game.settings.get('core', 'rollMode'),
                                 content: messageContent,
                                 sound,
-                            }).then(() => {
+                            }, rollMode);
+                            // Send roll to chat
+                            return ChatMessage.create(msgData).then(() => {
                                 if (isFumble) {
                                     return item.update({ 'system.fumbleAmount': item.system.fumbleAmount + 1 });
                                 }
@@ -260,16 +262,17 @@ export default class StarclockActorSheet extends ActorSheet {
                             const sound = isFumble
                                 ? 'systems/starclock/assets/sfx/melee_woosh.ogg'
                                 : ((_a = item.system.firingSound) !== null && _a !== void 0 ? _a : CONFIG.sounds.dice);
-                            // Send roll to chat
-                            return ChatMessage.create({
+                            const rollMode = game.settings.get('core', 'rollMode');
+                            const msgData = ChatMessage.applyRollMode({
                                 user: game.user.id,
                                 flavor: flavorHeader,
                                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                                rollMode: game.settings.get('core', 'rollMode'),
                                 content: messageContent,
                                 sound,
-                            });
-                        }),
+                            }, rollMode);
+                            // Send roll to chat
+                            return ChatMessage.create(msgData);
+                        })
                     },
                     cancel: {
                         icon: '<i class="fas fa-times"></i>',
