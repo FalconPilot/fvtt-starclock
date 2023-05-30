@@ -3,5 +3,11 @@ node_modules/
 dist/
 yarn-error.log
 
+# DB builds
+packs/*.db
+packs/ammo/
+packs/meleeWeapon/
+packs/rangedWeapon/
+
 # OS Specific
 .DS_Store
