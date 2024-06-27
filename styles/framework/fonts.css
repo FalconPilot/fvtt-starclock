@@ -18,3 +18,31 @@
   font-style: normal;
   src: url('../../fonts/OstrichSans-Heavy.otf');
 }
+
+@font-face {
+  font-family: 'CascadiaMono';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../fonts/CascadiaMono-Regular.otf');
+}
+
+@font-face {
+  font-family: 'CascadiaMono';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../../fonts/CascadiaMono-Bold.otf');
+}
+
+@font-face {
+  font-family: 'CascadiaMono';
+  font-weight: 400;
+  font-style: italic;
+  src: url('../../fonts/CascadiaMono-Italic.otf');
+}
+
+@font-face {
+  font-family: 'CascadiaMono';
+  font-weight: 700;
+  font-style: italic;
+  src: url('../../fonts/CascadiaMono-BoldItalic.otf');
+}

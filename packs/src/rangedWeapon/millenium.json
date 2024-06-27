@@ -2,10 +2,11 @@
   "name": "Millenium",
   "img": "systems/starclock/assets/weapons/millenium.png",
   "data": {
-    "description": "Le Millenium est le fusil standard de l'armée Impériale. Son apparence exotique le rend très icônique chez les amateurs d'histoire militaire.",
+    "description": "An exotic weapon used by imperial troopers, as it's their standard issue rifle. Its unusual shape and clever engineering makes it very popular among the few military enthusiast and collectors who can even manage to find one.",
     "weaponShape": "rifle",
     "price": 5000,
     "weight": 4000,
+    "solidity": 2,
     "reliability": 2,
     "range": "medium",
     "ammoType": "heavyCell",

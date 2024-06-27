@@ -1,8 +1,8 @@
 {
-  "name": "Heavy Pistol Rounds",
+  "name": "Heavy Pistol Rounds - Makeshift",
   "img": "systems/starclock/assets/ammo/heavyPistol.png",
   "data": {
-    "description": "Some nasty 10mm rounds that make a lot of noise and pack a lot of punch.",
+    "description": "Homemade 10mm rounds. They're not fancy, and certainly not very accurate... But they're gonna work. Hopefully.",
     "ammoType": "heavyPistol",
     "quantity": 0,
     "quantityStash": 0,
@@ -10,8 +10,8 @@
     "damageType": "physical",
     "pierce": 0,
     "weight": 10,
-    "price": 5,
+    "price": 2,
     "dangerous": false,
-    "accuracyMod": 0
+    "accuracyMod": -1
   }
 }

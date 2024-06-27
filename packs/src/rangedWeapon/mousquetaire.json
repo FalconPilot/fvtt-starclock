@@ -2,10 +2,11 @@
   "name": "Mousquetaire",
   "img": "systems/starclock/assets/weapons/mousquetaire.png",
   "data": {
-    "description": "Ce fusil à levier du royaume de Fleuralys est très répandu chez les riches éleveurs, propriétaires terriens et industriels souhaitant s'équiper d'armes à la pointe de la technologie pour défendre leurs terres.",
+    "description": "This robust plasma rifle is very widespread among the kingdom's colonies: it packs a good punch and shouldn't explode in your face easily. What else is there to ask from a plasma weapon?",
     "weaponShape": "rifle",
     "price": 3500,
     "weight": 4500,
+    "solidity": 2,
     "reliability": 2,
     "range": "medium",
     "ammoType": "smallVial",

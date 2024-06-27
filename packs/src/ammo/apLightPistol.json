@@ -1,8 +1,8 @@
 {
-  "name": "Cartouches de pistolet léger AP",
+  "name": "Light Pistol Rounds - AP",
   "img": "systems/starclock/assets/ammo/lightPistol_ap.png",
   "data": {
-    "description": "Ces balles de 8mm à haute vélocité sont employées par beaucoup de mercenaires pour disposer d'une bonne capacité de pénétration à un prix raisonnable.",
+    "description": "Those 8mm cartridges are able to pierce light covers and armor.",
     "ammoType": "lightPistol",
     "quantity": 0,
     "quantityStash": 0,

@@ -1,6 +1,8 @@
 .neon-pink,
 .neon-pink-pseudo:before,
 .neon-pink-pseudo:after,
+.neon-pink-before:before,
+.neon-pink-after:after,
 .neon-pink-hover:hover,
 /* Apply to filepicker buttons */
 .filepicker .display-modes a.active,
@@ -21,6 +23,8 @@ li.directory-item.ammo.document.item:not(:hover) > img.thumbnail,
 .neon-white,
 .neon-white-pseudo:before,
 .neon-white-pseudo:after,
+.neon-white-before:before,
+.neon-white-after:after,
 .neon-white-hover:hover,
 /* Apply to thumbnail */
 li.directory-item.weapon.document.item:hover > img.thumbnail,
@@ -31,15 +35,17 @@ li.directory-item.ammo.document.item:hover > img.thumbnail {
 .neon-green,
 .neon-green-pseudo:before,
 .neon-green-pseudo:after,
-.neon-green-hover:hover,
-/* Apply to tablet header */
-.app.window-app.sheet[id*='actor']:not([id*='item']) .window-header {
+.neon-green-before:before,
+.neon-green-after:after,
+.neon-green-hover:hover {
   filter: brightness(0.55) sepia(1) saturate(2.4) hue-rotate(60deg) drop-shadow(0px 0px 2px rgb(49 206 38));
 }
 
 .neon-red,
 .neon-red-pseudo:before,
 .neon-red-pseudo:after,
+.neon-red-before:before,
+.neon-red-after:after,
 .neon-red-hover:hover {
   filter: contrast(0.5) sepia(1) hue-rotate(300deg) brightness(1.5) contrast(1.5) saturate(3) drop-shadow(0px 0px 3px #F00);
 }
@@ -47,6 +53,8 @@ li.directory-item.ammo.document.item:hover > img.thumbnail {
 .neon-blue,
 .neon-blue-pseudo:before,
 .neon-blue-pseudo:after,
+.neon-blue-before:before,
+.neon-blue-after:after,
 .neon-blue-hover:hover {
   filter: contrast(0.1) sepia(1) hue-rotate(150deg) brightness(1.5) contrast(1.5) saturate(3) drop-shadow(0px 0px 3px #5CF);
 }
@@ -54,6 +62,8 @@ li.directory-item.ammo.document.item:hover > img.thumbnail {
 .neon-yellow,
 .neon-yellow-pseudo:before,
 .neon-yellow-pseudo:after,
+.neon-yellow-before:before,
+.neon-yellow-after:after,
 .neon-yellow-hover:hover {
   filter: contrast(0.35) sepia(1) hue-rotate(335deg) brightness(1.7) contrast(1.7) saturate(3) drop-shadow(0px 0px 3px #FC0);
 }

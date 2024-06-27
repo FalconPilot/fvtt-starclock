@@ -13,7 +13,7 @@
             {{> "systems/starclock/templates/items/parts/damage.hbs" item=item displayOnly=true }}
           {{/if}}
         </div>
-        {{#and (equals item.type "rangedWeapon") (equals item.system.reliability item.system.fumbleAmount)}}
+        {{#and (equals item.type "rangedWeapon") (equals item.system.solidity item.system.fumbleAmount)}}
         <div class="item-jammed neon-red flexrow centerv centerh">
           {{ localize "SCLK.Damaged" }}
         </div>

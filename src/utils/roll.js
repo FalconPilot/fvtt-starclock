@@ -1,62 +1,29 @@
-const extractMatrix = roll =>
+const formatRoll = roll =>
   roll.terms
     .flatMap(term => term.results)
     .map(dice => dice.result)
-    .reduce((acc, dice) => {
-      const newAcc = [...acc]
-      newAcc[dice - 1].push(dice)
-      return newAcc
-    }, [[], [], [], [], [], []])
-    .filter(arr => arr.length > 0)
 
-export const getRollResults = roll =>
-  extractMatrix(roll)
-    .map(arr => arr.map(dice => [
-      'one',
-      'two',
-      'three',
-      'four',
-      'five',
-      'six',
-    ][dice - 1]))
-    .reverse()
+export const getRollResults = (roll, complexity, difficulty) =>
+  formatRoll(roll)
+    .map((result, idx) => ({
+      result: result,
+      success: result >= difficulty,
+      mandatory: idx < complexity
+    }))
 
-export const getScore = roll =>
-  extractMatrix(roll)
-    .reduce((score, arr) => {
-      const minScore = arr.some(dice => dice > 3) ? 1 : 0
-      const lengthScore = arr.length > 1 ? arr.length : 0
+export const checkSuccess = (roll, complexity, difficulty) => {
+  const results = getRollResults(roll, complexity, difficulty)
 
-      return Math.max(score, lengthScore, minScore)
-    }, 0)
+  const successes = results.filter(dice => dice.success)
 
-export const getRollNums = num => roll =>
-  extractMatrix(roll)
-    .flat()
-    .filter(dice => dice === num)
-    .length
+  return successes.length >= complexity
+}
 
-export const onlyHasOnes = roll =>
-  getRollNums(1)(roll) === extractMatrix(roll).flat().length
+// Roll is fumble if it has no successes AND it has at least a 1 in its results
+export const checkFumble = (roll, complexity, difficulty, threshold) => {
+  const results = getRollResults(roll, complexity, difficulty)
 
-export const getLowest = roll =>
-  extractMatrix(roll)
-    .flat()
-    .reverse()[0]
+  const isSuccessful = checkSuccess(roll, complexity, difficulty)
 
-export const getHighest = roll =>
-  extractMatrix(roll)
-    .flat()[0]
-
-export const getBestRoll = roll =>
-  extractMatrix(roll)
-    .reduce((best, arr) =>
-      arr.length > best.length
-        ? arr
-        : arr.length === best.length
-        ? (Math.max(...arr) > Math.max(...best) ? arr : best)
-        : best
-    , [])
-
-export const checkFumble = roll =>
-  Math.max(...getBestRoll(roll)) === 1
+  return !isSuccessful && results.filter(dice => dice.result <= complexity && dice.mandatory).length >= threshold
+}

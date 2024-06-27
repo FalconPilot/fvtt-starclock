@@ -20,6 +20,7 @@ export const preloadHandlebarTemplates = async () =>
     )),
 
     // Common partials
+    `${basePath}/templates/common/attribute-field.hbs`,
     `${basePath}/templates/common/resourcebar.hbs`,
 
     // Actor partials
@@ -85,6 +86,10 @@ export const registerHandlebarHelpers = () => {
 
   Handlebars.registerHelper('concat', (...arrs) => {
     const [args] = extractArgs(arrs)
+
+    if (args.every(x => typeof x === 'string')) {
+      return args.reduce((acc, x) => `${acc}${x}`, '')
+    }
 
     return args.every(Array.isArray)
       ? args.flat()
@@ -153,4 +158,18 @@ export const registerHandlebarHelpers = () => {
     physical: 'neon-red',
     energy: 'neon-blue',
   }[type]))
+
+  Handlebars.registerHelper('intersperse', (delimiter, ...args) => {
+    const [strs] = extractArgs(args)
+    return strs.reduce((acc, str, idx) => (
+      `${acc}${idx === 0 ? '' : delimiter}${str}`
+    ), '')
+  })
+
+  Handlebars.registerHelper('attributeColor', key => ({
+    phy: 'red',
+    ref: 'yellow',
+    wit: 'green',
+    min: 'blue',
+  }[key]))
 }

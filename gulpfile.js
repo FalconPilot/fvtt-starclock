@@ -61,6 +61,7 @@ const compileDB = async () => {
       const packName = folder.name
       const filePath = `${dbPath}/${packName}.db`
       console.log(`StarClock > Compiling ${filePath}`)
+      fs.rmSync(`${dbPath}/${packName}`, { recursive: true, force: true })
 
       const data = []
 

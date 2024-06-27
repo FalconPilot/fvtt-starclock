@@ -7,7 +7,7 @@
 }
 
 input[type=number] {
-  font-family: 'Modesto Condensed'
+  font-family: 'CascadiaMono';
 }
 
 input[type=number]:not(.line-input) {

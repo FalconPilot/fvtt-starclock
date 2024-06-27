@@ -1,8 +1,8 @@
 {
-  "name": "Grandes fioles à plasma SR",
+  "name": "Large Plasma Vials",
   "img": "systems/starclock/assets/ammo/largeVial.png",
   "data": {
-    "description": "Ces fioles épaisses remplies de plasma sous pression sont utilisées par les armes lourdes du Royaume de Fleuralys. Elles sont au Standard Royal (SR).",
+    "description": "These glass vials are full of volatile liquid plasma. Do not drop on the ground under any circumstance if you know what's good for you.",
     "ammoType": "largeVial",
     "quantity": 0,
     "quantityStash": 0,

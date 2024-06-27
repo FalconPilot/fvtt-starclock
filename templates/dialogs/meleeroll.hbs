@@ -1,8 +1,14 @@
 <form autocomplete="off" onsubmit="event.preventDefault();">
   <div class="flexcol lefth centerv gap">
-    <label class="flexrow centerv gap">
-      <h4>{{ localize "SCLK.HitMod" }}</h4>
-      <input  name="hitMod" type="number" value="0" data-dtype="Number" />
-    </label>
+    <div class="flexrow gap centerv">
+      <label class="flexrow centerv gap">
+        <h4>{{ localize "SCLK.TargetDodge" }}</h4>
+        <input  name="targetDodge" type="number" value="0" data-dtype="Number" />
+      </label>
+      <label class="flexrow centerv gap">
+        <h4>{{ localize "SCLK.TargetArmor" }}</h4>
+        <input  name="targetArmor" type="number" value="0" data-dtype="Number" />
+      </label>
+    </div>
   </div>
 </form>

@@ -99,14 +99,7 @@
 }
 
 .character-identity:before {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   border-radius: 8px;
-  border: 2px solid #000;
 }
 
 .character-infos {
@@ -127,13 +120,41 @@
   flex-wrap: wrap;
 }
 
+.skill-list {
+  flex-basis: calc(50% - 8px);
+}
+
+.skill-list > h3 {
+  flex-basis: 100%;
+  font-size: 22px;
+  text-align: center;
+}
+
+.skill-list > h3 > span {
+  font-family: 'CascadiaMono';
+  font-size: 18px;
+  flex: 0;
+}
+
+.skill-list > h3 > span.neon-red,
+.skill-list > h3 > span.neon-yellow,
+.skill-list > h3 > span.neon-blue {
+  color: #333;
+}
+
 .character-attribute {
+  padding: 4px 0;
   flex-basis: calc(25% - 24px);
-  border: 1px solid #CCC;
+}
+
+.character-attribute:before {
+  transform: skew(-8deg);
+  border-radius: 4px;
 }
 
 .character-attribute h4 {
   text-align: center;
+  margin-left: 4px;
 }
 
 .character-attribute input[type=number] {
@@ -143,18 +164,27 @@
 }
 
 .character-attribute.skill {
-  position: relative;
+  flex-basis: calc(50% - 8px);
+  max-width: calc(50% - 8px);
 }
 
-.character-attribute.skill:before {
+.character-attribute.skill:after {
   content: '+';
   position: absolute;
   left: calc(50% - 18px);
-  bottom: 0;
+  bottom: 4px;
   color: #333;
   font-family: 'OstrichSans';
   font-size: 20px;
   pointer-events: none;
+}
+
+.character-attribute.skill.neon-green-pseudo:after {
+  color: #FFF;
+}
+
+.character-attribute.skill.mastery {
+  flex-basis: calc(25% - 24px);
 }
 
 .inventory .item-list {
@@ -305,6 +335,7 @@
 
 .money-input input[type=number] {
   flex: 1;
+  width: 100%;
 }
 
 .profile-img-wrapper {
@@ -315,13 +346,6 @@
 }
 
 .profile-img-wrapper:before {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 2px solid #000;
   border-radius: 8px;
   z-index: 2;
   pointer-events: none;

@@ -4,13 +4,9 @@
     "templates": {
       "attributes": {
         "phy": 1,
-        "agi": 1,
-        "acu": 1,
-        "hab": 1,
-        "cha": 1,
-        "emp": 1,
-        "int": 1,
-        "wil": 1,
+        "ref": 1,
+        "wit": 1,
+        "min": 1,
         "currentStamina": 10,
         "maxStaminaBonus": 0
       },
@@ -28,33 +24,39 @@
         "heightCentimeters": 70
       },
       "combat": {
-        "melee": 0,
-        "shooting": 0,
-        "defense": 0,
-        "weaponMasteries": {
-          "pistol": false,
-          "rifle": false,
-          "bow": false,
-          "thrown": false,
-          "artillery": false,
-          "heavyWeapon": false,
-          "oneHanded": false,
-          "twoHanded": false,
-          "fists": false,
-          "shields": false
+        "combat": {
+          "melee": 0,
+          "shooting": 0,
+          "dodge": 0
         }
       },
       "skills": {
-        "acrobatics": 0,
-        "arts": 0,
-        "craftsmanship": 0,
-        "dialog": 0,
-        "knowledge": 0,
-        "perception": 0,
-        "piloting": 0,
-        "roguery": 0,
-        "sports": 0,
-        "grit": 0
+        "skills": {
+          "phy": {
+            "athletics": 0,
+            "coercion": 0,
+            "grit": 0,
+            "strongarm": 0
+          },
+          "ref": {
+            "acrobatics": 0,
+            "piloting": 0,
+            "perception": 0,
+            "roguery": 0
+          },
+          "wit": {
+            "arts": 0,
+            "dialog": 0,
+            "intuition": 0,
+            "willpower": 0
+          },
+          "min": {
+            "academics": 0,
+            "craftsmanship": 0,
+            "culture": 0,
+            "investigation": 0
+          }
+        }
       }
     },
     "character": {
@@ -66,7 +68,23 @@
         "combat",
         "skills"
       ],
-      "xp": 0
+      "xp": 0,
+      "evolutions": {
+        "psy": 0,
+        "mutations": 0,
+        "cybernetics": 0,
+        "training": 0
+      },
+      "weaponMasteries": {
+        "pistol": false,
+        "rifle": false,
+        "bow": false,
+        "thrown": false,
+        "heavyWeapon": false,
+        "meleeLight": false,
+        "meleeHeavy": false,
+        "fists": false
+      }
     },
     "spaceship": {
       "templates": []
@@ -74,7 +92,19 @@
     "mechsuit": {
       "templates": [
         "combat"
-      ]
+      ],
+      "parts": {
+        "arms": null,
+        "legs": null,
+        "core": null,
+        "head": null
+      },
+      "weapons": {
+        "leftHand": null,
+        "rightHand": null,
+        "leftShoulder": null,
+        "rightShoulder": null
+      }
     }
   },
   "Item": {
@@ -83,7 +113,8 @@
       "meleeWeapon",
       "rangedWeapon",
       "ammo",
-      "trait"
+      "trait",
+      "mechpart"
     ],
     "templates": {
       "basicItem": {
@@ -110,10 +141,6 @@
       },
       "stashable": {
         "stashed": false
-      },
-      "evolution": {
-        "taken": 1,
-        "effects": ""
       },
       "attackSound": {
         "firingSound": null
@@ -151,6 +178,7 @@
       "ammoMax": 1,
       "ammoCurrent": 1,
       "fumbleAmount": 0,
+      "solidity": 2,
       "reliability": 2,
       "range": "short",
       "loadedAmmo": null,
@@ -173,8 +201,14 @@
       "dangerous": false
     },
     "trait": {
+      "templates": [],
+      "taken": 1,
+      "effects": ""
+    },
+    "mechpart": {
       "templates": [
-        "evolution"
+        "basicItem",
+        "encumbrance"
       ]
     }
   }

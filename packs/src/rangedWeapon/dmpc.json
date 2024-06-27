@@ -2,10 +2,11 @@
   "name": "DMP-Compact",
   "img": "systems/starclock/assets/weapons/dmpc.png",
   "data": {
-    "description": "Un pistolet semi-automatique simple, fiable et peu cher. Il équipe quasiment toutes les unités de police fédérale.",
+    "description": "This rugged, reliable semi-auto pistol is perhaps one of the most widespread weapon of the entire galaxy. The fact that it uses the most widespread cartridge of the galaxy helps a lot, though.",
     "weaponShape": "pistol",
     "price": 500,
     "weight": 1000,
+    "solidity": 2,
     "reliability": 2,
     "range": "short",
     "ammoType": "lightPistol",

@@ -1,8 +1,8 @@
 {
-  "name": "Cartouches de fusil léger SF",
+  "name": "Light Rifle Rounds",
   "img": "systems/starclock/assets/ammo/lightRifle.png",
   "data": {
-    "description": "Ces munitions véloces de 5mm sont utilisées par les fusils confédérés. Elles sont au Standard Fédéral (SF).",
+    "description": "The bread and butter of the confederate army is in those intermediate caliber rounds: versatile, relatively cheap and accurate.",
     "ammoType": "lightRifle",
     "quantity": 0,
     "quantityStash": 0,

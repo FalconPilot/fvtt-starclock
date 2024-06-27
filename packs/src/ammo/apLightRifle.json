@@ -1,8 +1,8 @@
 {
-  "name": "Cartouches de fusil léger AP",
+  "name": "Light Rifle Rounds - AP",
   "img": "systems/starclock/assets/ammo/lightRifle_ap.png",
   "data": {
-    "description": "Ces cartouches à haute vélocité sont hors de prix, mais également capables de transpercer des couches épaisses de protections.",
+    "description": "Rifle rounds that are extremely dangerous against armor.",
     "ammoType": "lightRifle",
     "quantity": 0,
     "quantityStash": 0,

@@ -1,8 +1,8 @@
 {
-  "name": "Cartouches à plombs SF",
+  "name": "Shotgun Shell - Buckshot",
   "img": "systems/starclock/assets/ammo/shells.png",
   "data": {
-    "description": "Ces cartouches à plombs alimentent les armes à cartouches confédérées. Elles sont au Standard Fédéral (SF).",
+    "description": "The most widely used shell there is. Perfect to make whatever you hit suddenly have a very, very bad day.",
     "ammoType": "shells",
     "quantity": 0,
     "quantityStash": 0,

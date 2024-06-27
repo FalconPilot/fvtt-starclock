@@ -2,10 +2,11 @@
   "name": "Dai-X",
   "img": "systems/starclock/assets/weapons/daix.png",
   "data": {
-    "description": "Le fusil d'assaut standard de DaiCom, étonamment encore produit à ce jour. Malgré sa conception ancienne, il s'agit d'un fusil très robuste qui a fait ses preuves depuis plus d'un siècle maintenant.",
+    "description": "The standard issue assault rifle of DaiCom. Surprisingly, it's still manufactured to this day and is still proving its worth to this day as a very widespread gun.",
     "weaponShape": "rifle",
     "price": 1200,
     "weight": 4000,
+    "solidity": 2,
     "reliability": 2,
     "range": "medium",
     "ammoType": "lightRifle",

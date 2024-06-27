@@ -29,8 +29,18 @@
       </label>
     </div>
     <label class="flexrow centerv gap">
-      <h4>{{ localize "SCLK.HitMod" }}</h4>
-      <input  name="hitMod" type="number" value="0" data-dtype="Number" />
+      <h4>{{ localize "SCLK.TargetArmor" }}</h4>
+      <input name="targetArmor" type="number" value="0" min="0" data-dtype="Number" />
     </label>
+    <div class="flexrow">
+      <label class="flexrow centerv gap">
+        <h4>{{ localize "SCLK.MovingTarget" }}</h4>
+        <input name="isMoving" type="checkbox" data-dtype="Boolean" />
+      </label>
+      <label class="flexrow centerv gap">
+      <h4>{{ localize "SCLK.TargetDodge" }}</h4>
+      <input name="targetDodge" type="number" value="0" min="0" data-dtype="Number" />
+    </label>
+    </div>
   </div>
 </form>

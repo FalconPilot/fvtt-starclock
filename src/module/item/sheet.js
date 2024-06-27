@@ -8,7 +8,7 @@ export default class StarclockItemSheet extends ItemSheet {
 
   // Default options
   static get defaultOptions () {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       width: 500,
       height: 400,
       resizable: false,
@@ -74,10 +74,16 @@ export default class StarclockItemSheet extends ItemSheet {
       loadedAmmo = availableAmmo.find(ammo => ammo.id === data.item.system.loadedAmmo)
     }
 
+    const selectableAmmo = availableAmmo.reduce((acc, ammo) => ({
+      ...acc,
+      [ammo.id]: ammo.name,
+    }), {})
+
     return Object.assign(data, {
       config: CONFIG.starclock,
       loadedAmmo,
       availableAmmo,
+      selectableAmmo,
     })
   }
 }

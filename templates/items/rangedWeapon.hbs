@@ -7,21 +7,13 @@
         name="system.weaponShape"
         class="line-input mgr"
       >
-        {{#select item.system.weaponShape}}
-          {{#each config.rangedWeaponTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-          {{/each}}
-        {{/select}}
+        {{selectOptions config.rangedWeaponTypes selected=item.system.weaponShape localize=true}}
       </select>
       <select
         name="system.ammoType"
         class="line-input mgl"
       >
-        {{#select item.system.ammoType}}
-          {{#each config.ammoTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-          {{/each}}
-        {{/select}}
+        {{selectOptions config.ammoTypes selected=item.system.ammoType localize=true}}
       </select>
     </div>
     <div class="flexrow">
@@ -31,12 +23,7 @@
             name="system.loadedAmmo"
             class="line-input mgr"
           >
-            {{#select item.system.loadedAmmo}}
-              <option value="">{{localize "SCLK.AmmoNone"}}</option>
-              {{#each availableAmmo as |data key|}}
-                <option value="{{data.id}}">{{data.name}}</option>
-              {{/each}}
-            {{/select}}
+            {{selectOptions selectableAmmo selected=item.system.loadedAmmo blank="SCLK.AmmoNone" localize=true}}
           </select>
         {{else}}
           <span>{{localize "SCLK.NoAmmoAvailable"}}</span>
@@ -50,8 +37,8 @@
         currentValue=item.system.fumbleAmount
         currentKey="system.fumbleAmount"
         canModifyCurrent=true
-        maxValue=item.system.reliability
-        maxKey="system.reliability"
+        maxValue=item.system.solidity
+        maxKey="system.solidity"
         canModifyMax=true
         maxMin=1
         barClass="weapon-condition neon-red-pseudo"

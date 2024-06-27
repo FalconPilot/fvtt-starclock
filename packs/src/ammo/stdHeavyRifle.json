@@ -1,8 +1,8 @@
 {
-  "name": "Cartouches de fusil lourd SF",
+  "name": "Heavy Rifle Rounds",
   "img": "systems/starclock/assets/ammo/heavyRifle.png",
   "data": {
-    "description": "Ces munitions longues de 8mm sont employées dans les fusils confédérés de gros calibre. Elles sont au Standard Fédéral (SF).",
+    "description": "Those standard-issue confederate rounds are used in large-caliber rifles.",
     "ammoType": "heavyRifle",
     "quantity": 0,
     "quantityStash": 0,

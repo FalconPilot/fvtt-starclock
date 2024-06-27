@@ -2,10 +2,11 @@
   "name": "DMP-10 Magnum",
   "img": "systems/starclock/assets/weapons/dmp10.png",
   "data": {
-    "description": "Une variante du DMP-C tirant des balles de gros calibre. Une icône des films d'action qui reste à ne pas mettre entre toutes les mains.",
+    "description": "A variant of the DMP-C Pistol that uses 10mm rounds. It's been featured in so many action movies that it's become a pop-culture icon at this point.",
     "weaponShape": "pistol",
     "price": 800,
     "weight": 1000,
+    "solidity": 2,
     "reliability": 2,
     "range": "short",
     "ammoType": "heavyPistol",

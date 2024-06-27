@@ -1,4 +1,4 @@
-.flexrow, .flexcol { display: flex; }
+.flexrow, .flexcol { display: flex; flex-wrap: nowrap; }
 .flexcol { flex-direction: column; }
 
 .flexrow.centerv, .flexcol.centerh { align-items: center; }
@@ -11,3 +11,4 @@
 .flexcol.bottomv, .flexrowq.righth { justify-content: flex-end; }
 
 .flexcol.nowrap, .flexrow.nowrap { flex-wrap: nowrap; }
+.flexcol.flex-wrap, .flexrow.flex-wrap { flex-wrap: wrap; }

@@ -61,7 +61,7 @@ export default class StarclockItem extends Item {
 
     return this.update({ 'system.fumbleAmount': 0 })
       .then(() => {
-        AudioHelper.play({
+        foundry.audio.AudioHelper.play({
           src: 'systems/starclock/assets/sfx/repair.ogg',
           volume: 1,
           autoplay: true,
@@ -103,7 +103,6 @@ export default class StarclockItem extends Item {
 
     const reloadedAmount = Math.min(requiredAmmo, availableAmmo)
 
-
     const currentAmmo = this.system.ammoCurrent
 
     return this.update({ 'system.ammoCurrent': currentAmmo + reloadedAmount })
@@ -114,7 +113,7 @@ export default class StarclockItem extends Item {
       })
       .then(() => {
         if (this.system.reloadSound) {
-          AudioHelper.play({
+          foundry.audio.AudioHelper.play({
             src: this.system.reloadSound,
             volume: 1,
             autoplay: true,

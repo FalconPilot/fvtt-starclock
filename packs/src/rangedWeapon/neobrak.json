@@ -2,10 +2,11 @@
   "name": "Neobrak",
   "img": "systems/starclock/assets/weapons/neobrak.png",
   "data": {
-    "description": "Ce pistolet-mitrailleur est légendaire du à sa fiabilité désastreuse, mais surtout à sa simplicité de fabrication. C'est l'arme la plus répandue chez les petits criminels de la galaxie.",
+    "description": "This machine pistol is legendary for all of the wrong reasons: very widespread among street gangs, horrendously unreliable, and manufactured in illicit workshops to be sold under the radar. But it shoots. And that's all the people who buy it are asking from it.",
     "weaponShape": "pistol",
     "price": 100,
     "weight": 1600,
+    "solidity": 1,
     "reliability": 1,
     "range": "short",
     "ammoType": "heavyPistol",

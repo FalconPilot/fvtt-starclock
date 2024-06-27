@@ -1,4 +1,4 @@
-<div class="character-identity flexcol pg mgb neon-pink-pseudo gap">
+<div class="character-identity pseudobox flexcol pg mgb neon-pink-pseudo gap">
   <div class="flexrow bottomv pgh">
     {{localize "SCLK.MyNameIs"}}
     <input
@@ -14,22 +14,14 @@
       name="system.race"
       class="line-input mgh neon-white"
     >
-      {{#select @root/actor.system.race}}
-        {{#each @root/config.races as |name race|}}
-          <option value="{{race}}">{{localize name}}</option>
-        {{/each}}
-      {{/select}}
+      {{selectOptions @root/config.races selected=@root/actor.system.race localize=true}}
     </select>
     {{localize "SCLK.BodyTypeLabel"}}
     <select
       name="system.bodyType"
       class="line-input mgl neon-white"
     >
-      {{#select @root/actor.system.bodyType}}
-        {{#each @root/config.bodyTypes as |name type|}}
-          <option value="{{type}}">{{localize name}}</option>
-        {{/each}}
-      {{/select}}
+      {{selectOptions @root/config.bodyTypes selected=@root/actor.system.bodyType localize=true}}
     </select>
   </div>
   <div class="flexrow bottomv pgh">
@@ -62,18 +54,12 @@
 </div>
 <div class="flexrow attributes-list gap">
   {{#each @root/config.attributes as |name key|}}
-    <label class="character-attribute flexcol">
-      <h4 class="mgb">{{localize name}}</h4>
-      <div class="flexcol attribute-value">
-        <input
-          type="number"
-          name="system.{{key}}"
-          value="{{getKey @root/actor.system key}}"
-          min="0"
-          max="4"
-          data-dtype="Number"
-        />
-      </div>
-    </label>
+    {{>
+      "systems/starclock/templates/common/attribute-field.hbs"
+      title=(localize (intersperse "." name "Name"))
+      name=key
+      value=(getKey @root/actor.system key)
+      customClass=(concat "neon-" (attributeColor key) "-pseudo")
+    }}
   {{/each}}
 </div>

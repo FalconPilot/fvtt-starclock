@@ -1,5 +1,5 @@
 import { basePath } from "../../constants.js"
-import { checkFumble, getRollResults, getScore } from "../../utils/roll.js"
+import { checkFumble, checkSuccess, getRollResults } from "../../utils/roll.js"
 
 export default class StarclockActorSheet extends ActorSheet {
   // Template name
@@ -9,7 +9,7 @@ export default class StarclockActorSheet extends ActorSheet {
 
   // Default options
   static get defaultOptions () {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       width: 840,
       height: 495,
       resizable: false,
@@ -95,7 +95,7 @@ export default class StarclockActorSheet extends ActorSheet {
       return ui.notifications.error('Those rolls can only be done with ranged weapons')
     }
 
-    if (item.system.fumbleAmount >= item.system.reliability) {
+    if (item.system.fumbleAmount >= item.system.solidity) {
       return ui.notifications.warn('Item must be repaired!')
     }
 
@@ -113,6 +113,9 @@ export default class StarclockActorSheet extends ActorSheet {
       config: CONFIG.starclock,
     })
 
+    const baseDifficulty = 5
+    const baseComplexity = 2
+
     // Create Dialog
     const dialog = new Dialog({
       title: item.name,
@@ -125,7 +128,9 @@ export default class StarclockActorSheet extends ActorSheet {
           callback: async html => {
             const firingRate = html.find('select[name=firingRate]').val()
             const range = html.find('select[name=range]').val()
-            const hitMod = parseInt(html.find('input[name=hitMod]').val(), 10)
+            const targetArmor = parseInt(html.find('input[name=targetArmor]').val(), 10)
+            const targetDodge = parseInt(html.find('input[name=targetDodge]').val(), 10)
+            const isMoving = html.find('input[name=isMoving').is(':checked')
 
             const weaponMaxRange = {
               short: 1,
@@ -140,31 +145,43 @@ export default class StarclockActorSheet extends ActorSheet {
               auto: 2,
             }[firingRate] ?? 0
 
+
             const ammoFired = item.system.firingRates[firingRate]
             const firingRateDmg = ammoFired - 1
-            const masteryBonus = isMastered ? 1 : 0
             const rangeMalus = Math.max(0, range - weaponMaxRange)
+            const armorMalus = Math.max(0, targetArmor - loadedAmmoData.system.pierce ?? 0)
+            const masteryBonus = isMastered ? this.actor.system.combat.shooting : 0
+            const movingTargetMalus = isMoving ? Math.max(1, targetDodge) : 0
+            const accuracyMod = loadedAmmoData.accuracyMod ?? 0
 
-            // Calculate final amount of dice
-            const hitDice = this.actor.system.acu
-              + this.actor.system.shooting
-              + hitMod
+            // Calculate complexity
+            const complexity = baseComplexity
+              + movingTargetMalus
+              + firingRateMalus
+
+            // Calculate difficulty
+            const rawDifficulty = baseDifficulty
+              + armorMalus
+              + rangeMalus
+              - accuracyMod
+
+            const difficulty = Math.min(10, Math.max(1, rawDifficulty))
+
+            // Calculate amount of dice
+            const hitDice = complexity
               + masteryBonus
-              + (loadedAmmoData.system.accuracyMod ?? 0)
-              - rangeMalus
-              - firingRateMalus
 
-            // Calculate final amount of damage
+            // Calculate final damage amount
             const finalDamage = loadedAmmoData.system.damage
               + firingRateDmg
 
             // Generate roll
-            const roll = await new Roll(`${Math.max(hitDice, 1)}D6`).roll({ async: true })
+            const roll = await new Roll(`${Math.max(hitDice, 1)}D10`).evaluate()
 
             // Generate roll result data
-            const results = getRollResults(roll)
-            const score = getScore(roll)
-            const isFumble = checkFumble(roll)
+            const results = getRollResults(roll, complexity, difficulty)
+            const isFumble = checkFumble(roll, complexity, difficulty, item.system.reliability)
+            const isSuccess = checkSuccess(roll, complexity, difficulty)
 
             // Compile header
             const flavorHeader = await renderTemplate('systems/starclock/templates/chat/gunroll.hbs', {
@@ -177,16 +194,20 @@ export default class StarclockActorSheet extends ActorSheet {
                 },
               },
               config: CONFIG.starclock,
-              firingRate: game.i18n.localize(`SCLK.FiringRates.${firingRate}`),
+              firingRate: `SCLK.FiringRates.${firingRate}`,
               ammoFired,
             })
 
             // Compile content
             const messageContent = await renderTemplate('systems/starclock/templates/chat/diceroll.hbs', {
               results,
-              score,
               isFumble,
-              fumbleText: game.i18n.localize('SCLK.Misfire'),
+              isSuccess,
+              complexity,
+              difficulty,
+              successKey: 'SCLK.Hit',
+              failureKey: 'SCLK.Miss',
+              fumbleKey: 'SCLK.Misfire',
             })
 
             const sound = isFumble
@@ -248,6 +269,9 @@ export default class StarclockActorSheet extends ActorSheet {
       mastered: isMastered,
     })
 
+    const baseComplexity = 2
+    const baseDifficulty = 6
+
     // Create Dialog
     const dialog = new Dialog({
       title: item.name,
@@ -258,27 +282,38 @@ export default class StarclockActorSheet extends ActorSheet {
           icon: '<i class="fas fa-dice-six"></i>',
           label: game.i18n.localize('SCLK.Confirm'),
           callback: async html => {
-            const hitMod = parseInt(html.find('input[name=hitMod]').val(), 10)
+            const targetArmor = parseInt(html.find('input[name=targetArmor]').val(), 10)
+            const targetDodge = parseInt(html.find('input[name=targetDodge]').val(), 10)
 
             const masteryBonus = isMastered ? 1 : 0
+            const armorMalus = Math.max(0, targetArmor - item.system.pierce)
 
-            // Calculate final amount of dice
-            const hitDice = this.actor.system.hab
-              + this.actor.system.melee
-              + hitMod
+            // Calculate complexity
+            const complexity = baseComplexity
+              + targetDodge
+              - masteryBonus
+
+            // Calculate difficulty
+            const rawDifficulty = baseDifficulty
+              + armorMalus
+
+            const difficulty = Math.max(1, Math.min(10, rawDifficulty))
+
+            const hitDice = complexity
+              + this.actor.system.combat.melee
               + masteryBonus
 
             // Generate roll
-            const roll = await new Roll(`${Math.max(hitDice, 1)}D6`).roll({ async: true })
+            const roll = await new Roll(`${Math.max(1, hitDice)}D10`).evaluate()
 
             // Generate roll result data
-            const results = getRollResults(roll)
-            const score = getScore(roll)
-            const isFumble = checkFumble(roll)
+            const results = getRollResults(roll, complexity, difficulty)
+            const isFumble = checkFumble(roll, complexity, difficulty, 2)
+            const isSuccess = checkSuccess(roll, complexity, difficulty)
 
             // Calculate final damage
             const finalDamage = item.system.damage
-              + score
+              + masteryBonus
 
             // Compile header
             const flavorHeader = await renderTemplate('systems/starclock/templates/chat/meleeroll.hbs', {
@@ -295,9 +330,13 @@ export default class StarclockActorSheet extends ActorSheet {
             // Compile content
             const messageContent = await renderTemplate('systems/starclock/templates/chat/diceroll.hbs', {
               results,
-              score,
               isFumble,
-              fumbleText: game.i18n.localize('SCLK.Fumble'),
+              isSuccess,
+              complexity,
+              difficulty,
+              successKey: 'SCLK.Hit',
+              failureKey: 'SCLK.Miss',
+              fumbleKey: 'SCLK.Fumble',
             })
 
             const sound = isFumble
@@ -458,7 +497,7 @@ export default class StarclockActorSheet extends ActorSheet {
         const isStashed = item.system.stashed
         const isWeapon = item.type === 'rangedWeapon' || item.type === 'meleeWeapon'
         const isAmmo = item.type === 'ammo'
-        const key = `ITEM.Type${item.type[0].toUpperCase()}${item.type.slice(1).toLowerCase()}`
+        const key = `TYPES.Item.${item.type}`
 
         // Match index with condition
         const idx = [{
@@ -498,6 +537,7 @@ export default class StarclockActorSheet extends ActorSheet {
       )
 
     const maxStamina = this.actor.getMaxStamina()
+    const availableSkillpoints = this.actor.getAvailableSkillpoints()
 
     return Object.assign(data, {
       config: CONFIG.starclock,
@@ -507,6 +547,7 @@ export default class StarclockActorSheet extends ActorSheet {
       weapons: this.sortItems(weapons),
       weaponsStash: this.sortItems(weaponsStash),
       maxStamina,
+      availableSkillpoints,
     })
   }
 }

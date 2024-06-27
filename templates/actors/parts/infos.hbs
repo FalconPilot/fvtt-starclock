@@ -2,16 +2,16 @@
   <div class="character-silhouette flexcol centerv centerh pgh">
     <img
       class="character-image neon-green"
-      src="systems/starclock/assets/races/{{actor.system.race}}_sil_{{actor.system.bodyType}}.png"
+      src="systems/starclock/assets/races/{{@root/actor.system.race}}_sil_{{@root/actor.system.bodyType}}.png"
     />
   </div>
   <div class="character-common-data flexcol topv gap">
-    <div class="profile-img-wrapper neon-pink-pseudo">
+    <div class="profile-img-wrapper neon-pink-pseudo pseudobox">
       <img
         class="profile-img"
         data-edit="img"
-        src="{{actor.img}}"
-        title="{{actor.name}}"
+        src="{{@root/actor.img}}"
+        title="{{@root/actor.name}}"
       />
     </div>
     <label class="flexrow money-input bottomv neon-pink-pseudo">

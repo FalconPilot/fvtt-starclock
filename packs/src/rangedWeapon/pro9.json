@@ -2,10 +2,11 @@
   "name": "PRO-9",
   "img": "systems/starclock/assets/weapons/pro9.png",
   "data": {
-    "description": "Le PRO-9 est un pistolet très courant chez les forces de police confédérées. Il s'agit d'une arme de service polyvalente disposant d'un mode de tir automatique extrêmement élevé.",
+    "description": "Confederate enforcers usually rock such a pistol. Clad in a framework of accessories, the PRO-9 is a very versatile pistol with an automatic mode that can get very surprising for unsuspecting lawbreakers.",
     "weaponShape": "pistol",
     "price": 3500,
     "weight": 1200,
+    "solidity": 2,
     "reliability": 2,
     "range": "short",
     "ammoType": "lightPistol",

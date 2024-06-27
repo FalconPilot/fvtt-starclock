@@ -2,10 +2,11 @@
   "name": "Subhash",
   "img": "systems/starclock/assets/weapons/subhash.png",
   "data": {
-    "description": "Ce fusil d'assaut utilisé par les forces spéciales confédérées possède un silencieux massif permettant de limiter au maximum le son du tir. Sa cadence de tir lui a conféré une solide réputation.",
+    "description": "This pretty unusual rifle used by confederate special forces boasts a quite massive suppressor that muffles the sound abnormally well. It also boasts a high rate of fire, making it silent AND deadly.",
     "weaponShape": "rifle",
     "price": 5000,
     "weight": 4500,
+    "solidity": 2,
     "reliability": 2,
     "range": "medium",
     "ammoType": "lightRifle",

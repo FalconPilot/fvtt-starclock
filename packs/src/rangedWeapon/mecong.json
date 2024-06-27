@@ -2,10 +2,11 @@
   "name": "Mecong",
   "img": "systems/starclock/assets/weapons/mecong.png",
   "data": {
-    "description": "Ce pistolet-mitrailleur confédéré bon marché est très répandu chez les milices, forces de police et autres unités régulières de maintien de l'ordre. Il est connu pour sa grande polyvalence.",
+    "description": "A very popular submachine gun used very widely among security officers. It's reliable and very ammo-efficient.",
     "weaponShape": "rifle",
     "price": 1500,
     "weight": 1600,
+    "solidity": 2,
     "reliability": 2,
     "range": "medium",
     "ammoType": "lightPistol",

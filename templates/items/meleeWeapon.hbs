@@ -3,11 +3,7 @@
   <div class="flexcol topv item-body">
     {{> "systems/starclock/templates/items/parts/description.hbs" }}
     <select name="system.weaponShape" class="line-input mgv">
-      {{#select item.system.weaponShape}}
-        {{#each config.meleeWeaponTypes as |name type|}}
-          <option value="{{type}}">{{localize name}}</option>
-        {{/each}}
-      {{/select}}
+      {{selectOptions config.meleeWeaponTypes selected=item.system.weaponShape localize=true}}
     </select>
     {{> "systems/starclock/templates/items/parts/damage.hbs" item=item }}
   </div>

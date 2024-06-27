@@ -35,11 +35,7 @@
         name="system.damageType"
         class="line-input"
       >
-        {{#select item.system.damageType}}
-          {{#each @root/config.damageType as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-          {{/each}}
-        {{/select}}
+        {{selectOptions @root/config.damageType selected=item.system.damageType localize=true}}
       </select>
     {{/if}}
   {{else}}

@@ -2,10 +2,11 @@
   "name": "UMG90",
   "img": "systems/starclock/assets/weapons/umg90.png",
   "data": {
-    "description": "L'UMG90 est le fusil mitrailleur standard de l'armée confédérée. Sa cadence de tir phénoménale en fait une arme particulièrement redoutée et dangereuse.",
+    "description": "Confederate soldiers use this light machinegun to rain bullets on their enemies. It shoots scaringly fast and will be the death of whatever gets caught in one of its bursts.",
     "weaponShape": "rifle",
     "price": 12000,
     "weight": 11000,
+    "solidity": 2,
     "reliability": 2,
     "range": "medium",
     "ammoType": "heavyRifle",

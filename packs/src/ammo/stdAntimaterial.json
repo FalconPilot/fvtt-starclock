@@ -1,8 +1,8 @@
 {
-  "name": "Obus antimatériel SF",
+  "name": "Antimaterial Rounds",
   "img": "systems/starclock/assets/ammo/antimaterial.png",
   "data": {
-    "description": "Ces munitions hors de prix sont utilisées par les armes lourdes tirant des obus de 12mm. Ces munitions sont au Standard Fédéral (SF).",
+    "description": "On top of being extrely expensive and rare, those oversized rounds are able to pierce light vehicle plating. Will obliterate a humanoid.",
     "ammoType": "antimaterial",
     "quantity": 0,
     "quantityStash": 0,

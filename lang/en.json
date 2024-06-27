@@ -1,12 +1,12 @@
 {
-  "ACTOR.TypeCharacter": "Character",
-  "ACTOR.TypeMechsuit": "Mechsuit",
-  "ACTOR.TypeSpaceship": "Spaceship",
-  "ITEM.TypeSimple": "Simple item",
-  "ITEM.TypeMeleeweapon": "Melee Weapon",
-  "ITEM.TypeRangedweapon": "Ranged Weapon",
-  "ITEM.TypeAmmo": "Ammunition",
-  "ITEM.TypeTrait": "Trait",
+  "TYPES.Actor.character": "Character",
+  "TYPES.Actor.mechsuit": "Mechsuit",
+  "TYPES.Actor.spaceship": "Spaceship",
+  "TYPES.Item.simple": "Simple item",
+  "TYPES.Item.meleeWeapon": "Melee Weapon",
+  "TYPES.Item.rangedWeapon": "Ranged Weapon",
+  "TYPES.Item.ammo": "Ammunition",
+  "TYPES.Item.trait": "Trait",
   "SCLK": {
     "ActionStash": "Put in stash",
     "ActionUnstash": "Take from stash",
@@ -14,10 +14,13 @@
     "AmmoNone": "No ammo",
     "BodyTypeLabel": "and my body type is",
     "Cancel": "Cancel",
+    "CombatSkills": "Combat Skills",
+    "Complexity": "Complexity",
     "Confirm": "Confirm",
     "Damage": "Damage",
     "DamageAbridged": "DMG",
     "Damaged": "Damaged!",
+    "Difficulty": "Difficulty",
     "Pierce": "Pierce",
     "PierceAbridged": "P",
     "Delete": "Delete",
@@ -29,11 +32,14 @@
     "Fumble": "Fumble!",
     "HeightLabel": "years old, and measure",
     "HeightLabel2": "in height.",
+    "Hit": "Hit!",
     "HitMod": "Bonus/Malus",
     "ItemDescription": "Description",
     "ItemName": "Name",
+    "MovingTarget": "Moving Target",
     "MeleeWeapons": "Melee Weapons",
     "Misfire": "Gun jammed!",
+    "Miss": "Missed!",
     "MyNameIs": "Hello, my name is",
     "NoAmmoAvailable": "No ammunition available",
     "NoAmmoLoaded": "No loaded ammo",
@@ -44,6 +50,8 @@
     "Roll": "Roll",
     "SkillsHeader": "Skills",
     "Stamina": "Stamina",
+    "TargetArmor": "Target Armor",
+    "TargetDodge": "Target Dodge",
     "WeaponCondition": "Weapon condition",
     "WeaponMasteries": "Weapon Masteries",
     "AmmoTypes": {
@@ -63,18 +71,31 @@
       "Rockets": "Rockets"
     },
     "Attributes": {
-      "Body": "Body",
-      "Agility": "Agility",
-      "Acuity": "Acuity",
-      "Hability": "Hability",
-      "Charisma": "Charisma",
-      "Empathy": "Empathy",
-      "Intellect": "Intellect",
-      "Willpower": "Willpower"
+      "Body": {
+        "Name": "Body",
+        "Description": "Your overall physical fitness. It could represent strength, endurance or just how much you buffed yourself up to look strong."
+      },
+      "Reflexes": {
+        "Name": "Reflexes",
+        "Description": "How agile and dexterous you are. It represents swiftness and how good you are at coordinating your 5 senses."
+      },
+      "Wits": {
+        "Name": "Wits",
+        "Description": "How wise, empathic and witty you are. It could represent your capacity to communicate and reflect with philosophy."
+      },
+      "Mind": {
+        "Name": "Mind",
+        "Description": "How smart or cultivated you are. Having a low mind doesn't make you necessarily dumb, just uneducated or not very curious."
+      }
     },
     "BodyTypes": {
       "M": "M",
       "F": "F"
+    },
+    "Combat": {
+      "Melee": "Melee",
+      "Shooting": "Shooting",
+      "Dodge": "Dodge"
     },
     "DamageType": {
       "Physical": "Physical",
@@ -103,16 +124,70 @@
       "Anitrope": "Anitrope"
     },
     "Skills": {
-      "Acrobatics": "Acrobatics",
-      "Arts": "Arts",
-      "Craftsmanship": "Craftsmanship",
-      "Dialog": "Dialog",
-      "Knowledge": "Knowledge",
-      "Perception": "Perception",
-      "Piloting": "Piloting",
-      "Roguery": "Roguery",
-      "Sports": "Sports",
-      "Grit": "Grit"
+      "Athletics": {
+        "Name": "Athletics",
+        "Description": "When you need to run, swim etc... Any kind of movement that requires a good physique and endurance."
+      },
+      "Coercion": {
+        "Name": "Coercion",
+        "Description": "When you need to \"convince\" someone else using bullying, intimidation, threatening..."
+      },
+      "Grit": {
+        "Name": "Grit",
+        "Description": "When you need to endure pain or effort. Each point also grants +2 max Stamina."
+      },
+      "Strongarm": {
+        "Name": "Strongarm",
+        "Description": "When you need to lift, push, pull, tear... Anything that uses pure, raw strength."
+      },
+      "Acrobatics": {
+        "Name": "Acrobatics",
+        "Description": "When you need to jump, roll, etc... Any kind of movement that requires swiftness, agility and dexterity."
+      },
+      "Piloting": {
+        "Name": "Piloting",
+        "Description": "When you need to pilot any kind of vehicle with direct-movement control like a car, truck, hovercraft, spacecraft..."
+      },
+      "Perception": {
+        "Name": "Perception",
+        "Description": "When you need to observe, look around or find something."
+      },
+      "Roguery": {
+        "Name": "Roguery",
+        "Description": "When you need to lockpick, pick pockets, forge documents, disarm traps or explosives, etc... Anything that requires to have nimble hands for dubious purposes"
+      },
+      "Arts": {
+        "Name": "Arts",
+        "Description": "When you need to create something that requires drawing, painting, sculpting, music, singing, acting... You name it."
+      },
+      "Dialog": {
+        "Name": "Dialog",
+        "Description": "When you need to convince, lie, seduce, negotiate..."
+      },
+      "Intuition": {
+        "Name": "Intuition",
+        "Description": "When you need to trust your gut feeling to understand someone else's emotions or sense something unusual around you."
+      },
+      "Willpower": {
+        "Name": "Willpower",
+        "Description": "When you need to endure strong emotions, coercion, etc... Each point also grants +1 max Stamina."
+      },
+      "Academics": {
+        "Name": "Academics",
+        "Description": "When you need to refer to things you may have learned from academical sources like engineering, science, etc... or transmit that knowledge."
+      },
+      "Craftsmanship": {
+        "Name": "Craftsmanship",
+        "Description": "When you need to use your knowledge to fabricate, repair or modify something."
+      },
+      "Culture": {
+        "Name": "Culture",
+        "Description": "When you need to refer to things about history, geography, pop-culture, etc... or transmit that knowledge."
+      },
+      "Investigation": {
+        "Name": "Investigation",
+        "Description": "When you try to make sense of mental puzzles, make logical deductions, etc..."
+      }
     },
     "StarCredits": "StarCredits",
     "Tabs": {
@@ -124,7 +199,6 @@
     },
     "WeaponTypes": {
       "LightMelee": "Melee (light)",
-      "MediumMelee": "Melee (medium)",
       "HeavyMelee": "Melee (heavy)",
       "Fist": "Brawling",
       "Pistol": "Handgun",

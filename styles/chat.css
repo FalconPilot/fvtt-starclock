@@ -26,6 +26,10 @@
   color: #FFF;
 }
 
+.message-header.flexrow {
+  flex-wrap: wrap;
+}
+
 .message-content {
   position: relative;
 }
@@ -43,7 +47,37 @@
   z-index: 2;
 }
 
-.dicerow > i {
-  flex: 0;
-  font-size: 24px;
+.roll-result {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 18px;
+  text-align: center;
+  font-family: 'CascadiaMono';
+}
+
+.roll-result.neon-green {
+  color: #FFF;
+  border-color: #FFF;
+}
+
+.roll-result.bonus-dice:after {
+  content: '+';
+  position: absolute;
+  top: -12px;
+  right: -2px;
+  z-index: 1;
+}
+
+.roll-report {
+  font-size: 28px;
+  color: #333;
+}
+
+.roll-report.neon-green {
+  color: #FFF;
 }

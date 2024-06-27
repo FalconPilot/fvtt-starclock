@@ -1,0 +1,13 @@
+<label class="character-attribute flexcol pseudobox {{customClass}}">
+  <h4 class="mgb pgh">{{title}}</h4>
+  <div class="flexcol attribute-value">
+    <input
+      type="number"
+      name="system.{{name}}"
+      value="{{value}}"
+      min="0"
+      {{#if max}}max="{{max}}"{{/if}}
+      data-dtype="Number"
+    />
+  </div>
+</label>

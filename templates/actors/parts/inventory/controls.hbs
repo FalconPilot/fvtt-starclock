@@ -1,7 +1,7 @@
 {{#if @root/owner}}
   <div class="item-controls flexcol neon-pink-pseudo">
     {{#if (equals item.type 'rangedWeapon')}}
-      {{#if (equals item.system.reliability item.system.fumbleAmount)}}
+      {{#if (equals item.system.solidity item.system.fumbleAmount)}}
         <a
           class="item-control item-repair flexrow centerv centerh pgh neon-green-hover"
           title="{{localize "SCLK.Repair"}}"

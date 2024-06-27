@@ -1,6 +1,5 @@
 const meleeWeaponTypes = {
   light: 'SCLK.WeaponTypes.LightMelee',
-  medium: 'SCLK.WeaponTypes.MediumMelee',
   heavy: 'SCLK.WeaponTypes.HeavyMelee',
   fists: 'SCLK.WeaponTypes.Fist',
 }
@@ -18,13 +17,9 @@ export const starclock = {
   rangedWeaponTypes,
   attributes: {
     phy: 'SCLK.Attributes.Body',
-    agi: 'SCLK.Attributes.Agility',
-    acu: 'SCLK.Attributes.Acuity',
-    hab: 'SCLK.Attributes.Hability',
-    cha: 'SCLK.Attributes.Charisma',
-    emp: 'SCLK.Attributes.Empathy',
-    int: 'SCLK.Attributes.Intellect',
-    wil: 'SCLK.Attributes.Willpower',
+    ref: 'SCLK.Attributes.Reflexes',
+    wit: 'SCLK.Attributes.Wits',
+    min: 'SCLK.Attributes.Mind',
   },
   bodyTypes: {
     m: 'SCLK.BodyTypes.M',
@@ -71,7 +66,7 @@ export const starclock = {
   combat: {
     melee: "SCLK.Combat.Melee",
     shooting: "SCLK.Combat.Shooting",
-    defense: "SCLK.Combat.Defense",
+    dodge: "SCLK.Combat.Dodge",
   },
   firingRates: {
     single: 'SCLK.FiringRates.single',
@@ -85,16 +80,30 @@ export const starclock = {
     extreme: 'SCLK.Ranges.Extreme',
   },
   skills: {
-    acrobatics: 'SCLK.Skills.Acrobatics',
-    arts: 'SCLK.Skills.Arts',
-    craftsmanship: 'SCLK.Skills.Craftsmanship',
-    dialog: 'SCLK.Skills.Dialog',
-    grit: 'SCLK.Skills.Grit',
-    knowledge: 'SCLK.Skills.Knowledge',
-    perception: 'SCLK.Skills.Perception',
-    piloting: 'SCLK.Skills.Piloting',
-    roguery: 'SCLK.Skills.Roguery',
-    sports: 'SCLK.Skills.Sports',
+    phy: {
+      athletics: 'SCLK.Skills.Athletics',
+      coercion: 'SCLK.Skills.Coercion',
+      grit: 'SCLK.Skills.Grit',
+      strongarm: "SCLK.Skills.Strongarm",
+    },
+    ref: {
+      acrobatics: 'SCLK.Skills.Acrobatics',
+      piloting: 'SCLK.Skills.Piloting',
+      perception: 'SCLK.Skills.Perception',
+      roguery: 'SCLK.Skills.Roguery',
+    },
+    wit: {
+      arts: 'SCLK.Skills.Arts',
+      dialog: 'SCLK.Skills.Dialog',
+      intuition: 'SCLK.Skills.Intuition',
+      willpower: "SCLK.Skills.Willpower",
+    },
+    min: {
+      academics: 'SCLK.Skills.Academics',
+      craftsmanship: 'SCLK.Skills.Craftsmanship',
+      culture: 'SCLK.Skills.Culture',
+      investigation: 'SCLK.Skills.Investigation',
+    }
   },
   credits: [
     {

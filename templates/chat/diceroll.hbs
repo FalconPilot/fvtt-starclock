@@ -1,15 +1,26 @@
 <div class="flexcol gap">
-  {{#each results as |result|}}
-    <div class="flexrow flex-wrap dicerow gap">
-      {{#each result as |dice|}}
-        <i class="fas fa-dice-{{dice}}"></i>
-      {{/each}}
-    </div>
-  {{/each}}
-  <strong>Score: {{score}}</strong>
-  {{#if isFumble}}
+  <div class="flexrow flex-wrap gap">
+    {{#each results as |dice|}}
+      <div class="roll-result flexrow centerv centerh {{#if dice.success}}neon-green{{else}}neon-red{{/if}}{{#unless dice.mandatory}} bonus-dice{{/unless}}">
+        {{dice.result}}
+      </div>
+    {{/each}}
+  </div>
+  <div class="flexrow gap">
+    <strong>{{localize "SCLK.Complexity"}}: {{complexity}}</strong>
+    <strong>{{localize "SCLK.Difficulty"}}: {{difficulty}}</strong>
+  </div>
+  {{#if isSuccess}}
+    <strong class="roll-report flexrow centerv centerh neon-green">
+      {{localize successKey}}
+    </strong>
+  {{else if isFumble}}
     <strong class="roll-fumble flexrow centerv centerh neon-red">
-      {{fumbleText}}
+      {{localize fumbleKey}}
+    </strong>
+  {{else}}
+    <strong class="roll-report flexrow centerv centerh neon-red">
+      {{localize failureKey}}
     </strong>
   {{/if}}
 </div>

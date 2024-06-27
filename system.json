@@ -3,8 +3,8 @@
   "description": "The official StarClock game system",
   "version": "0.1.2",
   "compatibility": {
-    "minimum": "11",
-    "verified": "11"
+    "minimum": "12",
+    "verified": "12"
   },
   "authors": [
     {
@@ -18,25 +18,26 @@
   ],
   "styles": [
     "styles/framework/fonts.css",
-    "styles/actors.css",
     "styles/animations.css",
+    "styles/flex.css",
+    "styles/inputs.css",
+    "styles/neon.css",
+    "styles/pseudo.css",
+    "styles/sizes.css",
+    "styles/spacings.css",
+    "styles/text.css",
+    "styles/actors.css",
     "styles/chat.css",
     "styles/common.css",
     "styles/dialog.css",
-    "styles/flex.css",
-    "styles/inputs.css",
     "styles/items.css",
-    "styles/neon.css",
-    "styles/sizes.css",
-    "styles/spacings.css",
     "styles/system.css",
-    "styles/text.css",
     "styles/window.css"
   ],
   "packs": [
     {
       "name": "meleeWeapons",
-      "label": "Armes de corps-à-corps",
+      "label": "Melee Weapons",
       "system": "starclock",
       "path": "packs/meleeWeapon.db",
       "type": "Item",
@@ -45,7 +46,7 @@
     },
     {
       "name": "rangedWeapons",
-      "label": "Armes à distance",
+      "label": "Ranged Weapons",
       "system": "starclock",
       "path": "packs/rangedWeapon.db",
       "type": "Item",
@@ -54,7 +55,7 @@
     },
     {
       "name": "ammo",
-      "label": "Munitions",
+      "label": "Ammunition",
       "system": "starclock",
       "path": "packs/ammo.db",
       "type": "Item",
@@ -76,8 +77,10 @@
       "flags": {}
     }
   ],
-  "gridDistance": 2,
-  "gridUnits": "m",
+  "grid": {
+    "distance": 2,
+    "unit": "m"
+  },
   "url": "https://github.com/FalconPilot/fvtt-starclock",
   "manifest": "https://raw.githubusercontent.com/FalconPilot/fvtt-starclock/main/system.json",
   "download": "https://github.com/FalconPilot/fvtt-starclock/releases/download/0.1.1/starclock.zip",
