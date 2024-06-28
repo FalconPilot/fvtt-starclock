@@ -113,8 +113,8 @@ export default class StarclockActorSheet extends ActorSheet {
       config: CONFIG.starclock,
     })
 
-    const baseDifficulty = 5
     const baseComplexity = 2
+    const baseDifficulty = 5
 
     // Create Dialog
     const dialog = new Dialog({
@@ -152,7 +152,7 @@ export default class StarclockActorSheet extends ActorSheet {
             const armorMalus = Math.max(0, targetArmor - loadedAmmoData.system.pierce ?? 0)
             const masteryBonus = isMastered ? this.actor.system.combat.shooting : 0
             const movingTargetMalus = isMoving ? Math.max(1, targetDodge) : 0
-            const accuracyMod = loadedAmmoData.accuracyMod ?? 0
+            const accuracyMod = loadedAmmoData.system.accuracyMod ?? 0
 
             // Calculate complexity
             const complexity = baseComplexity
@@ -228,6 +228,8 @@ export default class StarclockActorSheet extends ActorSheet {
               sound,
             }, rollMode)
 
+            console.log(ChatMessage)
+
             // Send roll to chat
             return ChatMessage.create(msgData).then(() => {
               if (isFumble) {
@@ -270,7 +272,7 @@ export default class StarclockActorSheet extends ActorSheet {
     })
 
     const baseComplexity = 2
-    const baseDifficulty = 6
+    const baseDifficulty = 5
 
     // Create Dialog
     const dialog = new Dialog({
@@ -285,13 +287,12 @@ export default class StarclockActorSheet extends ActorSheet {
             const targetArmor = parseInt(html.find('input[name=targetArmor]').val(), 10)
             const targetDodge = parseInt(html.find('input[name=targetDodge]').val(), 10)
 
-            const masteryBonus = isMastered ? 1 : 0
+            const masteryBonus = isMastered ? this.actor.system.combat.melee : 0
             const armorMalus = Math.max(0, targetArmor - item.system.pierce)
 
             // Calculate complexity
             const complexity = baseComplexity
               + targetDodge
-              - masteryBonus
 
             // Calculate difficulty
             const rawDifficulty = baseDifficulty
@@ -300,7 +301,6 @@ export default class StarclockActorSheet extends ActorSheet {
             const difficulty = Math.max(1, Math.min(10, rawDifficulty))
 
             const hitDice = complexity
-              + this.actor.system.combat.melee
               + masteryBonus
 
             // Generate roll

@@ -68,9 +68,14 @@ export default class StarclockActor extends Actor {
         data['system.currentStamina'] = data['system.currentStamina'] + staminaMax - oldStaminaMax
       }
 
-      // Prevent update if skillpoints are depleted
+      // Revert skillpoints if skillpoints are depleted
       if (Object.values(this.getAvailableSkillpoints(data)).some(x => x < 0)) {
-        return ui.notifications.warn('Cannot allocate more skillpoints!')
+        ui.notifications.warn('Cannot allocate more skillpoints!')
+        Object.entries(CONFIG.starclock.skills).forEach(([key, skills]) => {
+          Object.keys(skills).forEach(skey => {
+            data[`system.skills.${key}.${skey}`] = this.system.skills[key][skey]
+          })
+        })
       }
     }
 

@@ -22,8 +22,14 @@ export const checkSuccess = (roll, complexity, difficulty) => {
 // Roll is fumble if it has no successes AND it has at least a 1 in its results
 export const checkFumble = (roll, complexity, difficulty, threshold) => {
   const results = getRollResults(roll, complexity, difficulty)
-
   const isSuccessful = checkSuccess(roll, complexity, difficulty)
 
-  return !isSuccessful && results.filter(dice => dice.result <= complexity && dice.mandatory).length >= threshold
+  return !isSuccessful && results.filter(dice => dice.result === 1 && dice.mandatory).length >= threshold
+}
+
+export const checkCritical = (roll, complexity, difficulty) => {
+  const results = getRollResults(roll, complexity, difficulty)
+  const isSuccessful = checkSuccess(roll, complexity, difficulty)
+
+  return isSuccessful && results.filter(dice => dice.result === 10 && dice.mandatory).length >= 2
 }

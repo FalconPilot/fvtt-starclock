@@ -1,24 +1,29 @@
 <span class="item-qty">
-  x
   {{~#if displayOnly~}}
-    <strong>{{~#if multiStash~}}{{item.system.quantityStash}}{{else}}{{item.system.quantity}}{{/if}}</strong>
+    x<strong>{{~#if multiStash~}}{{item.system.quantityStash}}{{else}}{{item.system.quantity}}{{/if}}</strong>
   {{else}}
     {{~#if multiStash~}}
-      <input
-        type="number"
-        min="0"
-        name="system.quantityStash"
-        value="{{item.system.quantityStash}}"
-        data-dtype="Number"
-      />
+      <label>
+        <span>Stashed x</span>
+        <input
+          type="number"
+          min="0"
+          name="system.quantityStash"
+          value="{{item.system.quantityStash}}"
+          data-dtype="Number"
+        />
+      </label>
     {{else}}
-      <input
-        type="number"
-        min="0"
-        name="system.quantity"
-        value="{{item.system.quantity}}"
-        data-dtype="Number"
-      />
+      <label>
+        <span>Owned x</span>
+        <input
+          type="number"
+          min="0"
+          name="system.quantity"
+          value="{{item.system.quantity}}"
+          data-dtype="Number"
+        />
+      </label>
     {{/if}}
   {{/if}}
 </span>
