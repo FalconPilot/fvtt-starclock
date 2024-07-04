@@ -1,5 +1,5 @@
 {
-  "name": "Revolver M-30",
+  "name": "M-30 Revolver",
   "img": "systems/starclock/assets/weapons/m30.png",
   "data": {
     "description": "This revolver is perhaps the cheapest legal weapon of the entire confederation. It's robust, rustic and... well, it just works.",
@@ -14,7 +14,7 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
-    "firingSound": "systems/starclock/assets/sfx/pistol_heavy",
+    "firingSound": "systems/starclock/assets/sfx/gunshots/pistol_heavy",
     "reloadSound": "systems/starclock/assets/sfx/reload_revolver.ogg",
     "firingRates": {
       "single": 1,

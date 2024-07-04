@@ -14,7 +14,7 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
-    "firingSound": "systems/starclock/assets/sfx/pistol",
+    "firingSound": "systems/starclock/assets/sfx/gunshots/pistol_light",
     "reloadSound": "systems/starclock/assets/sfx/reload_pistol.ogg",
     "firingRates": {
       "single": 1,

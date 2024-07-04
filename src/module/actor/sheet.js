@@ -213,7 +213,7 @@ export default class StarclockActorSheet extends ActorSheet {
             const sound = isFumble
               ? 'systems/starclock/assets/sfx/trigger_click.ogg'
               : item.system.firingSound
-              ? `${item.system.firingSound}_${firingRate}.ogg`
+              ? `${item.system.firingSound}/${firingRate}${firingRate !== 'single' ? `_${ammoFired}` : ''}.ogg`
               : CONFIG.sounds.dice
 
             const rollMode = game.settings.get('core', 'rollMode')
@@ -227,8 +227,6 @@ export default class StarclockActorSheet extends ActorSheet {
               content: messageContent,
               sound,
             }, rollMode)
-
-            console.log(ChatMessage)
 
             // Send roll to chat
             return ChatMessage.create(msgData).then(() => {
