@@ -1,13 +1,27 @@
-<label class="character-attribute flexcol pseudobox {{customClass}}">
+<div class="character-attribute flexcol pseudobox {{customClass}}{{#if neonColor}} neon-{{neonColor}}-pseudo{{/if}}">
   <h4 class="mgb pgh">{{title}}</h4>
-  <div class="flexcol attribute-value">
-    <input
-      type="number"
-      name="system.{{name}}"
-      value="{{value}}"
-      min="0"
-      {{#if max}}max="{{max}}"{{/if}}
-      data-dtype="Number"
-    />
-  </div>
-</label>
+  <label class="flexcol centerv centerh attribute-value{{#if neonColor}} neon-{{neonColor}}-pseudo{{/if}}">
+    {{#if (equals dtype "boolean")}}
+      <input
+        type="checkbox"
+        name="system.{{name}}"
+        data-dtype="Boolean"
+        {{#if value}}checked{{/if}}
+        {{#if disabled}}disabled{{/if}}
+      />
+    {{else if (equals dtype "number")}}
+      <input
+        type="number"
+        name="system.{{name}}"
+        value="{{value}}"
+        min="0"
+        {{#if max}}max="{{max}}"{{/if}}
+        {{#if disabled}}disabled{{/if}}
+        data-dtype="Number"
+      />
+    {{/if}}
+  </label>
+  {{#if icon}}
+    <i class="flexrow centerv centerh fa-{{icon.type}} fa-{{icon.ref}}{{#if neonColor}} neon-{{neonColor}}{{/if}}"></i>
+  {{/if}}
+</div>

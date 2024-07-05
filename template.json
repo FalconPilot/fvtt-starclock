@@ -23,13 +23,6 @@
         "heightMeters": 1,
         "heightCentimeters": 70
       },
-      "combat": {
-        "combat": {
-          "melee": 0,
-          "shooting": 0,
-          "dodge": 0
-        }
-      },
       "skills": {
         "skills": {
           "phy": {
@@ -65,7 +58,6 @@
         "playableRace",
         "wallet",
         "identity",
-        "combat",
         "skills"
       ],
       "xp": 0,
@@ -84,15 +76,14 @@
         "meleeLight": false,
         "meleeHeavy": false,
         "fists": false
-      }
+      },
+      "bonusWeaponMasteries": 0
     },
     "spaceship": {
       "templates": []
     },
     "mechsuit": {
-      "templates": [
-        "combat"
-      ],
+      "templates": [],
       "parts": {
         "arms": null,
         "legs": null,
@@ -203,7 +194,13 @@
     "trait": {
       "templates": [],
       "taken": 1,
-      "effects": ""
+      "name": "",
+      "prerequisites": {
+        "psy": 0,
+        "mutations": 0,
+        "cybernetics": 0,
+        "training": 0
+      }
     },
     "mechpart": {
       "templates": [

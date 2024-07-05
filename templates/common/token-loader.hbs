@@ -1,0 +1,14 @@
+<div class="token-loader">
+  {{#if actor}}
+    <div class="imported-actor">
+      <img src="{{actor.img}}" />
+      <button class="remove-actor">
+        <i class="fas fa-xmark"></i>
+      </button>
+    </div>
+  {{else}}
+    <div class="actor-importer flexrow centerv centerh">
+      {{ localize "SCLK.ActorImport" }}
+    </div>
+  {{/if}}
+</div>

@@ -57,16 +57,12 @@ export const starclock = {
     anitrope: "SCLK.Races.Anitrope",
   },
   tabs: {
-    identity: 'SCLK.Tabs.Identity',
-    perks: 'SCLK.Tabs.Perks',
+    overview: 'SCLK.Tabs.Overview',
+    skills: 'SCLK.Tabs.Skills',
+    traits: 'SCLK.Tabs.Traits',
     arsenal: 'SCLK.Tabs.Arsenal',
     inventory: 'SCLK.Tabs.Inventory',
     stash: 'SCLK.Tabs.Stash',
-  },
-  combat: {
-    melee: "SCLK.Combat.Melee",
-    shooting: "SCLK.Combat.Shooting",
-    dodge: "SCLK.Combat.Dodge",
   },
   firingRates: {
     single: 'SCLK.FiringRates.single',
@@ -104,6 +100,106 @@ export const starclock = {
       culture: 'SCLK.Skills.Culture',
       investigation: 'SCLK.Skills.Investigation',
     }
+  },
+  skillIcons: {
+    athletics: {
+      ref: 'person-running',
+      type: 'solid',
+    },
+    coercion: {
+      ref: 'person-harassing',
+      type: 'solid',
+    },
+    grit: {
+      ref: 'shield-halved',
+      type: 'solid',
+    },
+    strongarm: {
+      ref: 'dumbbell',
+      type: 'regular',
+    },
+    acrobatics: {
+      ref: 'person-running',
+      type: 'solid',
+    },
+    piloting: {
+      ref: 'jet-fighter-up',
+      type: 'regular',
+    },
+    perception: {
+      ref: 'eye',
+      type: 'regular',
+    },
+    roguery: {
+      ref: 'mask',
+      type: 'regular',
+    },
+    arts: {
+      ref: 'palette',
+      type: 'regular',
+    },
+    dialog: {
+      ref: 'comments',
+      type: 'regular',
+    },
+    intuition: {
+      ref: 'brain',
+      type: 'regular',
+    },
+    willpower: {
+      ref: 'chess-rook',
+      type: 'regular',
+    },
+    academics: {
+      ref: 'graduation-cap',
+      type: 'regular',
+    },
+    craftsmanship: {
+      ref: 'screwdriver-wrench',
+      type: 'regular',
+    },
+    culture: {
+      ref: 'globe',
+      type: 'regular',
+    },
+    investigation: {
+      ref: 'magnifying-glass',
+      type: 'solid',
+    },
+  },
+  combatIcons: {
+    fists: {
+      ref: 'hand-fist',
+      type: 'solid',
+    },
+    light: {
+      ref: 'sword',
+      type: 'solid',
+    },
+    heavy: {
+      ref: 'hammer-war',
+      type: 'solid',
+    },
+    pistol: {
+      ref: 'gun',
+      type: 'solid',
+    },
+    rifle: {
+      ref: 'person-rifle',
+      type: 'solid',
+    },
+    heavyWeapon: {
+      ref: 'cannon',
+      type: 'solid',
+    },
+    bow: {
+      ref: 'bow-arrow',
+      type: 'solid',
+    },
+    thrown: {
+      ref: 'bullseye',
+      type: 'solid',
+    },
   },
   credits: [
     {

@@ -75,3 +75,15 @@ input.neon-blue::selection,
 input.neon-yellow::selection {
   background: rgba(0, 0, 0, 0.3);
 }
+
+i.neon-yellow,
+i.neon-red,
+i.neon-blue,
+i.neon-pink,
+i.neon-white {
+  color: #333;
+}
+
+i.neon-green {
+  color: #FFF;
+}

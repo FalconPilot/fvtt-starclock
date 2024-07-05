@@ -39,6 +39,11 @@ export default class StarclockActor extends Actor {
       }, {})
   }
 
+  // Character available weapon masteries
+  getAvailableWeaponMasteries (data = {}) {
+    return 0 // TODO - Check for traits
+  }
+
   // Character max stamina equation
   getMaxStamina (data = {}) {
     const maxBonus = data['system.maxStaminaBonus'] ?? this.system.maxStaminaBonus

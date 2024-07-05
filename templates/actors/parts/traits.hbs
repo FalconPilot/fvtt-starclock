@@ -1,0 +1,19 @@
+<h2 class="neon-pink-pseudo">{{localize "SCLK.WeaponMasteries"}} ({{@root/availableWeaponMasteries}})</h2>
+<div class="flexrow attributes-list masteries gap flex-wrap">
+  {{#each (concat @root/config.meleeWeaponTypes @root/config.rangedWeaponTypes) as |name key|}}
+    {{>
+      "systems/starclock/templates/common/attribute-field.hbs"
+      title=(localize name)
+      name=(intersperse "." "weaponMasteries" key)
+      value=(getKey @root/actor.system.weaponMasteries key)
+      icon=(getKey @root/config.combatIcons key)
+      disabled=(equals @root/availableWeaponMasteries 0)
+      neonColor="white"
+      dtype="boolean"
+    }}
+  {{/each}}
+</div>
+{{#if (anyHasElements @root/effects)}}
+{{else}}
+  <h2 class="neon-pink-pseudo">{{localize "SCLK.TraitsNone"}}</h2>
+{{/if}}

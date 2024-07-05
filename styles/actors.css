@@ -80,6 +80,10 @@
   overflow: auto;
 }
 
+.tab-content {
+  scrollbar-color: #FF10F0 transparent;
+}
+
 .sheet-navigation {
   position: relative;
   flex: 0;
@@ -92,13 +96,13 @@
   border-radius: 4px;
 }
 
-.character-identity {
+.character-overview {
   position: relative;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
 }
 
-.character-identity:before {
+.character-overview:before {
   border-radius: 8px;
 }
 
@@ -143,6 +147,7 @@
 }
 
 .character-attribute {
+  position: relative;
   padding: 4px 0;
   flex-basis: calc(25% - 24px);
 }
@@ -168,18 +173,32 @@
   max-width: calc(50% - 8px);
 }
 
-.character-attribute.skill:after {
+.attribute-value {
+  position: relative;
+}
+
+.character-attribute i {
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.character-attribute.skill .attribute-value:before {
   content: '+';
   position: absolute;
   left: calc(50% - 18px);
-  bottom: 4px;
+  bottom: 0;
   color: #333;
   font-family: 'OstrichSans';
   font-size: 20px;
   pointer-events: none;
 }
 
-.character-attribute.skill.neon-green-pseudo:after {
+.character-attribute.skill .attribute-value.neon-green-pseudo:before {
   color: #FFF;
 }
 
@@ -305,6 +324,10 @@
   flex: 0 0 180px;
 }
 
+.character-aside {
+  flex-wrap: nowrap;
+}
+
 .character-infos,
 .character-aside,
 .character-silhouette {
@@ -327,13 +350,14 @@
   flex: 0 0 45px;
 }
 
-.money-input h3 {
+.info-input h3 {
   flex: 0;
   margin: 0;
   border: none;
+  white-space: nowrap;
 }
 
-.money-input input[type=number] {
+.info-input input[type=number] {
   flex: 1;
   width: 100%;
 }

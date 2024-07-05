@@ -1,4 +1,4 @@
-<div class="character-identity pseudobox flexcol pg mgb neon-pink-pseudo gap">
+<div class="character-overview pseudobox flexcol pg mgb neon-pink-pseudo gap">
   <div class="flexrow bottomv pgh">
     {{localize "SCLK.MyNameIs"}}
     <input
@@ -60,6 +60,12 @@
       name=key
       value=(getKey @root/actor.system key)
       customClass=(concat "neon-" (attributeColor key) "-pseudo")
+      dtype="number"
     }}
   {{/each}}
 </div>
+{{#if (anyHasElements @root/effects)}}
+  <h2 class="neon-pink-pseudo">{{localize "SCLK.ActiveEffects"}}</h2>
+{{else}}
+  <h2 class="neon-pink-pseudo">{{localize "SCLK.ActiveEffectsNone"}}</h2>
+{{/if}}

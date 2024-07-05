@@ -14,17 +14,6 @@
         title="{{@root/actor.name}}"
       />
     </div>
-    <label class="flexrow money-input bottomv neon-pink-pseudo">
-      <input
-        class="line-input"
-        type="number"
-        name="system.starCredits"
-        value="{{@root/actor.system.starCredits}}"
-        min="0"
-        data-dtype="Number"
-      />
-      <h3 class="line-input pgl">{{localize "SCLK.StarCredits"}}</h3>
-    </label>
     <div class="stamina-wrapper flexrow nowrap centerv centerh gap">
       <div class="side-info-icon flexrow centerv centerh">
         {{#if (superior @root/actor.system.currentStamina 0)}}
@@ -43,5 +32,28 @@
         barClass="stamina neon-green-pseudo"
       }}
     </div>
+    <label class="flexrow info-input bottomv neon-pink-pseudo">
+      <input
+        class="line-input"
+        type="number"
+        name="system.starCredits"
+        value="{{@root/actor.system.starCredits}}"
+        min="0"
+        data-dtype="Number"
+      />
+      <h3 class="line-input pgl">{{localize "SCLK.StarCredits"}}</h3>
+    </label>
+    <label class="flexrow info-input bottomv neon-pink-pseudo">
+      <input
+        class="line-input"
+        type="number"
+        name="system.xp"
+        value="{{@root/actor.system.xp}}"
+        min="0"
+        data-dtype="Number"
+      />
+      <h3 class="line-input pgl">{{localize "SCLK.Experience.Total"}}</h3>
+    </label>
+    <div class="flexcol topv shortcuts gap"></div>
   </div>
 </div>

@@ -1,0 +1,28 @@
+<div class="flexrow attributes-list skills gap">
+  {{#each @root/config.skills as |list key|}}
+    <div class="skill-list flexrow flex-wrap gap">
+      <h3 class="flexrow centerv centerh">
+        <span class="neon-{{attributeColor key}}">&gt;</span>
+        &nbsp;
+        {{localize (intersperse "." (getKey @root/config.attributes key) "Name")}}
+        &nbsp;
+        <span class="neon-white">
+          ({{getKey @root/availableSkillpoints key}})
+        </span>
+      </h3>
+      {{#each list as |name skey|}}
+        {{>
+          "systems/starclock/templates/common/attribute-field.hbs"
+          title=(localize (intersperse "." name "Name"))
+          name=(intersperse "." "skills" key skey)
+          value=(getKey (getKey @root/actor.system.skills key) skey)
+          customClass="skill"
+          neonColor=(attributeColor key)
+          max=(sum (getKey (getKey @root/actor.system.skills key) skey) (getKey @root/availableSkillpoints key))
+          icon=(getKey @root/config.skillIcons skey)
+          dtype="number"
+        }}
+      {{/each}}
+    </div>
+  {{/each}}
+</div>

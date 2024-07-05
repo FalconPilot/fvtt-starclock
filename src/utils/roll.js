@@ -19,12 +19,14 @@ export const checkSuccess = (roll, complexity, difficulty) => {
   return successes.length >= complexity
 }
 
-// Roll is fumble if it has no successes AND it has at least a 1 in its results
+// Roll is fumble if it has no successes AND it has to have as many 1s as
+// the threshold OR a full set of 1s as a result
 export const checkFumble = (roll, complexity, difficulty, threshold) => {
   const results = getRollResults(roll, complexity, difficulty)
   const isSuccessful = checkSuccess(roll, complexity, difficulty)
+  const mandatoryOnes = results.filter(dice => dice.result === 1 && dice.mandatory)
 
-  return !isSuccessful && results.filter(dice => dice.result === 1 && dice.mandatory).length >= threshold
+  return !isSuccessful && mandatoryOnes.length >= Math.min(threshold, complexity)
 }
 
 export const checkCritical = (roll, complexity, difficulty) => {

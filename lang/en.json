@@ -10,7 +10,11 @@
   "SCLK": {
     "ActionStash": "Put in stash",
     "ActionUnstash": "Take from stash",
+    "ActiveEffects": "Active Effects",
+    "ActiveEffectsNone": "No Active Effects",
+    "ActorImport": "Drop actor here",
     "AgeLabel": "I'm",
+    "Aiming": "Aiming",
     "AmmoNone": "No ammo",
     "BodyTypeLabel": "and my body type is",
     "Cancel": "Cancel",
@@ -36,6 +40,7 @@
     "HitMod": "Bonus/Malus",
     "ItemDescription": "Description",
     "ItemName": "Name",
+    "LoadToken": "Load Token",
     "MovingTarget": "Moving Target",
     "MeleeWeapons": "Melee Weapons",
     "Misfire": "Gun jammed!",
@@ -52,6 +57,8 @@
     "Stamina": "Stamina",
     "TargetArmor": "Target Armor",
     "TargetDodge": "Target Dodge",
+    "TargetCover": "Target Cover",
+    "TraitsNone": "No Traits",
     "WeaponCondition": "Weapon condition",
     "WeaponMasteries": "Weapon Masteries",
     "AmmoTypes": {
@@ -100,6 +107,9 @@
     "DamageType": {
       "Physical": "Physical",
       "Energy": "Energy"
+    },
+    "Experience": {
+      "Total": "XP Earned"
     },
     "FiringRates": {
       "single": "Single shot",
@@ -191,7 +201,9 @@
     },
     "StarCredits": "StarCredits",
     "Tabs": {
-      "Identity": "Identity",
+      "Overview": "Overview",
+      "Skills": "Skills",
+      "Traits": "Traits",
       "Perks": "Perks",
       "Arsenal": "Arsenal",
       "Inventory": "Inventory",

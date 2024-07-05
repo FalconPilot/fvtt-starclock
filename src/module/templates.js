@@ -21,7 +21,9 @@ export const preloadHandlebarTemplates = async () =>
 
     // Common partials
     `${basePath}/templates/common/attribute-field.hbs`,
+    `${basePath}/templates/common/dialog-checkbox.hbs`,
     `${basePath}/templates/common/resourcebar.hbs`,
+    `${basePath}/templates/common/token-loader.hbs`,
 
     // Actor partials
     `${basePath}/templates/actors/parts/infos.hbs`,
@@ -46,9 +48,12 @@ export const registerHandlebarHelpers = () => {
   Handlebars.registerHelper('getEachIndex', options => options.data.index)
   Handlebars.registerHelper('isEachLast', options => options.data.last)
 
-  Handlebars.registerHelper('exists', elt => (
-    elt !== null && elt !== undefined
+  Handlebars.registerHelper('exists', x => (
+    x !== null && x !== undefined
   ))
+
+  Handlebars.registerHelper('isNumber', x => !isNaN(parseInt(x, 10)))
+  Handlebars.registerHelper('isBoolean', x => x && typeof JSON.parse(x) === 'boolean')
 
   Handlebars.registerHelper('and', function (...conds) {
     const [args, options] = extractArgs(conds)

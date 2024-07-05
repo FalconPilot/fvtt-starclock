@@ -1,5 +1,6 @@
 import { basePath } from "../../constants.js"
 import { checkFumble, checkSuccess, getRollResults } from "../../utils/roll.js"
+import StarclockDialog from "../dialog/sheet.js"
 
 export default class StarclockActorSheet extends ActorSheet {
   // Template name
@@ -17,7 +18,7 @@ export default class StarclockActorSheet extends ActorSheet {
       tabs: [{
         navSelector: '.tabs',
         contentSelector: '.tab-content',
-        initial: 'identity',
+        initial: 'overview',
       }],
     })
   }
@@ -117,7 +118,7 @@ export default class StarclockActorSheet extends ActorSheet {
     const baseDifficulty = 5
 
     // Create Dialog
-    const dialog = new Dialog({
+    const dialog = new StarclockDialog({
       title: item.name,
       content,
       default: 'submit',
@@ -128,9 +129,12 @@ export default class StarclockActorSheet extends ActorSheet {
           callback: async html => {
             const firingRate = html.find('select[name=firingRate]').val()
             const range = html.find('select[name=range]').val()
-            const targetArmor = parseInt(html.find('input[name=targetArmor]').val(), 10)
-            const targetDodge = parseInt(html.find('input[name=targetDodge]').val(), 10)
+            const armor = parseInt(html.find('input[name=targetArmor]').val() || '0', 10)
+            const cover = parseInt(html.find('input[name=cover]').val() || '0', 10)
             const isMoving = html.find('input[name=isMoving').is(':checked')
+            const isAiming = html.find('input[name=isAiming]').is(':checked')
+
+            const totalArmor = armor + cover
 
             const weaponMaxRange = {
               short: 1,
@@ -149,10 +153,11 @@ export default class StarclockActorSheet extends ActorSheet {
             const ammoFired = item.system.firingRates[firingRate]
             const firingRateDmg = ammoFired - 1
             const rangeMalus = Math.max(0, range - weaponMaxRange)
-            const armorMalus = Math.max(0, targetArmor - loadedAmmoData.system.pierce ?? 0)
-            const masteryBonus = isMastered ? this.actor.system.combat.shooting : 0
-            const movingTargetMalus = isMoving ? Math.max(1, targetDodge) : 0
+            const armorMalus = Math.max(0, totalArmor - loadedAmmoData.system.pierce ?? 0)
+            const masteryBonus = isMastered ? 1 : 0
+            const movingTargetMalus = isMoving ? 1 : 0
             const accuracyMod = loadedAmmoData.system.accuracyMod ?? 0
+            const aimingBonus = isAiming ? 1 : 0
 
             // Calculate complexity
             const complexity = baseComplexity
@@ -170,6 +175,7 @@ export default class StarclockActorSheet extends ActorSheet {
             // Calculate amount of dice
             const hitDice = complexity
               + masteryBonus
+              + aimingBonus
 
             // Calculate final damage amount
             const finalDamage = loadedAmmoData.system.damage
@@ -273,7 +279,7 @@ export default class StarclockActorSheet extends ActorSheet {
     const baseDifficulty = 5
 
     // Create Dialog
-    const dialog = new Dialog({
+    const dialog = new StarclockDialog({
       title: item.name,
       content,
       default: 'submit',
@@ -283,14 +289,12 @@ export default class StarclockActorSheet extends ActorSheet {
           label: game.i18n.localize('SCLK.Confirm'),
           callback: async html => {
             const targetArmor = parseInt(html.find('input[name=targetArmor]').val(), 10)
-            const targetDodge = parseInt(html.find('input[name=targetDodge]').val(), 10)
 
-            const masteryBonus = isMastered ? this.actor.system.combat.melee : 0
+            const masteryBonus = isMastered ? 1 : 0
             const armorMalus = Math.max(0, targetArmor - item.system.pierce)
 
             // Calculate complexity
             const complexity = baseComplexity
-              + targetDodge
 
             // Calculate difficulty
             const rawDifficulty = baseDifficulty
@@ -490,15 +494,19 @@ export default class StarclockActorSheet extends ActorSheet {
 
     // Separate items into subcategories and
     // sort them alphabetically
-    const [inventory, stash, weapons, weaponsStash, ammo] = data.items
+    const [inventory, stash, weapons, weaponsStash, ammo, traits] = data.items
       .reduce((acc, item) => {
         const isStashed = item.system.stashed
         const isWeapon = item.type === 'rangedWeapon' || item.type === 'meleeWeapon'
         const isAmmo = item.type === 'ammo'
+        const isTrait = item.type === 'trait'
         const key = `TYPES.Item.${item.type}`
 
         // Match index with condition
         const idx = [{
+          index: 5,
+          cond: isTrait
+        }, {
           index: 4,
           cond: isAmmo,
         }, {
@@ -526,7 +534,7 @@ export default class StarclockActorSheet extends ActorSheet {
             [key]: basis.concat([finalItem])
           }
         })
-      }, [{}, {}, {}, {}, {}])
+      }, [{}, {}, {}, {}, {}, {}])
       .map(obj => Object.entries(obj)
         .reduce((acc, [k, v]) => ({
           ...acc,
@@ -536,6 +544,9 @@ export default class StarclockActorSheet extends ActorSheet {
 
     const maxStamina = this.actor.getMaxStamina()
     const availableSkillpoints = this.actor.getAvailableSkillpoints()
+    const availableWeaponMasteries = this.actor.getAvailableWeaponMasteries()
+
+    const effects = Array.from(this.actor.effects)
 
     return Object.assign(data, {
       config: CONFIG.starclock,
@@ -544,8 +555,11 @@ export default class StarclockActorSheet extends ActorSheet {
       ammo,
       weapons: this.sortItems(weapons),
       weaponsStash: this.sortItems(weaponsStash),
+      traits,
       maxStamina,
       availableSkillpoints,
+      availableWeaponMasteries,
+      effects,
     })
   }
 }
