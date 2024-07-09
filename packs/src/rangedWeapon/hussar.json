@@ -14,8 +14,8 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
-    "firingSound": "systems/starclock/assets/sfx/plasma",
-    "reloadSound": "systems/starclock/assets/sfx/reload_riflemag_heavy.ogg",
+    "firingSound": "systems/starclock/assets/sfx/gunshots/plasma_heavy",
+    "reloadSound": "systems/starclock/assets/sfx/reload_riflemag.ogg",
     "firingRates": {
       "single": 1,
       "semi": 2,

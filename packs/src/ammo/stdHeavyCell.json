@@ -2,7 +2,7 @@
   "name": "Heavy Energy Cell",
   "img": "systems/starclock/assets/ammo/heavyCell.png",
   "data": {
-    "description": "Those potent energy cells are used by the Endaari Empire to fuel their hevy weapons.",
+    "description": "Those potent energy cells are used by the Endaari Empire to fuel their heavy weapons.",
     "ammoType": "heavyCell",
     "quantity": 0,
     "quantityStash": 0,

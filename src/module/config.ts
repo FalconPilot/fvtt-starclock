@@ -217,11 +217,18 @@ export const starclock = {
       ],
     },
     {
-      authorName: 'Pixabay',
-      authorLink: 'https://pixabay.com/sound-effects',
+      authorName: 'Fesliyan Studios',
+      authorLink: 'https://www.fesliyanstudios.com/',
       contributions: [
         'Gun firing sounds',
         'Gun reload sounds',
+      ],
+    },
+    {
+      authorName: 'Pixabay',
+      authorLink: 'https://pixabay.com/sound-effects',
+      contributions: [
+        'Various misc sounds',
       ],
     },
     {

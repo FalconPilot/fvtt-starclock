@@ -15,7 +15,7 @@
     "loadedAmmo": null,
     "stashed": false,
     "firingSound": "systems/starclock/assets/sfx/gunshots/rifle_heavy",
-    "reloadSound": "systems/starclock/assets/sfx/reload_riflemag_heavy.ogg",
+    "reloadSound": "systems/starclock/assets/sfx/reload_riflemag.ogg",
     "firingRates": {
       "single": 1,
       "semi": 3,

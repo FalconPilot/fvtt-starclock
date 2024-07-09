@@ -14,12 +14,12 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
-    "firingSound": "systems/starclock/assets/sfx/shotgun",
+    "firingSound": "systems/starclock/assets/sfx/gunshots/shotgun",
     "reloadSound": "systems/starclock/assets/sfx/reload_riflemag_heavy.ogg",
     "firingRates": {
       "single": 1,
       "semi": 2,
-      "auto": null
+      "auto": 4
     }
   }
 }

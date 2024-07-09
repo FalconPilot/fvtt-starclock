@@ -14,7 +14,7 @@
     "ammoCurrent": 0,
     "loadedAmmo": null,
     "stashed": false,
-    "firingSound": "systems/starclock/assets/sfx/laser",
+    "firingSound": "systems/starclock/assets/sfx/gunshots/laser_heavy",
     "reloadSound": "systems/starclock/assets/sfx/reload_riflemag.ogg",
     "firingRates": {
       "single": 1,
