@@ -61,7 +61,8 @@ export default class StarclockItem extends Item {
 
     return this.update({ 'system.fumbleAmount': 0 })
       .then(() => {
-        foundry.audio.AudioHelper.play({
+        const audioHelper = foundry?.audio?.AudioHelper ?? AudioHelper
+        audioHelper.play({
           src: 'systems/starclock/assets/sfx/repair.ogg',
           volume: 1,
           autoplay: true,
@@ -113,7 +114,8 @@ export default class StarclockItem extends Item {
       })
       .then(() => {
         if (this.system.reloadSound) {
-          foundry.audio.AudioHelper.play({
+          const audioHelper = foundry?.audio?.AudioHelper ?? AudioHelper
+          audioHelper.play({
             src: this.system.reloadSound,
             volume: 1,
             autoplay: true,
