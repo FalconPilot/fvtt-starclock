@@ -13,12 +13,12 @@ export default class StarclockActor extends Actor {
     return super._onUpdateDescendantDocuments (name, ...args)
   }
 
-  _onDeleteEmbeddedDocuments(name, ...args) {
+  _onDeleteDescendantDocuments (name, ...args) {
     if (name === 'Item') {
       this.checkAmmoUpdate(args[1][0])
     }
 
-    return super._onDeleteEmbeddedDocuments(name, ...args)
+    return super._onDeleteDescendantDocuments(name, ...args)
   }
 
   // Character available skillpoints equation

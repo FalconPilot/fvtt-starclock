@@ -64,8 +64,4 @@
     }}
   {{/each}}
 </div>
-{{#if (anyHasElements @root/effects)}}
-  <h2 class="neon-pink-pseudo">{{localize "SCLK.ActiveEffects"}}</h2>
-{{else}}
-  <h2 class="neon-pink-pseudo">{{localize "SCLK.ActiveEffectsNone"}}</h2>
-{{/if}}
+{{> "systems/starclock/templates/common/active-effects.hbs" effects=@root/effects}}

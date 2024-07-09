@@ -228,7 +228,8 @@
   z-index: 2;
 }
 
-.inventory-item > a.item-edit {
+.inventory-item > a.item-edit,
+.inventory-item > a.effect-edit {
   flex: 1;
   height: 60px;
 }

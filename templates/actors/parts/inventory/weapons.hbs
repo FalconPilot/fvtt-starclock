@@ -2,7 +2,7 @@
   <h2 class="neon-pink-pseudo">{{ localize sid }}</h2>
   <ol class="item-list gap flexcol">
     {{#each items as |item iid|}}
-      <li class="item flexrow inventory-item weapon topv" draggable="true">
+      <li class="item flexrow inventory-item weapon topv" data-item-id="{{item._id}}">
         <div class="item-infos flexcol topv pg">
           <div class="flexrow">
             <h3 class="inv-item-name">{{item.name}}</h3>
@@ -22,7 +22,6 @@
           <img
             class="item-img"
             src="{{item.img}}"
-            draggable="false"
           />
         </a>
         {{#if (equals item.type "rangedWeapon")}}

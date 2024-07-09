@@ -20,6 +20,7 @@ export const preloadHandlebarTemplates = async () =>
     )),
 
     // Common partials
+    `${basePath}/templates/common/active-effects.hbs`,
     `${basePath}/templates/common/attribute-field.hbs`,
     `${basePath}/templates/common/dialog-checkbox.hbs`,
     `${basePath}/templates/common/resourcebar.hbs`,

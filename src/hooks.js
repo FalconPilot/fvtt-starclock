@@ -2,6 +2,7 @@ import StarclockItemSheet from './module/item/sheet.js'
 import StarclockItem from './module/item/core.js'
 import StarclockActorSheet from './module/actor/sheet.js'
 import StarclockActor from './module/actor/core.js'
+import EffectsElement from './module/elements/effects.js'
 
 import { systemName } from './constants.js'
 import { preloadHandlebarTemplates, registerHandlebarHelpers } from './module/templates.js'
@@ -39,6 +40,7 @@ __) |_ (_| |  \\_ | (_) (_ |<
 
 // Hooks registration
 export const registerHooks = () => {
+
   // Initialization operations
   Hooks.once('init', () => {
     console.log(`StarClock | Initializing system\n${ASCIIART}`)

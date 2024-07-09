@@ -2,7 +2,7 @@
   <h2 class="neon-pink-pseudo">{{ localize sid }}</h2>
   <ol class="item-list gap flexcol">
     {{#each items as |item iid|}}
-      <li class="item flexrow inventory-item gap centerv" draggable="true">
+      <li class="item flexrow inventory-item gap centerv" data-item-id="{{item._id}}">
         <a class="item-edit flexrow centerv" data-id="{{item._id}}">
           <div class="flexcol pg centerv">
             <h3 class="inv-item-name">{{item.name}}</h3>
@@ -10,7 +10,6 @@
               <img
                 class="ammo-img {{damageNeon item.system.damageType}}"
                 src="{{item.img}}"
-                draggable="false"
               />
               {{> "systems/starclock/templates/items/parts/damage.hbs" item=item displayOnly=true }}
             </div>

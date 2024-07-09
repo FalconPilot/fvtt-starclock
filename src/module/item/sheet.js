@@ -12,6 +12,9 @@ export default class StarclockItemSheet extends ItemSheet {
       width: 500,
       height: 400,
       resizable: false,
+      dragDrop: [
+        { dragSelector: '.active-effect' },
+      ],
     })
   }
 
@@ -21,6 +24,9 @@ export default class StarclockItemSheet extends ItemSheet {
 
     html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this))
     html.find('.item-repair').on('click', this._onItemRepair.bind(this))
+    html.find('.effect-add').on('click', this._addEffect.bind(this))
+    html.find('.effect-edit').on('click', this._editEffect.bind(this))
+    html.find('.effect-delete').on('click', this._deleteEffect.bind(this))
 
     // Firing sound input
     html.find('.reload-sound-input').on('click', this._onFilePick({
@@ -30,6 +36,48 @@ export default class StarclockItemSheet extends ItemSheet {
         this.item.update({ 'system.reloadSound': value })
       }
     }).bind(this))
+  }
+
+  // Create effect
+  _addEffect () {
+    return this.document.createEmbeddedDocuments('ActiveEffect', [{
+      name: game.i18n.localize('SCLK.EffectNew'),
+      img: this.document.img,
+      origin: this.document.uuid,
+    }])
+  }
+
+  // Delete effect
+  _deleteEffect (event) {
+    const effect = this.document.effects.get(event.currentTarget.dataset.id)
+
+    if (!effect) {
+      return ui.notifications.warn('Could not find effect ID')
+    }
+
+    effect.deleteDialog()
+  }
+
+  // Edit effect
+  _editEffect (event) {
+    const effect = this.document.effects.get(event.currentTarget.dataset.id)
+
+    if (!effect) {
+      return ui.notifications.warn('Could not find effect ID')
+    }
+
+    effect.sheet.render(true)
+  }
+
+  // On drag start
+  _onDragStart (event) {
+    const elt = event.currentTarget
+
+    if (elt.dataset.effectId) {
+      const effect = this.item.effects.get(elt.dataset.effectId)
+      const dragData = effect?.toDragData()
+      return event.dataTransfer.setData('text/plain', JSON.stringify(dragData))
+    }
   }
 
   // On weapon reload
@@ -84,6 +132,7 @@ export default class StarclockItemSheet extends ItemSheet {
       loadedAmmo,
       availableAmmo,
       selectableAmmo,
+      effects: Array.from(this.item.effects),
     })
   }
 }

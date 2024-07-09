@@ -40,7 +40,7 @@
         <i class="fas fa-dice-six"></i>
       </a>
     {{/and}}
-    {{#if (notEquals item.type "ammo")}}
+    {{#or (equals item.type "meleeWeapon") (equals item.type "rangedWeapon") (equals item.type "simple")}}
       {{#if isStash}}
         <a
           class="item-control item-unstash flexrow centerv centerh pgh neon-green-hover"
@@ -58,7 +58,7 @@
           <i class="fas fa-treasure-chest"></i>
         </a>
       {{/if}}
-    {{/if}}
+    {{/or}}
     <a
       class="item-control item-delete flexrow centerv centerh pgh neon-green-hover"
       title="{{localize "SCLK.Delete"}}"

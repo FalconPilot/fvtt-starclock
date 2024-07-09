@@ -20,6 +20,9 @@ export default class StarclockActorSheet extends ActorSheet {
         contentSelector: '.tab-content',
         initial: 'overview',
       }],
+      dragDrop: [
+        { dragSelector: '.item' }
+      ]
     })
   }
 
@@ -41,6 +44,9 @@ export default class StarclockActorSheet extends ActorSheet {
     html.find('.reload-wpn').on('click', this._onWeaponReload.bind(this))
     html.find('.gun-roll').on('click', this._onGunRoll.bind(this))
     html.find('.melee-roll').on('click', this._onMeleeRoll.bind(this))
+    html.find('.effect-add').on('click', this._addEffect.bind(this))
+    html.find('.effect-edit').on('click', this._editEffect.bind(this))
+    html.find('.effect-delete').on('click', this._deleteEffect.bind(this))
   }
 
   // Append animation component
@@ -68,7 +74,38 @@ export default class StarclockActorSheet extends ActorSheet {
       } else {
         count++
       }
-    }, 20)
+    }, delay)
+  }
+
+  // Create effect
+  _addEffect () {
+    return this.document.createEmbeddedDocuments('ActiveEffect', [{
+      name: game.i18n.localize('SCLK.EffectNew'),
+      img: 'icons/svg/aura.svg',
+      origin: this.document.uuid,
+    }])
+  }
+
+  // Delete effect
+  _deleteEffect (event) {
+    const effect = this.document.effects.get(event.currentTarget.dataset.id)
+
+    if (!effect) {
+      return ui.notifications.warn('Could not find effect ID')
+    }
+
+    effect.deleteDialog()
+  }
+
+  // Edit effect
+  _editEffect (event) {
+    const effect = this.document.effects.get(event.currentTarget.dataset.id)
+
+    if (!effect) {
+      return ui.notifications.warn('Could not find effect ID')
+    }
+
+    effect.sheet.render(true)
   }
 
   // On item repair
@@ -81,6 +118,17 @@ export default class StarclockActorSheet extends ActorSheet {
     }
 
     return item.repairItem()
+  }
+
+  // On drag start
+  _onDragStart (event) {
+    const elt = event.currentTarget
+
+    if (elt.dataset.effectId) {
+      const effect = this.item.effects.get(elt.dataset.effectId)
+      const dragData = effect?.toDragData()
+      return event.dataTransfer.setData('text/plain', JSON.stringify(dragData))
+    }
   }
 
   // Gun roll macro
@@ -470,6 +518,8 @@ export default class StarclockActorSheet extends ActorSheet {
   async _onDropItem (event, data) {
     event.preventDefault()
 
+    console.log('DROP ITEM', event, data)
+
     return super._onDropItem(event, data)
       .then(res => {
         if (this._tabs.find(tab => tab.active === 'stash') && res[0]) {
@@ -560,6 +610,7 @@ export default class StarclockActorSheet extends ActorSheet {
       availableSkillpoints,
       availableWeaponMasteries,
       effects,
+      elements: this.options.elements,
     })
   }
 }
