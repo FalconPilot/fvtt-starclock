@@ -67,3 +67,8 @@
   border-bottom: 1px solid #333;
   text-align: right;
 }
+
+.effect-add {
+  flex: 0;
+  margin-left: auto;
+}

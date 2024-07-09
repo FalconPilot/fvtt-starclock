@@ -3,7 +3,7 @@
   "img": "systems/starclock/assets/weapons/baton.png",
   "data": {
     "description": "A light collapsible baton. Mass-produced for self-defence.",
-    "weaponShape": "light",
+    "weaponShape": "meleeLight",
     "stashed": false,
     "price": 10,
     "weight": 300,

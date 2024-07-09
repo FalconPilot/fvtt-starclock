@@ -518,8 +518,6 @@ export default class StarclockActorSheet extends ActorSheet {
   async _onDropItem (event, data) {
     event.preventDefault()
 
-    console.log('DROP ITEM', event, data)
-
     return super._onDropItem(event, data)
       .then(res => {
         if (this._tabs.find(tab => tab.active === 'stash') && res[0]) {

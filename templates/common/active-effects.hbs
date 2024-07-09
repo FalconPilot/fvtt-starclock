@@ -1,5 +1,12 @@
 {{#if (anyHasElements effects)}}
-  <h2 class="neon-pink-pseudo">{{localize "SCLK.ActiveEffects"}}</h2>
+  <h2 class="neon-pink-pseudo flexrow">
+    {{localize "SCLK.ActiveEffects"}}
+    {{#if @root.editable}}
+      <a class="effect-add">
+        <i class="fas fa-plus"></i>
+      </a>
+    {{/if}}
+  </h2>
   <ol class="item-list gap flexcol pgv">
     {{#each effects as |effect| }}
       <li class="active-effect item flexrow inventory-item gap centerv" data-effect-id="{{effect.id}}" data-entity-id="{{effect.id}}">
@@ -26,8 +33,12 @@
     {{/each}}
   </ol>
 {{else}}
-  <h2 class="neon-pink-pseudo">{{localize "SCLK.ActiveEffectsNone"}}</h2>
-{{/if}}
-{{#if @root.editable}}
-  <button type="button" class="effect-add">Add effect</button>
+  <h2 class="neon-pink-pseudo flexrow">
+    {{localize "SCLK.ActiveEffectsNone"}}
+    {{#if @root.editable}}
+      <a class="effect-add">
+        <i class="fas fa-plus"></i>
+      </a>
+    {{/if}}
+  </h2>
 {{/if}}

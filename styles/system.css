@@ -47,6 +47,11 @@ input[type=number] {
   color: #DDD;
 }
 
+form .hint {
+  color: #AAA;
+  font-style: italic;
+}
+
 .window-app .window-content option {
   background-color: #222;
 }
@@ -106,4 +111,24 @@ li.directory-item a:hover {
 
 *:disabled:hover {
   cursor: not-allowed;
+}
+
+.window-app .window-content button.pm-dropdown {
+  color: #333;
+}
+
+.editor-container:before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+.editor-content {
+  padding: 4px;
 }

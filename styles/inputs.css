@@ -16,9 +16,7 @@ input[type=number]:not(.line-input) {
 
 .quoted-box:before,
 .quoted-box:after {
-  content: '"';
-  color: #333;
-  margin: 0 4px;
+  position: relative;
 }
 
 .textbox {
@@ -26,6 +24,7 @@ input[type=number]:not(.line-input) {
   height: 4.5em;
   resize: none;
   color: #FFF;
+  font-family: 'CascadiaMono';
 }
 
 button:hover,

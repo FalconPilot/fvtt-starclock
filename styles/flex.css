@@ -11,3 +11,5 @@
 
 .flexcol.nowrap, .flexrow.nowrap { flex-wrap: nowrap; }
 .flexcol.flex-wrap, .flexrow.flex-wrap { flex-wrap: wrap; }
+
+.flexrow.bounds-h { justify-content: space-between }

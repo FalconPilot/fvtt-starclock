@@ -154,7 +154,7 @@
         "stashable",
         "attackSound"
       ],
-      "weaponShape": "oneHanded"
+      "weaponShape": "meleeLight"
     },
     "rangedWeapon": {
       "templates": [
@@ -193,8 +193,7 @@
     },
     "trait": {
       "templates": [],
-      "taken": 1,
-      "name": "",
+      "description": "",
       "prerequisites": {
         "psy": 0,
         "mutations": 0,

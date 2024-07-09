@@ -3,7 +3,7 @@
   "img": "systems/starclock/assets/weapons/knife.png",
   "data": {
     "description": "The oldest weapon known to civilization: a sharp metal blade with a handle. They come in all shapes and sizes and can slash and stab horribly well.",
-    "weaponShape": "light",
+    "weaponShape": "meleeLight",
     "stashed": false,
     "price": 20,
     "weight": 200,

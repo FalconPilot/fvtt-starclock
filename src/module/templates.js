@@ -39,6 +39,7 @@ export const preloadHandlebarTemplates = async () =>
     `${basePath}/templates/items/parts/description.hbs`,
     `${basePath}/templates/items/parts/firingrate.hbs`,
     `${basePath}/templates/items/parts/header.hbs`,
+    `${basePath}/templates/items/parts/header-compact.hbs`,
     `${basePath}/templates/items/parts/header-illustrated.hbs`,
     `${basePath}/templates/items/parts/quantity.hbs`,
   ])

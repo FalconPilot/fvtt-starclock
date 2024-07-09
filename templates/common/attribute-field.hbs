@@ -7,7 +7,7 @@
         name="system.{{name}}"
         data-dtype="Boolean"
         {{#if value}}checked{{/if}}
-        {{#if disabled}}disabled{{/if}}
+        {{#if disabled}}{{#unless value}}disabled{{/unless}}{{/if}}
       />
     {{else if (equals dtype "number")}}
       <input

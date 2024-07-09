@@ -61,6 +61,15 @@
       "type": "Item",
       "private": false,
       "flags": {}
+    },
+    {
+      "name": "traits",
+      "label": "Traits",
+      "system": "starclock",
+      "path": "packs/trait.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     }
   ],
   "languages": [

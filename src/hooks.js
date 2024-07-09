@@ -2,7 +2,6 @@ import StarclockItemSheet from './module/item/sheet.js'
 import StarclockItem from './module/item/core.js'
 import StarclockActorSheet from './module/actor/sheet.js'
 import StarclockActor from './module/actor/core.js'
-import EffectsElement from './module/elements/effects.js'
 
 import { systemName } from './constants.js'
 import { preloadHandlebarTemplates, registerHandlebarHelpers } from './module/templates.js'
@@ -56,7 +55,7 @@ export const registerHooks = () => {
     
     Items.unregisterSheet('core', ItemSheet)
     Items.registerSheet(systemName, StarclockItemSheet, { makeDefault: true })
-  
+
     // Handlebar preconfiguring
     preloadHandlebarTemplates()
     registerHandlebarHelpers()

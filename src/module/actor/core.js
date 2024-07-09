@@ -41,7 +41,17 @@ export default class StarclockActor extends Actor {
 
   // Character available weapon masteries
   getAvailableWeaponMasteries (data = {}) {
-    return 0 // TODO - Check for traits
+    const spentMasteries = Object.keys(CONFIG.starclock.meleeWeaponTypes)
+      .concat(Object.keys(CONFIG.starclock.rangedWeaponTypes))
+      .reduce((total, key) => {
+        const val = data[`system.weaponMasteries.${key}`] ?? this.system.weaponMasteries[key]
+        return total + val ? 1 : 0
+      }, 0)
+
+    const bonusMasteries = data['system.bonusWeaponMasteries'] ?? this.system.bonusWeaponMasteries
+
+    return bonusMasteries
+      - spentMasteries
   }
 
   // Character max stamina equation

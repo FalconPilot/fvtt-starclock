@@ -8,6 +8,7 @@ packs/*.db
 packs/ammo/
 packs/meleeWeapon/
 packs/rangedWeapon/
+packs/trait/
 
 # OS Specific
 .DS_Store

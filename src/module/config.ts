@@ -1,6 +1,6 @@
 const meleeWeaponTypes = {
-  light: 'SCLK.WeaponTypes.LightMelee',
-  heavy: 'SCLK.WeaponTypes.HeavyMelee',
+  meleeLight: 'SCLK.WeaponTypes.LightMelee',
+  meleeHeavy: 'SCLK.WeaponTypes.HeavyMelee',
   fists: 'SCLK.WeaponTypes.Fist',
 }
 
@@ -172,11 +172,11 @@ export const starclock = {
       ref: 'hand-fist',
       type: 'solid',
     },
-    light: {
+    meleeLight: {
       ref: 'sword',
       type: 'solid',
     },
-    heavy: {
+    meleeHeavy: {
       ref: 'hammer-war',
       type: 'solid',
     },

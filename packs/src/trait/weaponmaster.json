@@ -1,0 +1,18 @@
+{
+  "name": "Weapon master",
+  "img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+  "type": "trait",
+  "system": {
+    "description": "You trained hard to learn how to diversify the tools of war at your disposal. You learn one weapon mastery of your choice."
+  },
+  "effects": [{
+    "name": "Weapon master",
+    "img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+    "changes": [{
+      "key": "system.bonusWeaponMasteries",
+      "mode": 2,
+      "value": 1,
+      "priority": null
+    }]
+  }]
+}
